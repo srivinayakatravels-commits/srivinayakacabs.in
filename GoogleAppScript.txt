@@ -1,0 +1,60 @@
+function doPost(e) {
+  if (!e || !e.parameter) {
+    return ContentService.createTextOutput("Invalid Request: Missing parameters.");
+  }
+
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("svt-cab-responses");
+  if (!sheet) {
+    sheet = SpreadsheetApp.getActiveSpreadsheet().insertSheet("svt-cab-responses");
+    sheet.appendRow([
+      "Timestamp", "Name", "Mobile", "Email", "From", "To", 
+      "Trip Type", "Journey Date", "Return Date", "Passengers", "Message"
+    ]);
+  }
+
+  var name = e.parameter.name;
+  var mobile = e.parameter.mobile;
+  var email = e.parameter.email;
+  var from = e.parameter.from;
+  var to = e.parameter.to;
+  var tripType = e.parameter.tripType;
+  var journeyDate = e.parameter.journeyDate;
+  var returnDate = e.parameter.returnDate || "-";
+  var passengers = e.parameter.passengers;
+  var message = e.parameter.message;
+
+  // Save to sheet
+  sheet.appendRow([
+    new Date(),
+    name,
+    mobile,
+    email,
+    from,
+    to,
+    tripType,
+    journeyDate,
+    returnDate,
+    passengers,
+    message
+  ]);
+
+  //Send email
+  MailApp.sendEmail({
+    to: "srivinayakatravels18oct2025@gmail.com",
+    subject: "New Booking Enquiry",
+    htmlBody:
+      "<h3>New Booking Enquiry Received</h3>" +
+      "<b>Name:</b> " + name + "<br>" +
+      "<b>Mobile:</b> " + mobile + "<br>" +
+      "<b>Email:</b> " + email + "<br>" +
+      "<b>From:</b> " + from + "<br>" +
+      "<b>To:</b> " + to + "<br>" +
+      "<b>Trip Type:</b> " + tripType + "<br>" +
+      "<b>Journey Date:</b> " + journeyDate + "<br>" +
+      "<b>Return Date:</b> " + returnDate + "<br>" +
+      "<b>Passengers:</b> " + passengers + "<br>" +
+      "<b>Message:</b> " + message
+  });
+
+  return ContentService.createTextOutput("Success");
+}

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Famous Temples in Karnataka</title>
+  <style>
+    :root{
+      /* exact same color codes from your Goa file */
+      --primary-color: #2887ff;
+      --primary-color-dark: #2476da;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: var(--primary-color-dark);
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 28px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 8px 30px var(--primary-color-dark);
+      border: 2px solid var(--primary-color-dark);
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: -0.2px;
+      color: #000000;
+    }
+
+    p.lead {
+      margin: 6px 0 18px;
+      color: #000000;
+      font-size: 13px;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .search, .select {
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid var(--primary-color-dark);
+      color: var(--primary-color-dark);
+    }
+
+    .search:focus, .select:focus {
+      border-color: var(--primary-color);
+      outline: none;
+    }
+
+    .table-wrap {
+      overflow: auto;
+      border-radius: 10px;
+      background: var(--primary-color-dark);
+      padding: 1px;
+      border: 1px solid var(--primary-color);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1000px;
+      background: #fff;
+      color: var(--primary-color-dark);
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      background: var(--primary-color-dark);
+      color: #fff;
+      padding: 12px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 13px;
+      border-bottom: 2px solid var(--primary-color);
+    }
+
+    tbody td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--primary-color-dark);
+      font-size: 14px;
+      color: #222;
+    }
+
+    tbody tr:hover td {
+      background: var(--primary-color);
+      color: #fff;
+    }
+
+    tbody tr:nth-child(even) td {
+      background: #eaefff;
+    }
+
+    tbody tr:nth-child(even):hover td {
+      background: var(--primary-color);
+      color: #fff;
+    }
+
+    footer {
+      margin-top: 18px;
+      color: var(--primary-color-dark);
+      font-size: 13px;
+    }
+
+    @media (max-width:800px){
+      .container { margin: 18px; padding: 16px; }
+      table { min-width: 900px; }
+      h1 { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Famous Temples in Karnataka</h1>
+    <p class="lead">Search by temple name, deity, city/town, district or region.</p>
+
+    <div class="controls">
+      <input class="search" id="searchTemple" placeholder="Temple Name..." oninput="filterTable()" />
+      <input class="search" id="searchGod" placeholder="God/Goddess…" oninput="filterTable()" />
+      <input class="search" id="searchLoc" placeholder="Location (City/Town)..." oninput="filterTable()" />
+      <input class="search" id="searchDist" placeholder="District..." oninput="filterTable()" />
+      <select id="regionFilter" class="select" onchange="filterTable()">
+        <option value="all">All regions</option>
+        <option value="North Karnataka">North Karnataka</option>
+        <option value="South Karnataka">South Karnataka</option>
+        <option value="Coastal Karnataka">Coastal Karnataka</option>
+      </select>
+    </div>
+
+    <div class="table-wrap">
+      <table id="templeTable">
+        <thead>
+          <tr>
+            <th>Temple Name</th>
+            <th>God/Goddess</th>
+            <th>Location (City/Town)</th>
+            <th>District</th>
+            <th>Region</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Chamundeshwari Temple</td>
+            <td>Goddess Chamundeshwari (Durga)</td>
+            <td>Mysuru (Mysore)</td>
+            <td>Mysuru</td>
+            <td>South Karnataka</td>
+            <td>Iconic hilltop temple overlooking Mysuru city.</td>
+          </tr>
+          <tr>
+            <td>Udupi Sri Krishna Temple</td>
+            <td>Lord Krishna</td>
+            <td>Udupi</td>
+            <td>Udupi</td>
+            <td>Coastal Karnataka</td>
+            <td>Famous Krishna idol and strong madhwa tradition.</td>
+          </tr>
+          <tr>
+            <td>Murudeshwar Temple</td>
+            <td>Lord Shiva</td>
+            <td>Murudeshwar</td>
+            <td>Uttara Kannada</td>
+            <td>Coastal Karnataka</td>
+            <td>Tall Shiva statue and seaside temple complex.</td>
+          </tr>
+          <tr>
+            <td>Dharmasthala Manjunatha Temple</td>
+            <td>Lord Manjunatha (Shiva)</td>
+            <td>Dharmasthala</td>
+            <td>Dakshina Kannada</td>
+            <td>Coastal Karnataka</td>
+            <td>Renowned for communal harmony and Annadanam.</td>
+          </tr>
+          <tr>
+            <td>Kukke Subramanya Temple</td>
+            <td>Lord Subramanya (Kartikeya)</td>
+            <td>Kukke (Kaginahare)</td>
+            <td>Dakshina Kannada</td>
+            <td>Coastal Karnataka</td>
+            <td>Known for serpent worship and parihara rituals.</td>
+          </tr>
+          <tr>
+            <td>Gokarna Mahabaleshwar Temple</td>
+            <td>Lord Shiva (Mahabaleshwar)</td>
+            <td>Gokarna</td>
+            <td>Uttara Kannada</td>
+            <td>Coastal Karnataka</td>
+            <td>One of the ancient Shiva jyotirlinga traditions (regional).</td>
+          </tr>
+          <tr>
+            <td>Belur Chennakesava Temple</td>
+            <td>Lord Vishnu (Chennakesava)</td>
+            <td>Belur</td>
+            <td>Hassan</td>
+            <td>South Karnataka</td>
+            <td>Exquisite Hoysala architecture (paired with Halebidu).</td>
+          </tr>
+          <tr>
+            <td>Hampi Virupaksha Temple</td>
+            <td>Lord Virupaksha (Shiva)</td>
+            <td>Hampi</td>
+            <td>Vijayanagara</td>
+            <td>North Karnataka</td>
+            <td>Central temple in the historic Hampi complex.</td>
+          </tr>
+          <tr>
+            <td>Kollur Mookambika Temple</td>
+            <td>Goddess Mookambika (Shakti)</td>
+            <td>Kollur</td>
+            <td>Udupi</td>
+            <td>Coastal Karnataka</td>
+            <td>Major Shakti peeth and pilgrimage site.</td>
+          </tr>
+          <tr>
+            <td>Kateel Durgaparameshwari Temple</td>
+            <td>Goddess Durgaparameshwari</td>
+            <td>Kateel</td>
+            <td>Dakshina Kannada</td>
+            <td>Coastal Karnataka</td>
+            <td>Temple located on an islet in the Nandini river.</td>
+          </tr>
+          <tr>
+            <td>Sringeri Sharada Peetham</td>
+            <td>Goddess Sharadamba</td>
+            <td>Sringeri</td>
+            <td>Chikkamagaluru</td>
+            <td>South Karnataka</td>
+            <td>One of the four Advaita Vedanta mathas established by Adi Shankaracharya.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer>
+      Last updated: October 22, 2025
+    </footer>
+  </div>
+
+  <script>
+    function filterTable() {
+      const temple = document.getElementById('searchTemple').value.toLowerCase().trim();
+      const god = document.getElementById('searchGod').value.toLowerCase().trim();
+      const loc = document.getElementById('searchLoc').value.toLowerCase().trim();
+      const dist = document.getElementById('searchDist').value.toLowerCase().trim();
+      const region = document.getElementById('regionFilter').value;
+
+      const tbody = document.querySelector('#templeTable tbody');
+      const rows = tbody.getElementsByTagName('tr');
+
+      for (let row of rows) {
+        const cells = row.getElementsByTagName('td');
+        const templeCell = cells[0].textContent.toLowerCase();
+        const godCell = cells[1].textContent.toLowerCase();
+        const locCell = cells[2].textContent.toLowerCase();
+        const distCell = cells[3].textContent.toLowerCase();
+        const regionCell = cells[4].textContent;
+
+        const matchTemple = temple === '' || templeCell.includes(temple);
+        const matchGod = god === '' || godCell.includes(god);
+        const matchLoc = loc === '' || locCell.includes(loc);
+        const matchDist = dist === '' || distCell.includes(dist);
+        const matchRegion = region === 'all' || regionCell === region;
+
+        row.style.display = (matchTemple && matchGod && matchLoc && matchDist && matchRegion) ? '' : 'none';
+      }
+    }
+  </script>
+</body>
+</html>

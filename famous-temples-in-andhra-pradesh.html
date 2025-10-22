@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Famous Temples of Andhra Pradesh</title>
+  <style>
+    :root{
+  --primary-color: #ffffff;
+  --primary-color-dark: #2887ff;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: var(--primary-color-dark);
+  color: #fff;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 28px;
+  background: var(--primary-color);
+  border-radius: 14px;
+  box-shadow: 0 8px 30px var(--primary-color-dark);
+  border: 2px solid var(--primary-color-dark);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: -0.2px;
+  color: #000;
+}
+
+p.lead {
+  margin: 6px 0 18px;
+  color: #000000;
+  font-size: 13px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search, .select {
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid var(--primary-color-dark);
+  color: var(--primary-color-dark);
+}
+
+.search:focus, .select:focus {
+  border-color: #2887ff;
+  outline: none;
+}
+
+.table-wrap {
+  overflow: auto;
+  border-radius: 10px;
+  background: var(--primary-color-dark);
+  padding: 1px;
+  border: 1px solid var(--primary-color);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1000px;
+  background: #fff;
+  color: var(--primary-color-dark);
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  background: var(--primary-color-dark);
+  color: #fff;
+  padding: 12px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--primary-color-dark);
+  font-size: 14px;
+  color: #000000;
+}
+
+tbody tr:hover td {
+  background: lightskyblue;
+  color: #000;
+}
+
+tbody tr:nth-child(even) td {
+  background: #f0f8ff;
+}
+tbody tr:nth-child(even):hover td {
+  background: lightskyblue;
+}
+footer {
+  margin-top: 18px;
+  color: #fff;
+  font-size: 13px;
+}
+
+@media (max-width:800px){
+  .container { margin: 18px; padding: 16px; }
+  table { min-width: 900px; }
+  h1 { font-size: 18px; }
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div>
+        <h1>Famous Temples of Andhra Pradesh</h1>
+        <p class="lead">A compiled table of well-known temples across Andhra Pradesh with location and quick notes.</p>
+      </div>
+    <header>
+      
+      <div class="controls">
+        <input class="search" id="searchTemple" placeholder="Temple Name..." oninput="filterTable()" />
+        <input class="search" id="searchGod" placeholder="God/Goddess…" oninput="filterTable()" />
+        <input class="search" id="searchLoc" placeholder="Location (City/Town)..." oninput="filterTable()" />
+        <input class="search" id="searchDist" placeholder="District..." oninput="filterTable()" />
+        <select id="regionFilter" class="select" onchange="filterTable()">
+          <option value="all">All regions</option>
+          <option value="Coastal Andhra">Coastal Andhra</option>
+          <option value="Rayalaseema">Rayalaseema</option>
+          <option value="North Coastal">North Coastal</option>
+        </select>
+      </div>
+    </header>
+    <div class="table-wrap" role="region" aria-label="Famous temples table">
+      <table id="templeTable">
+        <thead>
+          <tr>
+            <th>Temple Name</th>
+            <th>God/Goddess</th>
+            <th>Location (City/Town)</th>
+            <th>District</th>
+            <th>Region</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>* Tirumala Venkateswara Temple</td><td>Venkateswara (Balaji)</td><td>Tirupati</td><td>Chittoor</td><td>Rayalaseema</td><td class="notes">Major pilgrimage site; dedicated to Lord Venkateswara (Balaji).</td></tr>
+          <tr><td>* Simhachalam Temple</td><td>Varaha Narasimha (Vishnu)</td><td>Simhachalam / Visakhapatnam</td><td>Visakhapatnam</td><td>Coastal Andhra</td><td class="notes">Dedicated to Varaha Narasimha (an incarnation of Vishnu).</td></tr>
+          <tr><td>* Srisailam Mallikarjuna Swamy Temple</td><td>Mallikarjuna (Shiva), Bhramaramba (Parvati)</td><td>Srisailam</td><td>Kurnool</td><td>Rayalaseema</td><td class="notes">One of the 12 Jyotirlingas and a prominent Shakti Peetha.</td></tr>
+          <tr><td>* Kanaka Durga Temple</td><td>Kanaka Durga (Parvati)</td><td>Vijayawada (Indrakeeladri Hill)</td><td>Krishna</td><td>Coastal Andhra</td><td class="notes">Famous goddess temple overlooking the Krishna River.</td></tr>
+          <tr><td>* Ahobilam Narasimha Temples</td><td>Narasimha (Vishnu)</td><td>Ahobilam (multiple shrines)</td><td>Nandyal (Kurnool region)</td><td>Rayalaseema</td><td class="notes">Contains nine major shrines for different forms of Narasimha.</td></tr>
+          <tr><td>* Annavaram Satyanarayana Swamy Temple</td><td>Satyanarayana (Vishnu)</td><td>Annavaram</td><td>East Godavari</td><td>Coastal Andhra</td><td class="notes">Popular hilltop temple of Lord Satyanarayana.</td></tr>
+          <tr><td>Draksharamam Bhimeswara Swamy Temple</td><td>Shiva (Bhimeswara)</td><td>Draksharamam</td><td>East Godavari</td><td>Coastal Andhra</td><td class="notes">One of the five Pancharama Kshetras dedicated to Shiva.</td></tr>
+          <tr><td>Amaravati Amareswara Temple</td><td>Shiva (Amareswara)</td><td>Amaravati</td><td>Guntur</td><td>Coastal Andhra</td><td class="notes">Historic temple; part of the Amaravati Buddhist and Hindu landscape.</td></tr>
+          <tr><td>Ksheerarama Temple</td><td>Shiva (Ksheera Ramalingeswara)</td><td>Palakollu</td><td>West Godavari</td><td>Coastal Andhra</td><td class="notes">One of the Pancharama Kshetras.</td></tr>
+          <tr><td>Somarama Temple</td><td>Shiva (Someswara)</td><td>Bhimavaram</td><td>West Godavari</td><td>Coastal Andhra</td><td class="notes">Another Pancharama Kshetra (Shiva temple).</td></tr>
+          <tr><td>Kumararama Temple</td><td>Shiva (Kumararama Bhimeswara)</td><td>Samalkot</td><td>East Godavari</td><td>Coastal Andhra</td><td class="notes">Part of the Pancharama shrines.</td></tr>
+          <tr><td>Sri Lakshmi Narasimha Swamy Temple</td><td>Lakshmi Narasimha (Vishnu)</td><td>Mangalagiri</td><td>Guntur</td><td>Coastal Andhra</td><td class="notes">Famous Narasimha shrine on a small hillock.</td></tr>
+          <tr><td>Sri Talupulamma Lova Temple</td><td>Talupulamma (Shakti form)</td><td>Talupulamma (valley shrine)</td><td>East Godavari</td><td>Coastal Andhra</td><td class="notes">Regional Shakti shrine set in a valley.</td></tr>
+          <tr><td>Penusila Lakshmi Narasimha Swamy Temple</td><td>Lakshmi Narasimha (Vishnu)</td><td>Penusila (Nellore area)</td><td>Nellore</td><td>Coastal Andhra</td><td class="notes">Popular Narasimha temple in Nellore district.</td></tr>
+          <tr><td>Chilkur Balaji Temple</td><td>Venkateswara (Balaji)</td><td>Chilkur (near Hyderabad)</td><td>Now in Telangana</td><td>Historically linked</td><td class="notes">Historically linked to the region; currently in Telangana (included for reference).</td></tr>
+          <tr><td>Sri Kalahasteeswara Temple</td><td>Shiva (Kalahasteeswara)</td><td>Srikalahasti</td><td>Chittoor</td><td>Rayalaseema</td><td class="notes">One of the Pancha Bhoota Lingas (element: air).</td></tr>
+          <tr><td>Lepakshi Temple</td><td>Veerabhadra (Shiva form)</td><td>Lepakshi</td><td>Anantapur</td><td>Rayalaseema</td><td class="notes">Vijayanagara-era temple famous for hanging pillar and mural art.</td></tr>
+          <tr><td>Alampur Jogulamba Temple</td><td>Jogulamba (Shakti)</td><td>Alampur (near border)</td><td>Historically linked to Kurnool area</td><td>Rayalaseema / Border</td><td class="notes">One of the Shakti Peethas; near the Telangana-AP border (included for regional importance).</td></tr>
+          <tr><td>Gandikota Madhavaraya Temple</td><td>Madhavaraya (Vishnu)</td><td>Gandikota</td><td>Kadapa (YSR)</td><td>Rayalaseema</td><td class="notes">Historic temple near the Gandikota gorge (the 'Grand Canyon of India').</td></tr>
+          <tr><td>Ontimitta Kodandarama Swamy Temple</td><td>Kodandarama (Rama, Vishnu avatar)</td><td>Ontimitta</td><td>Kadapa</td><td>Rayalaseema</td><td class="notes">Well-known Rama temple; famous Rama Navami celebrations.</td></tr>
+          <tr><td>Devuni Kadapa Vishnu Temple</td><td>Vishnu</td><td>Kadapa (gateway area)</td><td>Kadapa (YSR)</td><td>Rayalaseema</td><td class="notes">Local Vishnu shrine historically noted as a gateway to Tirumala pilgrims.</td></tr>
+          <tr><td>Sri Veerabhadra Swamy Temple (Dwaraka Tirumala)</td><td>Veerabhadra (Shiva form)</td><td>Dwaraka Tirumala (Chinna Tirupati)</td><td>West Godavari</td><td>Coastal Andhra</td><td class="notes">Often called 'Chinna Tirupati' — popular local pilgrimage site.</td></tr>
+          <tr><td>Sri Kurmanatha Swamy Temple</td><td>Kurma (Vishnu avatar)</td><td>Srikakulam area</td><td>Srikakulam</td><td>North Coastal</td><td class="notes">Dedicated to the Kurma (tortoise) avatar of Vishnu.</td></tr>
+          <tr><td>Arasavalli Sun Temple</td><td>Surya (Sun God)</td><td>Arasavalli</td><td>Srikakulam</td><td>North Coastal</td><td class="notes">Ancient Sun temple — one of the few dedicated to Surya in the region.</td></tr>
+          <tr><td>Sri Uma Markandeyeswara Temple</td><td>Shiva</td><td>Rajahmundry</td><td>East Godavari</td><td>Coastal Andhra</td><td class="notes">Historic Shiva temple in the city of Rajahmundry.</td></tr>
+          <tr><td>Kotappakonda Trikoteswara Swamy Temple</td><td>Trikoteswara (Shiva)</td><td>Kotappakonda</td><td>Guntur</td><td>Coastal Andhra</td><td class="notes">Hill shrine with large local festivities during the year.</td></tr>
+          <tr><td>Sri Bhavanarayana Swamy Temple</td><td>Bhava Narayana (Vishnu form)</td><td>Bapatla</td><td>Guntur</td><td>Coastal Andhra</td><td class="notes">Riverbank temple dedicated to Bhava Narayana (Vishnu form).</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <footer>
+      <div>Tip: use the individual search boxes above to filter temples by God/Goddess, location, district, or region.</div>
+      <div style="margin-top:8px;color:var(--muted)">If you'd like a downloadable HTML file, or a printable PDF export, tell me and I will prepare it.</div>
+    </footer>
+  </div>
+  <script>
+    function filterTable(){
+      const temple = document.getElementById('searchTemple').value.toLowerCase().trim();
+      const god = document.getElementById('searchGod').value.toLowerCase().trim();
+      const loc = document.getElementById('searchLoc').value.toLowerCase().trim();
+      const dist = document.getElementById('searchDist').value.toLowerCase().trim();
+      const region = document.getElementById('regionFilter').value;
+      const tbody = document.querySelector('#templeTable tbody');
+      for(const row of tbody.rows){
+        const templeCell = row.cells[0].textContent.toLowerCase();
+        const godCell = row.cells[1].textContent.toLowerCase();
+        const locCell = row.cells[2].textContent.toLowerCase();
+        const distCell = row.cells[3].textContent.toLowerCase();
+        const regCell = row.cells[4].textContent;
+
+        const matchTemple = temple === '' || templeCell.includes(temple);
+        const matchesGod = god === '' || godCell.includes(god);
+        const matchesLoc = loc === '' || locCell.includes(loc);
+        const matchesDist = dist === '' || distCell.includes(dist);
+        const matchesRegion = region === 'all' || regCell === region;
+        row.style.display = (matchTemple && matchesGod && matchesLoc && matchesDist && matchesRegion) ? '' : 'none';
+      }
+    }
+  </script>
+</body>
+</html>

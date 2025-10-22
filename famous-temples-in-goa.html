@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Famous Temples in Goa</title>
+  <style>
+    :root{
+      --primary-color: #2887ff;
+      --primary-color-dark: #2476da;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: var(--primary-color-dark);
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 28px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 8px 30px var(--primary-color-dark);
+      border: 2px solid var(--primary-color-dark);
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: -0.2px;
+      color: #000000;
+    }
+
+    p.lead {
+      margin: 6px 0 18px;
+      color: #000000;
+      font-size: 13px;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .search, .select {
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid var(--primary-color-dark);
+      color: var(--primary-color-dark);
+    }
+
+    .search:focus, .select:focus {
+      border-color: var(--primary-color);
+      outline: none;
+    }
+
+    .table-wrap {
+      overflow: auto;
+      border-radius: 10px;
+      background: var(--primary-color-dark);
+      padding: 1px;
+      border: 1px solid var(--primary-color);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1000px;
+      background: #fff;
+      color: var(--primary-color-dark);
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      background: var(--primary-color-dark);
+      color: #fff;
+      padding: 12px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 13px;
+      border-bottom: 2px solid var(--primary-color);
+    }
+
+    tbody td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--primary-color-dark);
+      font-size: 14px;
+      color: #222;
+    }
+
+    tbody tr:hover td {
+      background: var(--primary-color);
+      color: #fff;
+    }
+
+    tbody tr:nth-child(even) td {
+      background: #eaefff;
+    }
+
+    tbody tr:nth-child(even):hover td {
+      background: var(--primary-color);
+      color: #fff;
+    }
+
+    footer {
+      margin-top: 18px;
+      color: var(--primary-color-dark);
+      font-size: 13px;
+    }
+
+    @media (max-width:800px){
+      .container { margin: 18px; padding: 16px; }
+      table { min-width: 900px; }
+      h1 { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Famous Temples in Goa</h1>
+    <p class="lead">A list of some of the most iconic temples in Goa, searchable by deity, region, and more.</p>
+
+    <div class="controls">
+      <input class="search" id="searchTemple" placeholder="Temple Name..." oninput="filterTable()" />
+      <input class="search" id="searchGod" placeholder="God/Goddess…" oninput="filterTable()" />
+      <input class="search" id="searchLoc" placeholder="Location (City/Town)..." oninput="filterTable()" />
+      <input class="search" id="searchDist" placeholder="District..." oninput="filterTable()" />
+      <select id="regionFilter" class="select" onchange="filterTable()">
+        <option value="all">All regions</option>
+        <option value="North Goa">North Goa</option>
+        <option value="South Goa">South Goa</option>
+      </select>
+    </div>
+
+    <div class="table-wrap">
+      <table id="templeTable">
+        <thead>
+          <tr>
+            <th>Temple Name</th>
+            <th>God/Goddess</th>
+            <th>Location (City/Town)</th>
+            <th>District</th>
+            <th>Region</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Shree Mangeshi Temple</td>
+            <td>Lord Shiva (Mangesh)</td>
+            <td>Priol</td>
+            <td>Ponda</td>
+            <td>North Goa</td>
+            <td>One of the largest and most visited temples in Goa.</td>
+          </tr>
+          <tr>
+            <td>Shree Shantadurga Temple</td>
+            <td>Goddess Shantadurga</td>
+            <td>Kavlem</td>
+            <td>Ponda</td>
+            <td>North Goa</td>
+            <td>Dedicated to a peaceful form of Goddess Durga.</td>
+          </tr>
+          <tr>
+            <td>Shree Mahalasa Narayani Temple</td>
+            <td>Goddess Mahalasa</td>
+            <td>Mardol</td>
+            <td>Ponda</td>
+            <td>North Goa</td>
+            <td>Known for traditional rituals and tall Deepa Stambha.</td>
+          </tr>
+          <tr>
+            <td>Shree Ramnathi Temple</td>
+            <td>Lord Rama</td>
+            <td>Ramnathim</td>
+            <td>Ponda</td>
+            <td>North Goa</td>
+            <td>Believed to be visited by Lord Rama during exile.</td>
+          </tr>
+          <tr>
+            <td>Shree Nageshi Temple</td>
+            <td>Lord Shiva</td>
+            <td>Bandivade</td>
+            <td>Ponda</td>
+            <td>North Goa</td>
+            <td>Temple with ancient inscriptions and large tank.</td>
+          </tr>
+          <tr>
+            <td>Shree Damodar Temple</td>
+            <td>Lord Damodar (Krishna)</td>
+            <td>Zambaulim</td>
+            <td>Quepem</td>
+            <td>South Goa</td>
+            <td>Important temple for the Goud Saraswat Brahmin community.</td>
+          </tr>
+          <tr>
+            <td>Shree Kamakshi Temple</td>
+            <td>Goddess Kamakshi</td>
+            <td>Shiroda</td>
+            <td>Ponda</td>
+            <td>North Goa</td>
+            <td>Associated with the Shakti tradition.</td>
+          </tr>
+          <tr>
+            <td>Shree Laxmi Narayan Temple</td>
+            <td>Laxmi Narayan</td>
+            <td>Veling</td>
+            <td>Ponda</td>
+            <td>North Goa</td>
+            <td>Ancient temple with Laxmi Narayan idols.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer>
+      Last updated: October 2025
+    </footer>
+  </div>
+
+  <script>
+    function filterTable() {
+      const temple = document.getElementById('searchTemple').value.toLowerCase().trim();
+      const god = document.getElementById('searchGod').value.toLowerCase().trim();
+      const loc = document.getElementById('searchLoc').value.toLowerCase().trim();
+      const dist = document.getElementById('searchDist').value.toLowerCase().trim();
+      const region = document.getElementById('regionFilter').value;
+
+      const tbody = document.querySelector('#templeTable tbody');
+      const rows = tbody.getElementsByTagName('tr');
+
+      for (let row of rows) {
+        const cells = row.getElementsByTagName('td');
+        const templeCell = cells[0].textContent.toLowerCase();
+        const godCell = cells[1].textContent.toLowerCase();
+        const locCell = cells[2].textContent.toLowerCase();
+        const distCell = cells[3].textContent.toLowerCase();
+        const regionCell = cells[4].textContent;
+
+        const matchTemple = temple === '' || templeCell.includes(temple);
+        const matchGod = god === '' || godCell.includes(god);
+        const matchLoc = loc === '' || locCell.includes(loc);
+        const matchDist = dist === '' || distCell.includes(dist);
+        const matchRegion = region === 'all' || regionCell === region;
+
+        row.style.display = (matchTemple && matchGod && matchLoc && matchDist && matchRegion) ? '' : 'none';
+      }
+    }
+  </script>
+</body>
+</html>

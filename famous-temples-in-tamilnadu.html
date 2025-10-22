@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Famous Temples in Tamil Nadu</title>
+  <style>
+    :root{
+      /* same color codes */
+      --primary-color: #2887ff;
+      --primary-color-dark: #2476da;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: var(--primary-color-dark);
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 28px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 8px 30px var(--primary-color-dark);
+      border: 2px solid var(--primary-color-dark);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: -0.2px;
+      color: #000000;
+    }
+
+    p.lead {
+      margin: 6px 0 18px;
+      color: #000000;
+      font-size: 13px;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .search, .select {
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid var(--primary-color-dark);
+      color: var(--primary-color-dark);
+    }
+
+    .search:focus, .select:focus {
+      border-color: var(--primary-color);
+      outline: none;
+    }
+
+    .table-wrap {
+      overflow: auto;
+      border-radius: 10px;
+      background: var(--primary-color-dark);
+      padding: 1px;
+      border: 1px solid var(--primary-color);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1000px;
+      background: #fff;
+      color: var(--primary-color-dark);
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      background: var(--primary-color-dark);
+      color: #fff;
+      padding: 12px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 13px;
+      border-bottom: 2px solid var(--primary-color);
+    }
+
+    tbody td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--primary-color-dark);
+      font-size: 14px;
+      color: #222;
+    }
+
+    tbody tr:hover td {
+      background: var(--primary-color);
+      color: #fff;
+    }
+
+    tbody tr:nth-child(even) td {
+      background: #eaefff;
+    }
+
+    tbody tr:nth-child(even):hover td {
+      background: var(--primary-color);
+      color: #fff;
+    }
+
+    footer {
+      margin-top: 18px;
+      color: var(--primary-color-dark);
+      font-size: 13px;
+    }
+
+    @media (max-width:800px){
+      .container { margin: 18px; padding: 16px; }
+      table { min-width: 900px; }
+      h1 { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Famous Temples in Tamil Nadu</h1>
+    <p class="lead">Search by temple name, deity, city/town, district or region.</p>
+
+    <div class="controls">
+      <input class="search" id="searchTemple" placeholder="Temple Name..." oninput="filterTable()" />
+      <input class="search" id="searchGod" placeholder="God/Goddess…" oninput="filterTable()" />
+      <input class="search" id="searchLoc" placeholder="Location (City/Town)..." oninput="filterTable()" />
+      <input class="search" id="searchDist" placeholder="District..." oninput="filterTable()" />
+      <select id="regionFilter" class="select" onchange="filterTable()">
+        <option value="all">All regions</option>
+        <option value="North Tamil Nadu">North Tamil Nadu</option>
+        <option value="Central Tamil Nadu">Central Tamil Nadu</option>
+        <option value="South Tamil Nadu">South Tamil Nadu</option>
+        <option value="Western Tamil Nadu">Western Tamil Nadu</option>
+        <option value="Coastal Tamil Nadu">Coastal Tamil Nadu</option>
+      </select>
+    </div>
+
+    <div class="table-wrap">
+      <table id="templeTable">
+        <thead>
+          <tr>
+            <th>Temple Name</th>
+            <th>God/Goddess</th>
+            <th>Location (City/Town)</th>
+            <th>District</th>
+            <th>Region</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Meenakshi Amman Temple</td>
+            <td>Goddess Meenakshi (Parvati) & Lord Sundareswarar (Shiva)</td>
+            <td>Madurai</td>
+            <td>Madurai</td>
+            <td>South Tamil Nadu</td>
+            <td>One of the largest and most famous temples in India.</td>
+          </tr>
+          <tr>
+            <td>Brihadeeswarar Temple</td>
+            <td>Lord Shiva</td>
+            <td>Thanjavur</td>
+            <td>Thanjavur</td>
+            <td>Central Tamil Nadu</td>
+            <td>UNESCO World Heritage Chola temple, built by Raja Raja Chola I.</td>
+          </tr>
+          <tr>
+            <td>Ramanathaswamy Temple</td>
+            <td>Lord Shiva</td>
+            <td>Rameswaram</td>
+            <td>Ramanathapuram</td>
+            <td>Coastal Tamil Nadu</td>
+            <td>Famous for its long corridors and one of the Char Dham sites.</td>
+          </tr>
+          <tr>
+            <td>Kanchipuram Ekambareswarar Temple</td>
+            <td>Lord Shiva</td>
+            <td>Kanchipuram</td>
+            <td>Kanchipuram</td>
+            <td>North Tamil Nadu</td>
+            <td>One of the five Pancha Bhoota Stalas (Earth element).</td>
+          </tr>
+          <tr>
+            <td>Chidambaram Nataraja Temple</td>
+            <td>Lord Shiva (as Nataraja)</td>
+            <td>Chidambaram</td>
+            <td>Cuddalore</td>
+            <td>Coastal Tamil Nadu</td>
+            <td>Represents the Sky element among the Pancha Bhoota Stalas.</td>
+          </tr>
+          <tr>
+            <td>Srirangam Ranganathaswamy Temple</td>
+            <td>Lord Vishnu (Ranganatha)</td>
+            <td>Srirangam (Tiruchirappalli)</td>
+            <td>Tiruchirappalli</td>
+            <td>Central Tamil Nadu</td>
+            <td>Largest functioning Hindu temple complex in the world.</td>
+          </tr>
+          <tr>
+            <td>Thiruvannamalai Arunachaleswarar Temple</td>
+            <td>Lord Shiva</td>
+            <td>Thiruvannamalai</td>
+            <td>Thiruvannamalai</td>
+            <td>North Tamil Nadu</td>
+            <td>Represents the Fire element in Pancha Bhoota Stalas.</td>
+          </tr>
+          <tr>
+            <td>Palani Murugan Temple</td>
+            <td>Lord Murugan</td>
+            <td>Palani</td>
+            <td>Dindigul</td>
+            <td>Western Tamil Nadu</td>
+            <td>One of the six abodes (Arupadai Veedu) of Murugan.</td>
+          </tr>
+          <tr>
+            <td>Kutralam Thirukutralanathar Temple</td>
+            <td>Lord Shiva</td>
+            <td>Kutralam</td>
+            <td>Tenkasi</td>
+            <td>South Tamil Nadu</td>
+            <td>Located near waterfalls; ancient Chola-era temple.</td>
+          </tr>
+          <tr>
+            <td>Thiruchendur Murugan Temple</td>
+            <td>Lord Murugan</td>
+            <td>Thiruchendur</td>
+            <td>Thoothukudi</td>
+            <td>Coastal Tamil Nadu</td>
+            <td>One of the six abodes of Murugan, on the seashore.</td>
+          </tr>
+          <tr>
+            <td>Kapaleeswarar Temple</td>
+            <td>Lord Shiva & Goddess Karpagambal</td>
+            <td>Chennai (Mylapore)</td>
+            <td>Chennai</td>
+            <td>North Tamil Nadu</td>
+            <td>Classic Dravidian temple architecture in the capital city.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer>
+      Last updated: October 22, 2025
+    </footer>
+  </div>
+
+  <script>
+    function filterTable() {
+      const temple = document.getElementById('searchTemple').value.toLowerCase().trim();
+      const god = document.getElementById('searchGod').value.toLowerCase().trim();
+      const loc = document.getElementById('searchLoc').value.toLowerCase().trim();
+      const dist = document.getElementById('searchDist').value.toLowerCase().trim();
+      const region = document.getElementById('regionFilter').value;
+
+      const tbody = document.querySelector('#templeTable tbody');
+      const rows = tbody.getElementsByTagName('tr');
+
+      for (let row of rows) {
+        const cells = row.getElementsByTagName('td');
+        const templeCell = cells[0].textContent.toLowerCase();
+        const godCell = cells[1].textContent.toLowerCase();
+        const locCell = cells[2].textContent.toLowerCase();
+        const distCell = cells[3].textContent.toLowerCase();
+        const regionCell = cells[4].textContent;
+
+        const matchTemple = temple === '' || templeCell.includes(temple);
+        const matchGod = god === '' || godCell.includes(god);
+        const matchLoc = loc === '' || locCell.includes(loc);
+        const matchDist = dist === '' || distCell.includes(dist);
+        const matchRegion = region === 'all' || regionCell === region;
+
+        row.style.display = (matchTemple && matchGod && matchLoc && matchDist && matchRegion) ? '' : 'none';
+      }
+    }
+  </script>
+</body>
+</html>

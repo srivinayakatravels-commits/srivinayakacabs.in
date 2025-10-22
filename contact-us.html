@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel Booking Form</title>
+  <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <style>
+    :root {
+      --primary-color: #2887ff;
+      --primary-color-dark: #2476da;
+      --text-dark: #0a0a0a;
+      --text-light: #737373;
+      --extra-light: #f3f4f6;
+      --white: #ffffff;
+      --error-color: #ff3b3b;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: var(--extra-light);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 15px;
+    }
+
+    .form-wrapper {
+      background-color: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      padding: 25px 30px;
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: var(--text-dark);
+      font-size: 14px;
+    }
+
+    input,
+    select,
+    textarea {
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s ease;
+      background-color: var(--white);
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--primary-color);
+    }
+
+    textarea {
+      resize: none;
+      grid-column: span 2;
+    }
+
+    small {
+      color: var(--error-color);
+      font-size: 12px;
+      margin-top: 3px;
+    }
+
+    button {
+      grid-column: span 2;
+      padding: 12px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: var(--primary-color-dark);
+    }
+
+    /* Tablet screens */
+    @media (max-width: 768px) {
+      form {
+        grid-template-columns: 1fr;
+      }
+
+      textarea,
+      button {
+        grid-column: span 1;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+    }
+
+    /* Small mobile screens */
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+
+      .form-wrapper {
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      input,
+      select,
+      textarea,
+      button {
+        font-size: 13px;
+        padding: 8px 10px;
+      }
+
+      form {
+        gap: 12px;
+        display: contents;
+      }
+
+      /* Stack date fields vertically on small devices */
+      .date-flex {
+        flex-direction: column !important;
+      }
+    }
+
+    .date-flex {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .date-flex input {
+      flex: 1;
+      min-width: 150px;
+    }
+
+    .invalid {
+      border-color: var(--error-color);
+      background-color: #fff6f6;
+    }
+  </style>
+
+  <!-- jQuery + SweetAlert2 -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+  <div class="form-wrapper">
+    <h2>Travel Booking Form</h2>
+
+    <form id="contactForm" onsubmit="return postInfo(event);" novalidate>
+      <div class="form-group">
+        <label for="service">Choose Service *</label>
+        <select id="service" name="service">
+          <option value="">Select a service</option>
+          <option value="Car Rental">Car Rental</option>
+          <option value="Bus Booking">Bus Booking</option>
+          <!--<option value="Train Booking">Train Booking</option> -->
+          <option value="Flight Booking">Flight Booking</option>
+        </select>
+        <small id="serviceError"></small>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="name">Full Name *</label>
+        <input type="text" id="name" name="entry.307281753" placeholder="Enter your full name" />
+        <small id="nameError"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="mobile">Mobile Number *</label>
+        <input type="text" id="mobile" name="entry.1692894666" maxlength="10" placeholder="Enter 10-digit mobile number" />
+        <small id="mobileError"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="entry.633282487" placeholder="Enter your email address" />
+        <small id="emailError"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="passengers">Number of Passengers *</label>
+        <input type="number" id="passengers" name="entry.468044698" min="1" max="50" placeholder="Enter number (1–50)" />
+        <small id="passengerError"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="from">From *</label>
+        <input type="text" id="from" name="entry.1271017905" placeholder="Enter starting city" />
+        <small id="fromError"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="to">To *</label>
+        <input type="text" id="to" name="entry.2004532459" placeholder="Enter destination city" />
+        <small id="toError"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="tripType">Trip Type *</label>
+        <select id="tripType" name="entry.910741958">
+          <option value="oneway" selected>One Way</option>
+          <option value="twoway">Two Way</option>
+        </select>
+      </div>
+
+      <div class="form-group" id="dateSection">
+        <label for="journeyDate">Date of Journey *</label>
+        <input type="date" id="journeyDate" name="entry.1461593482" />
+        <small id="dateError"></small>
+      </div>
+
+      <div class="form-group" style="grid-column: span 2;">
+        <label for="message">Message (Optional)</label>
+        <textarea id="message" rows="3" placeholder="Enter message (max 150 characters)" name="entry.1255076063"></textarea>
+        <small id="messageError"></small>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    const f = {
+      service: $('#service'),
+      name: $("#name"),
+      mobile: $("#mobile"),
+      email: $("#email"),
+      from: $("#from"),
+      to: $("#to"),
+      passengers: $("#passengers"),
+      message: $("#message"),
+      tripType: $("#tripType"),
+      journeyDate: $("#journeyDate"),
+    };
+
+    const e = {
+      service: $('#serviceError'),
+      name: $("#nameError"),
+      mobile: $("#mobileError"),
+      email: $("#emailError"),
+      from: $("#fromError"),
+      to: $("#toError"),
+      passengers: $("#passengerError"),
+      message: $("#messageError"),
+      date: $("#dateError"),
+    };
+
+    const letterOnly = (el) => el.val(el.val().replace(/[^A-Za-z\s]/g, ""));
+    const numberOnly = (el) => el.val(el.val().replace(/[^0-9]/g, ""));
+
+    const setError = (field, msg) => {
+      field.addClass("invalid");
+      e[field.attr("id")]?.text(msg);
+    };
+    const clearError = (field) => {
+      field.removeClass("invalid");
+      e[field.attr("id")]?.text("");
+    };
+
+    // Responsive trip date fields
+    f.tripType.on("change", () => {
+      const dateSection = $("#dateSection");
+      e.date.text("");
+      if (f.tripType.val() === "twoway") {
+        dateSection.html(`
+          <label>Trip Dates *</label>
+          <div class="date-flex">
+            <input type="date" id="journeyDate" name="entry.1461593482" />
+            <input type="date" id="returnDate" name="entry.1457569364" />
+          </div>
+          <small id="dateError"></small>
+        `);
+      } else {
+        dateSection.html(`
+          <label for="journeyDate">Date of Journey *</label>
+          <input type="date" id="journeyDate" name="entry.1461593482" />
+          <small id="dateError"></small>
+        `);
+      }
+    });
+
+    // Validation rules
+    f.name.on("input", () => {
+      letterOnly(f.name);
+      f.name.val().trim()
+        ? clearError(f.name)
+        : setError(f.name, "Full Name is required. Only letters allowed.");
+    });
+
+    f.from.on("input", () => {
+      letterOnly(f.from);
+      f.from.val().trim()
+        ? clearError(f.from)
+        : setError(f.from, "Starting city is required.");
+    });
+
+    f.to.on("input", () => {
+      letterOnly(f.to);
+      f.to.val().trim()
+        ? clearError(f.to)
+        : setError(f.to, "Destination city is required.");
+    });
+
+    f.mobile.on("input", () => {
+  numberOnly(f.mobile); // Only digits allowed
+
+  let val = f.mobile.val();
+
+  // Prevent first digit from being 0–5
+  if (val.length === 1 && !/[6-9]/.test(val)) {
+    f.mobile.val(""); // Clear invalid first digit
+    setError(f.mobile, "First digit must be 6, 7, 8, or 9.");
+    return;
+  }
+
+  // Restrict to 10 digits max
+  if (val.length > 10) {
+    f.mobile.val(val.slice(0, 10));
+    val = f.mobile.val();
+  }
+
+  // Validation messages
+  if (val.length < 10) {
+    setError(f.mobile, "Enter a valid 10-digit mobile number.");
+  } else if (/^[6-9]\d{9}$/.test(val)) {
+    clearError(f.mobile);
+  } else {
+    setError(f.mobile, "Mobile number must start with 6, 7, 8, or 9.");
+  }
+});
+
+
+    f.email.on("input", () => {
+  let val = f.email.val();
+
+  // Remove disallowed characters
+  val = val.replace(/[^A-Za-z0-9@._]/g, "");
+
+  // Prevent '@' as the first character
+  if (val.startsWith("@")) {
+    val = val.replace(/^@+/, ""); // remove leading '@'
+  }
+
+  // Prevent "_@" or "__@" patterns
+  val = val.replace(/^_+@/, "_"); // keep underscore, remove '@' after it
+
+  // Prevent multiple consecutive '@'
+  val = val.replace(/@{2,}/g, "@");
+
+  // Auto-lowercase
+  val = val.toLowerCase();
+
+  f.email.val(val);
+
+  /*
+   ✅ Email Rules:
+   - Starts with letter, number, or underscore
+   - If starts with '_', must have a letter/number before '@'
+   - Must contain '@' followed by domain and '.' with at least two letters
+  */
+  const emailPattern = /^(?:[A-Za-z0-9]|_[A-Za-z0-9])[A-Za-z0-9._]*@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+  if (!val) {
+    setError(f.email, "Email address is required.");
+  } else if (!emailPattern.test(val)) {
+    setError(
+      f.email,
+      "Invalid email. Start with letter/number or '_', followed by '@domain.com'."
+    );
+  } else {
+    clearError(f.email);
+  }
+});
+
+
+
+    f.passengers.on("input", () => {
+      numberOnly(f.passengers);
+      let val = parseInt(f.passengers.val());
+      if (val > 50) {
+        f.passengers.val("50");
+        val = 50;
+      }
+      val >= 1 && val <= 50
+        ? clearError(f.passengers)
+        : setError(f.passengers, "Passengers must be between 1 and 50.");
+    });
+
+    f.message.on("input", () => {
+      f.message.val().length <= 150
+        ? clearError(f.message)
+        : setError(f.message, "Max 150 characters allowed.");
+    });
+
+    // Date validation
+    $(document).on("change input", "#journeyDate, #returnDate", () => {
+      const journey = $("#journeyDate").val();
+      const ret = $("#returnDate").val();
+
+      if (f.tripType.val() === "oneway") {
+        if (!journey) {
+          $("#dateError").text("Date of journey is required.");
+          $("#journeyDate").addClass("invalid");
+        } else {
+          $("#dateError").text("");
+          $("#journeyDate").removeClass("invalid");
+        }
+      } else {
+        if (!journey || !ret) {
+          $("#dateError").text("Both dates are required.");
+          $("#journeyDate, #returnDate").addClass("invalid");
+        } else if (new Date(ret) < new Date(journey)) {
+          $("#dateError").text("Return date cannot be earlier than journey date.");
+          $("#journeyDate, #returnDate").addClass("invalid");
+        } else {
+          $("#dateError").text("");
+          $("#journeyDate, #returnDate").removeClass("invalid");
+        }
+      }
+    });
+
+    // Submit
+    /* $("#contactForm").on("submit", (event) => {
+      event.preventDefault();
+
+      $("input, select, textarea").trigger("input");
+
+      const hasError = $("small").toArray().some((el) => el.textContent.trim() !== "");
+      const requiredFields = ["#name", "#from", "#to", "#mobile", "#email", "#passengers", "#journeyDate"];
+      if ($("#tripType").val() === "twoway") requiredFields.push("#returnDate");
+
+      const emptyFields = requiredFields.some((selector) => !$(selector).val());
+
+      if (hasError || emptyFields) {
+        Swal.fire({
+          icon: "error",
+          title: "Validation Error",
+          text: "Please fill all required fields correctly before submitting.",
+          confirmButtonColor: "#2887ff",
+        });
+        return;
+      }
+
+      Swal.fire({
+        icon: "success",
+        title: "Thank You!",
+        text: "Your booking details have been submitted successfully.",
+        confirmButtonColor: "#2887ff",
+      }).then(() => {
+        window.location.href = "thankyou.html";
+      });
+    }); */
+
+    function postInfo(event) {
+  event.preventDefault();
+
+  const service = $("#service").val().trim();
+  const name = $("#name").val().trim();
+  const mobile = $("#mobile").val().trim();
+  const email = $("#email").val().trim();
+  const from = $("#from").val().trim();
+  const to = $("#to").val().trim();
+  const passengers = $("#passengers").val().trim();
+  const message = $("#message").val().trim();
+  const tripType = $("#tripType").val().trim();
+  const journeyDate = $("#journeyDate").val().trim();
+  const returnDate = $("#returnDate").length ? $("#returnDate").val().trim() : "";
+
+  const missingFields = [];
+  if (!service) missingFields.push("Service");
+  if (!name) missingFields.push("Name");
+  if (!mobile) missingFields.push("Mobile");
+  if (!email) missingFields.push("Email");
+  if (!from) missingFields.push("From");
+  if (!to) missingFields.push("To");
+  if (!journeyDate) missingFields.push("Journey Date");
+
+  if (tripType === "twoway" && !returnDate) {
+    missingFields.push("Return Date");
+  }
+
+  if (missingFields.length > 0) {
+    Swal.fire({
+      icon: "error",
+      title: "Missing Fields",
+      text: missingFields.join(", ") + " are required.",
+      confirmButtonColor: "#2887ff",
+    });
+    return;
+  }
+
+  // ✅ Make sure this matches your Apps Script parameter names
+  const data = new URLSearchParams();
+  data.append("service", service);
+  data.append("name", name);
+  data.append("mobile", mobile);
+  data.append("email", email);
+  data.append("from", from);
+  data.append("to", to);
+  data.append("tripType", tripType);
+  data.append("journeyDate", journeyDate);
+  data.append("returnDate", returnDate);
+  data.append("passengers", passengers);
+  data.append("message", message);
+
+  fetch("https://script.google.com/macros/s/AKfycbwfYVpPZ28l90ahzZF30AjBQqHv0PGxWpPTC5SBrmjHnuYTELZrQ4vpPddzzvPJQ-rN3Q/exec", {
+    method: "POST",
+    body: data,
+  })
+    .then((response) => response.text())
+    .then((text) => {
+      if (text === "Success") {
+        Swal.fire({
+          icon: "success",
+          title: "Submitted Successfully!",
+          text: "Your booking details have been sent.",
+          confirmButtonColor: "#2887ff",
+        }).then(() => {
+          window.location.href = "thankyou.html?name=" + encodeURIComponent(name);
+        });
+        $("#contactForm")[0].reset();
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Server error: " + text,
+          confirmButtonColor: "#2887ff",
+        });
+      }
+    })
+    .catch(() => {
+      Swal.fire({
+        icon: "error",
+        title: "Submission Failed",
+        text: "Something went wrong. Please try again.",
+        confirmButtonColor: "#2887ff",
+      });
+    });
+}
+
+  </script>
+</body>
+</html>

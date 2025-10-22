@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Famous Temples of Telangana</title>
+  <style>
+    :root{
+      --primary-color: #2887ff;
+      --primary-color-dark: #2476da;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: var(--primary-color-dark);
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 28px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 8px 30px var(--primary-color-dark);
+      border: 2px solid var(--primary-color-dark);
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: -0.2px;
+      color: #000000;
+    }
+
+    p.lead {
+      margin: 6px 0 18px;
+      color: #000000;
+      font-size: 13px;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .search, .select {
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid var(--primary-color-dark);
+      color: var(--primary-color-dark);
+    }
+
+    .search:focus, .select:focus {
+      border-color: var(--primary-color);
+      outline: none;
+    }
+
+    .table-wrap {
+      overflow: auto;
+      border-radius: 10px;
+      background: var(--primary-color-dark);
+      padding: 1px;
+      border: 1px solid var(--primary-color);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1000px;
+      background: #fff;
+      color: var(--primary-color-dark);
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      background: var(--primary-color-dark);
+      color: #fff;
+      padding: 12px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 13px;
+      border-bottom: 2px solid var(--primary-color);
+    }
+
+    tbody td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--primary-color-dark);
+      font-size: 14px;
+      color: #222;
+    }
+
+    tbody tr:hover td {
+      background: var(--primary-color);
+      color: #fff;
+    }
+
+    tbody tr:nth-child(even) td {
+      background: #eaefff;
+    }
+
+    tbody tr:nth-child(even):hover td {
+      background: var(--primary-color);
+      color: #fff;
+    }
+
+    footer {
+      margin-top: 18px;
+      color: var(--primary-color-dark);
+      font-size: 13px;
+    }
+
+    hr.divider {
+      border: 1px solid var(--primary-color);
+      margin: 40px 0;
+    }
+
+    @media (max-width:800px){
+      .container { margin: 18px; padding: 16px; }
+      table { min-width: 900px; }
+      h1 { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Telangana Section -->
+    <h1>Famous Temples of Telangana</h1>
+    <p class="lead">List of popular and significant temples across Telangana with location, God/Goddess, and notes.</p>
+
+    <header>
+      <div class="controls">
+        <input class="search" id="searchGodTS" placeholder="God/Goddess…" oninput="filterTable('TS')" />
+        <input class="search" id="searchLocTS" placeholder="Location (City/Town)..." oninput="filterTable('TS')" />
+        <input class="search" id="searchDistTS" placeholder="District..." oninput="filterTable('TS')" />
+        <select id="regionFilterTS" class="select" onchange="filterTable('TS')">
+          <option value="all">All regions</option>
+          <option value="Statewide Icon">Statewide Icon</option>
+          <option value="Hyderabad Region">Hyderabad Region</option>
+          <option value="Northern Telangana">Northern Telangana</option>
+          <option value="Southern Telangana">Southern Telangana</option>
+          <option value="Eastern Telangana">Eastern Telangana</option>
+          <option value="Other Notable">Other Notable</option>
+        </select>
+      </div>
+    </header>
+
+    <div class="table-wrap">
+      <table id="templeTableTS">
+        <thead>
+          <tr>
+            <th>Temple Name</th>
+            <th>God/Goddess</th>
+            <th>Location (City/Town)</th>
+            <th>District</th>
+            <th>Region</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Yadadri (Yadagirigutta) Sri Lakshmi Narasimha Swamy Temple</td><td>Narasimha (Vishnu)</td><td>Yadagirigutta</td><td>Yadadri-Bhongir</td><td>Statewide Icon</td><td>Grand temple dedicated to Lord Narasimha, recently reconstructed in stone.</td></tr>
+          <tr><td>Bhadrachalam Sri Sita Ramachandra Swamy Temple</td><td>Rama (Vishnu Avatar)</td><td>Bhadrachalam</td><td>Bhadradri Kothagudem</td><td>Statewide Icon</td><td>Historic Rama temple on Godavari River; major pilgrimage site.</td></tr>
+          <tr><td>Vemulawada Rajarajeshwara Swamy Temple</td><td>Shiva (Rajarajeshwara)</td><td>Vemulawada</td><td>Rajanna Sircilla</td><td>Statewide Icon</td><td>One of the major Shiva temples; known for its healing powers.</td></tr>
+          <tr><td>Basara Gnana Saraswathi Temple</td><td>Saraswati</td><td>Basara</td><td>Nirmal</td><td>Statewide Icon</td><td>Renowned Saraswati temple, popular for children's Aksharabhyasam ceremony.</td></tr>
+          <tr><td>Chilkur Balaji Temple</td><td>Venkateswara (Balaji)</td><td>Chilkur</td><td>Ranga Reddy</td><td>Hyderabad Region</td><td>Old Balaji temple; devotees pray for visa approval; no hundi.</td></tr>
+          <tr><td>Birla Mandir</td><td>Venkateswara (Balaji)</td><td>Naubath Pahad, Hyderabad</td><td>Hyderabad</td><td>Hyderabad Region</td><td>White marble temple dedicated to Lord Venkateswara; scenic view of the city.</td></tr>
+          <tr><td>Jagannath Temple</td><td>Jagannath</td><td>Banjara Hills</td><td>Hyderabad</td><td>Hyderabad Region</td><td>Modern Odisha-style temple of Lord Jagannath.</td></tr>
+          <tr><td>Peddamma Temple</td><td>Durga (Shakti form)</td><td>Jubilee Hills</td><td>Hyderabad</td><td>Hyderabad Region</td><td>Shakti temple; center of Bonalu festivities.</td></tr>
+          <tr><td>Ujjaini Mahankali Temple</td><td>Mahankali (Kali)</td><td>Secunderabad</td><td>Hyderabad</td><td>Hyderabad Region</td><td>Important temple for Mahankali; Bonalu celebrated grandly.</td></tr>
+          <tr><td>Karmanghat Hanuman Temple</td><td>Hanuman</td><td>Hyderabad</td><td>Hyderabad</td><td>Hyderabad Region</td><td>Associated with legend of Aurangzeb; very old Hanuman shrine.</td></tr>
+          <tr><td>Sanghi Temple</td><td>Venkateswara</td><td>Sanghi Hills</td><td>Ranga Reddy</td><td>Hyderabad Region</td><td>Modern Venkateswara temple on hilltop near Ramoji Film City.</td></tr>
+          <tr><td>Kaleshwaram Mukteswara Swamy Temple</td><td>Shiva (Mukteswara)</td><td>Kaleshwaram</td><td>Jayashankar Bhupalpally</td><td>Northern Telangana</td><td>Located at the confluence of Godavari and Pranahita; major Shiva temple.</td></tr>
+          <tr><td>Dharmapuri Narasimha Swamy Temple</td><td>Narasimha (Vishnu)</td><td>Dharmapuri</td><td>Jagtial</td><td>Northern Telangana</td><td>Ancient Narasimha temple on Godavari River banks.</td></tr>
+          <tr><td>Komuravelli Mallanna Temple</td><td>Mallanna (Shiva form)</td><td>Komuravelli</td><td>Siddipet</td><td>Northern Telangana</td><td>Lord Mallikarjuna Swamy temple famous for Shivaratri fairs.</td></tr>
+          <tr><td>Alampur Jogulamba Temple</td><td>Jogulamba (Shakti)</td><td>Alampur</td><td>Jogulamba Gadwal</td><td>Southern Telangana</td><td>One of the 18 Shakti Peethas; dedicated to Goddess Jogulamba.</td></tr>
+          <tr><td>Ramappa (Rudreshwara) Temple</td><td>Shiva (Rudreshwara)</td><td>Palampet</td><td>Mulugu</td><td>Eastern Telangana</td><td>UNESCO World Heritage Site; Kakatiya-era Shiva temple.</td></tr>
+          <tr><td>Thousand Pillar Temple</td><td>Shiva, Vishnu, Surya</td><td>Hanamakonda</td><td>Warangal</td><td>Eastern Telangana</td><td>Kakatiya temple dedicated to Shiva, Vishnu, and Surya.</td></tr>
+          <tr><td>Bhadrakali Temple</td><td>Bhadrakali (Shakti)</td><td>Warangal</td><td>Warangal</td><td>Eastern Telangana</td><td>Ancient Shakti temple near Bhadrakali Lake.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer>
+      <div>Tip: use the individual search boxes above to filter temples by God/Goddess, location, district, or region.</div>
+      <div style="margin-top:8px;">If you'd like a downloadable HTML file, or printable PDF export, tell me and I will prepare it.</div>
+    </footer>
+  </div>
+
+  <script>
+    function filterTable(regionId){
+      const prefix = regionId === 'AP' ? 'AP' : 'TS';
+      const god = document.getElementById('searchGod'+prefix).value.toLowerCase().trim();
+      const loc = document.getElementById('searchLoc'+prefix).value.toLowerCase().trim();
+      const dist = document.getElementById('searchDist'+prefix).value.toLowerCase().trim();
+      const region = document.getElementById('regionFilter'+prefix).value;
+      const tbody = document.querySelector('#templeTable'+prefix+' tbody');
+      for(const row of tbody.rows){
+        const godCell = row.cells[1].textContent.toLowerCase();
+        const locCell = row.cells[2].textContent.toLowerCase();
+        const distCell = row.cells[3].textContent.toLowerCase();
+        const regCell = row.cells[4].textContent;
+        const matchesGod = god === '' || godCell.includes(god);
+        const matchesLoc = loc === '' || locCell.includes(loc);
+        const matchesDist = dist === '' || distCell.includes(dist);
+        const matchesRegion = region === 'all' || regCell === region;
+        row.style.display = (matchesGod && matchesLoc && matchesDist && matchesRegion) ? '' : 'none';
+      }
+    }
+  </script>
+</body>
+</html>

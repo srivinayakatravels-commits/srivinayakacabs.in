@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <title>Cab Treval</title>
+    <style>
+      .ri-flight-takeoff-line:before, .ri-bus-line:before, .ri-car-line:before, .ri-hotel-line:before {font-size: 50px;}
+      .flip-horizontal {
+    display: inline-block; /* ensures transform works properly */
+    transform: scaleX(-1); /* flips horizontally */
+}
+      /* Tabs Container */
+.tabs-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+/* Dropdown (Mobile) */
+.tab-dropdown {
+  display: none;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+/* Tabs (Desktop) */
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.tab {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.tab.active {
+  background: #007bff;
+  color: #fff;
+}
+
+.tab:hover {
+  background: #ddd;
+}
+
+/* Tab Content */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+.boxes p{color: #007bff;}
+.box {
+  background: #fff;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.box img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.box p {
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tabs {
+    display: none;
+  }
+
+  .tab-dropdown {
+    display: block;
+  }
+
+  .box img {
+    width: 80%;
+  }
+
+  .boxes {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__header">
+        <div class="nav__logo">
+          <!--<a href="#" class="logo">Discover. Travel. Repeat.</a> -->
+          <img src="img/svt-travels.png" width="150px">
+          <p style="color:#3953a4;"><strong>Sri Vinayaka Travels & Cabs</strong></p>
+        </div>
+        <div class="nav__menu__btn" id="menu-btn">
+          <i class="ri-menu-line"></i>
+        </div>
+      </div>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#tour">TOURS</a></li>
+        <li><a href="#package">PACKAGES</a></li>
+        <li><a href="#cabs">CABS</a></li>
+        <li><a href="#our-services">OUR SERVICES</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+        <li><a href="contact-us.html">BOOK TRIP</a></li>
+      </ul>
+      <div class="nav__btns">
+        <button class="btn" onclick="window.location.href='contact-us.html'">BOOK TRIP</button>
+      </div>
+    </nav>
+
+    <header id="home">
+      <div class="header__container">
+        <div class="header__content">
+          <p>Discover. Travel. Repeat.</p>
+          <h1>Turning Miles into Memories!</h1>
+          <div class="header__btns">
+            <button class="btn" onclick="window.location.href='contact-us.html'">Book A Trip Now</button>
+            <!--<a href="#">
+              <span><i class="ri-play-circle-fill"></i></span>
+            </a> -->
+          </div>
+        </div>
+        <div class="header__image">
+          <img src="img/car.png" alt="header" />
+        </div>
+      </div>
+    </header>
+    <section class="section__container destination__container" id="hyd-srisailam">
+      <h2 class="section__header">Hyderabad to Srisailam : Best Travel Packages</h2>
+      <p class="section__description">
+        Srisailam – Where Divinity Meets the Wilderness<br>
+        <i>"Feel the power of faith in the lap of nature."</i>
+      </p>
+      <div class="destination__grid">
+        <div class="destination__card">
+          <img src="img/srisailam-mallikarjuna-jyotirlinga-temple.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Mallikarjuna Jyotirlinga Temple</h4>
+              <p>Srisailam, Andhra Pradesh, India.</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.8
+            </div>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="img/srisailamdam.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Srisailam Dam</h4>
+              <p>Srisailam, Andhra Pradesh, India.</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.7
+            </div>
+          </div>
+        </div>
+        
+        <div class="destination__card">
+          <img src="img/nallamala-forest-srisailam.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Nallamala Forest / Tiger Reserve</h4>
+              <p>Srisailam, Andhra Pradesh, India.</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.5
+            </div>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="img/akka-mahadevi-caves.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Akkamahadevi Caves</h4>
+              <p>Srisailam, Andhra Pradesh, India.</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.5
+            </div>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="img/sikharam-srisailam.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Sikharam</h4>
+              <p>Srisailam, Andhra Pradesh, India.</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.5
+            </div>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="img/nagarjuna-sagar-srisailam.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Nagarjuna Sagar</h4>
+              <p>Srisailam, Andhra Pradesh, India.</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.5
+            </div>
+          </div>
+
+        </div>
+
+        <div class="destination__card">
+        </div>
+        <div class="destination__card center">
+        <button class="btn" onclick="window.location.href='contact-us.html'">Book A Tour Now</button>
+      </div>
+      <div class="destination__card">
+      </div>
+      </div>
+    </section>
+    <section class="section__container destination__container" id="hyd-srisailam">
+      <h2 class="section__header">What You Can See in Hyderabad</h2>
+      <p class="section__description">
+        "Heritage in every stone, flavor in every bite."</i>
+      </p>
+      <div class="destination__grid">
+        <div class="destination__card">
+          <img src="img/charminar.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Charminar</h4>
+              <p>Hyderabad, Telangana, India.</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.8
+            </div>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="img/golconda-fort-hyderabad.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Golconda Fort</h4>
+              <p>Hyderabad, Telangana, India.</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.7
+            </div>
+          </div>
+        </div>
+        
+        <div class="destination__card">
+          <img src="img/birla-mandir-hyderabad.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Birla Mandir</h4>
+              <p>Hyderabad, Telangana, India.</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.5
+            </div>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="img/salar-jung-museum-hyderabad.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Salar Jung Museum</h4>
+              <p>Hyderabad, Telangana, India.</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.5
+            </div>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="img/nehru-zoological-park-hyderabad.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Nehru Zoological Park</h4>
+              <p>Hyderabad, Telangana, India.</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.5
+            </div>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="img/buddha-statue-hyderabad.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Hussain Sagar Lake & Buddha Statue</h4>
+              <p>Hyderabad, Telangana, India.</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.5
+            </div>
+          </div>
+
+        </div>
+        <div class="destination__card">
+          <img src="img/ramoji-film-city-hyderabad.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Ramoji Film City</h4>
+              <p>Hyderabad, Telangana, India.</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.5
+            </div>
+          </div>
+
+        </div>
+        <div class="destination__card">
+          <img src="img/cyber-towers-hITEC-city.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Cyber Towers / HITEC City</h4>
+              <p>Hyderabad, Telangana, India.</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.5
+            </div>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="img/sri-jagannath-temple-hyderabad.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Sri Jagannath Temple</h4>
+              <p>Hyderabad, Telangana, India.</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.5
+            </div>
+          </div>
+        </div>
+        <div class="destination__card">
+        </div>
+        <div class="destination__card center">
+        <button class="btn" onclick="window.location.href='contact-us.html'">Book A Tour Now</button>
+      </div>
+      <div class="destination__card">
+      </div>
+      </div>
+    </section>
+    <section class="section__container destination__container" id="tour">
+      <h2 class="section__header">Tours & Popular Destination</h2>
+      <p class="section__description">
+        Discover the Most Loved Destination Around the Globe
+      </p>
+      <div class="destination__grid">
+        <div class="destination__card">
+          <img src="img/tirupati-balaji-temple.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Sri Venkateswara Temple</h4>
+              <p>Tirupati, Andhra Pradesh, India.</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.7
+            </div>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="img/srisailam-mallikarjuna-jyotirlinga-temple.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Mallikarjuna Jyotirlinga Temple</h4>
+              <p>Srisailam, Andhra Pradesh, India.</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.8
+            </div>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="img/kanaka-durga-temple.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Kanaka Durga Temple</h4>
+              <p>Vijayawada, Andhra Pradesh, India.</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.5
+            </div>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="img/mantralayam-raghavendra-swamy-mutt-temple.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Raghavendra Swamy Temple</h4>
+              <p>Mantralayam, Andhra Pradesh, India.</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.5
+            </div>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="img/bhadrachalam-sri-rama-temple.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Sri Rama Temple</h4>
+              <p>Bhadrachalam, Telangana–AP border, India</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.5
+            </div>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="img/yadagirigutta-temple.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Lakshmi Narasimha Swamy Temple</h4>
+              <p>Yadadri, Telangana, India.</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.5
+            </div>
+          </div>
+
+        </div>
+
+        <div class="destination__card">
+        </div>
+        <div class="destination__card center">
+        <button class="btn" onclick="window.location.href='contact-us.html'">Book A Tour Now</button>
+      </div>
+      <div class="destination__card">
+      </div>
+    
+      </div>
+    </section>
+    <section class="section__container discover__container" id="package">
+      <h2 class="section__header">
+        Discover Peace, Culture, and Devotion with Our Temple Cab Travels
+      </h2>
+      <p class="section__description">
+        “Comfortable Rides to Divine Destinations.”
+      </p>
+
+      <div class="tabs-container">
+    <!-- Dropdown for Mobile -->
+    <select id="tabDropdown" class="tab-dropdown">
+      <option value="tab1" selected>Telangana</option>
+      <option value="tab2">Andhra Pradesh</option>
+      <option value="tab3">Karnataka</option>
+      <option value="tab4">Tamil Nadu</option>
+      <!--<option value="tab5">Maharashtra</option>
+      <option value="tab6">Madhya Pradesh</option> -->
+      <option value="tab7">Kerala</option>
+      <option value="tab8">Goa</option>
+
+    </select>
+
+    <!-- Tabs for Desktop -->
+    <div class="tabs">
+      <button class="tab active" data-tab="tab1">Telangana</button>
+      <button class="tab" data-tab="tab2">Andhra Pradesh</button>
+      <button class="tab" data-tab="tab3">Karnataka</button>
+      <button class="tab" data-tab="tab4">Tamil Nadu</button>
+      <!--<button class="tab" data-tab="tab5">Maharashtra</button>
+      <button class="tab" data-tab="tab6">Madhya Pradesh</button> -->
+      <button class="tab" data-tab="tab7">Kerala</button>
+      <button class="tab" data-tab="tab8">Goa</button>
+    </div>
+
+    <!-- Tab Content -->
+    <div class="tab-content active" id="tab1">
+      <p><i>Typical cab circuit: Hyderabad → Yadadri → Vemulawada → Bhadrachalam → return (2–3 days)</i></p><br>
+      <div class="boxes">
+        <div class="box"><img src="img/yadagirigutta-temple.jpg" alt=""><p>Yadadri (Yadagirigutta) Temple</p><span><i>Lord Lakshmi Narasimha Swamy</i></span></div>
+        <div class="box"><img src="img/chilkur-balaji-temple.jpg" alt=""><p>Chilkur Balaji Temple</p><span><i>Visa Balaji</i></span></div>
+        <div class="box"><img src="img/keesaragutta-temple-hyderabad.jpg" alt=""><p>Keesaragutta Shiva Temple</p><span><i>Hill temple near ECIL</i></span></div>
+        <div class="box"><img src="img/vemulawada-rajarajeshwara-temple.jpg" alt=""><p>Vemulawada Rajarajeshwara Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/bhadrachalam-sri-rama-temple.jpg" alt=""><p>Bhadrachalam Sri Rama Temple</p><span><i>on River Godavari</i></span></div>
+        <div class="box"><img src="img/alampur-jogulamba-temple.jpg" alt=""><p>Alampur Jogulamba Temple</p><span><i>Shakti Peetha</i></span></div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab2">
+      <p><i>Cab route idea: Hyderabad → Srisailam → Ahobilam → Tirupati → return (4–5 days)</i></p><br>
+      <div class="boxes">
+        <div class="box"><img src="img/tirupati-balaji-temple.jpg" alt=""><p>Tirupati Balaji Temple</p><span><i>Lord Venkateswara</i></span></div>
+        <div class="box"><img src="img/srisailam-mallikarjuna-jyotirlinga-temple.jpg" alt=""><p>Srisailam Mallikarjuna Jyotirlinga</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/ahobilam-narasimha-temple.jpg" alt=""><p>Ahobilam Narasimha Temple</p><span><i>Lord Narasimha</i></span></div>
+        <div class="box"><img src="img/kanaka-durga-temple.jpg" alt=""><p>Kanaka Durga Temple</p><span><i>Kanaka Durga</i></span></div>
+        <div class="box"><img src="img/simhachalam-temple.jpg" alt=""><p>Simhachalam Temple</p><span><i>Lord Narasimha</i></span></div>
+        <div class="box"><img src="img/mangalagiri-lakshmi-narasimha-swamy-temple.jpg" alt=""><p>Mangalagiri Lakshmi Narasimha Temple</p><span><i>Lord Narasimha</i></span></div>
+      </div>
+    </div>
+    <div class="tab-content" id="tab3">
+      <p><i>Cab route idea: Hyderabad → Mantralayam → Udupi → Murudeshwar → Gokarna → return (5 days)</i></p><br>
+      <div class="boxes">
+        <div class="box"><img src="img/mantralayam-raghavendra-swamy-mutt-temple.jpg" alt=""><p>Mantralayam Raghavendra Swamy Mutt</p><span><i>Lord Rama</i></span></div>
+        <div class="box"><img src="img/kollur-mookambika-temple.jpg" alt=""><p>Kollur Mookambika Temple</p><span><i>Goddess Mookambika</i></span></div>
+        <div class="box"><img src="img/udupi_sri_krishna_matha_temple.jpg
+        <div class="box"><img src="img/dharmasthala-manjunatha-temple.jpg" alt=""><p>Dharmasthala Manjunatha Temple</p><span><i>Lord Manjunatha</i></span></div>
+        <div class="box"><img src="img/murudeshwar-shiva-temple.jpg" alt=""><p>Murudeshwar Shiva Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/gokarna-mahabaleshwar-temple.jpg" alt=""><p>Gokarna Mahabaleshwar Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/udupi_sri_krishna_matha_temple.jpg" alt=""><p>Udupi Sri Krishna Temple</p><span><i>Lord Krishna</i></span></div>
+
+      </div>
+    </div>
+    <div class="tab-content" id="tab4">
+      <p><i>Cab circuit: Hyderabad → Madurai → Rameswaram → Palani → return (6–7 days)</i></p><br>
+      <div class="boxes">
+        <div class="box"><img src="img/meenakshi-amman-temple.jpg" alt=""><p>Meenakshi Amman Temple</p><span><i>Goddess Meenakshi</i></span></div>
+        <div class="box"><img src="img/rameswaram-ramanathaswamy-temple.jpg" alt=""><p>Rameswaram Ramanathaswamy Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/kanchipuram-kailasanathar-temple.jpg" alt=""><p>Kanchipuram Kailasanathar Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/chidambaram-nataraja-temple.jpg" alt=""><p>Chidambaram Nataraja Temple</p><span><i>Lord Nataraja</i></span></div>
+        <div class="box"><img src="img/palani-murugan-temple.jpg" alt=""><p>Palani Murugan Temple</p><span><i>Lord Murugan</i></span></div>
+        <div class="box"><img src="img/thiruchendur-murugan-temple.jpg" alt=""><p>Thiruchendur Murugan Temple</p><span><i>Lord Murugan</i></span></div>
+      </div>
+    </div>
+    <!--
+    <div class="tab-content" id="tab5">
+      <p><i>Cab route: Hyderabad → Nanded → Shirdi → Nashik → Pune → return (5 days)</i></p><br>
+      <div class="boxes">
+        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Aundha Nagnath Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Grishneshwar Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Trimbakeshwar Jyotirlinga</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Shirdi Sai Baba Temple</p><span><i>Sai Baba</i></span></div>
+        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Siddhivinayak Temple</p><span><i>Lord Ganesha</i></span></div>
+        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Bhimashankar Temple</p><span><i>Lord Shiva</i></span></div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab6">
+      <p><i>Cab route: Hyderabad → Indore → Ujjain → Omkareshwar → return (5–6 days)</i></p><br>
+      <div class="boxes">
+        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Mahakaleshwar Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Omkareshwar Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Bhojeshwar Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Chausath Yogini Temple</p><span><i>Goddess Shakti/ Durga Maata</i></span></div>
+        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Khajuraho Temples</p><span><i>Lord Shiva, Lord Vishnu, and Goddesses like Parvati and Kali</i></span></div>
+        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Kal Bhairav Temple</p><span><i>Kaal Bhairav</i></span></div>
+      </div>
+    </div>
+    -->
+    <div class="tab-content" id="tab7">
+      <p><i>Cab route: Kochi → Guruvayur → Thrissur → Sabarimala → Ettumanoor → Vaikom → Trivandrum → return (6 - 7 days)</i></p><br>
+      <div class="boxes">
+        <div class="box"><img src="img/chottanikkara-bhagavathy-temple.jpg" alt=""><p>Chottanikkara Bhagavathy Temple</p><span><i>Rajarajeswari / Adi Parashakti</i></span></div>
+        <div class="box"><img src="img/guruvayur-krishna-temple.jpg" alt=""><p>Guruvayur Krishna Temple</p><span><i>Lord Krishna</i></span></div>
+        <div class="box"><img src="img/vadakkunnathan-temple.jpg" alt=""><p>Vadakkunnathan Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/sabarimala-ayyappa-temple.jpg" alt=""><p>Sabarimala Ayyappa Temple</p><span><i>Lord Ayyappa</i></span></div>
+        <div class="box"><img src="img/ettumanoor-mahadeva-temple.jpg" alt=""><p>Ettumanoor Mahadeva Temple</p><span><i>Lord Ganesha</i></span></div>
+        <div class="box"><img src="img/padmanabhaswamy-temple.jpg" alt=""><p>Padmanabhaswamy Temple</p><span><i>Lord Vishnu</i></span></div>
+      </div>
+    </div>
+    <div class="tab-content" id="tab8">
+      <p><i>Cab circuit: Panaji → Ponda (Mangeshi, Shantadurga, Mahalasa, Ramnath) → Divar Island (Saptakoteshwar) → return (3–4 days)</i></p><br>
+      <div class="boxes">
+        <div class="box"><img src="img/mangueshi-temple-goa.jpg" alt=""><p>Mangeshi Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/shantadurga-temple-goa.jpg" alt=""><p>Shantadurga Temple</p><span><i>Parvati / Durga</i></span></div>
+        <div class="box"><img src="img/mahalasa-narayani-temple-goa.jpg" alt=""><p>Mahalasa Narayani Temple</p><span><i>Goddess Mahalasa</i></span></div>
+        <div class="box"><img src="img/ramnath-temple-goa.jpg" alt=""><p>Ramnath Temple</p><span><i>Lord Rama</i></span></div>
+        <div class="box"><img src="img/mahalaxmi-temple-goa.jpg" alt=""><p>Mahalaxmi Temple</p><span><i>Goddess Mahalaxmi</i></span></div>
+        <div class="box"><img src="img/saptakoteshwar-temple-goa.jpg" alt=""><p>Saptakoteshwar Temple</p><span><i>Lord Shiva</i></span></div>
+      </div>
+    </div>
+  </div>
+
+    <div class="destination__card pad-30">
+        </div>
+        <div class="destination__card center">
+        <button class="btn" onclick="window.location.href='contact-us.html'">Book A Tour Now</button>
+      </div>
+      <div class="destination__card">
+      </div>
+
+
+    </section>
+    <section class="section__container destination__container" id="cabs">
+      <h2 class="section__header">Comfortable Cab Rides to Sacred Sites Across States</h2>
+      <p class="section__description">
+        "Temple Trips Made Easy – Ride, Relax, Rejoice."
+      </p>
+      <div class="destination__grid">
+        <div class="destination__card">
+          <img src="img/swift-desire.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Swift DZire / Sedan</h4>
+              <p>(4+1 Seats)</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.7
+            </div>
+          </div>
+        </div>
+        <!--<div class="destination__card">
+          <img src="img/toyota-urbancruiser-hyryder.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Toyota Cruiser</h4>
+              <p>(4+1 Seats)</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.8
+            </div>
+          </div>
+        </div> -->
+        <div class="destination__card">
+          <img src="img/maruti-ertiga.png" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Maruti Ertiga</h4>
+              <p>(6+1 Seats)</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.5
+            </div>
+          </div>
+        </div>
+        <!--<div class="destination__card">
+          <img src="img/toyota-rumion.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Toyota Rumion</h4>
+              <p>(7+1 Seats)</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.5
+            </div>
+          </div>
+        </div> -->
+        <div class="destination__card">
+          <img src="img/toyota-innova.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Innova Crysta</h4>
+              <p>(7+1 Seats)</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.5
+            </div>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="img/tempo-traveller.png" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Tempo Traveller</h4>
+              <p>(12, 17, 22, 28 & 40 Seats)</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.5
+            </div>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="img/chevrolet-tavera.jpg" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Cheverlet Tavera</h4>
+              <p>(9+1 Seats)</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.5
+            </div>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="img/Urbania-15+1.png" alt="destination" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Urbania</h4>
+              <p>(15+1 Seats)</p>
+            </div>
+            <div class="destination__ratings">
+              <span><i class="ri-star-fill"></i></span>
+              4.5
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="destination__card pad-30">
+        </div>
+        <div class="destination__card center">
+        <button class="btn" onclick="window.location.href='contact-us.html'">Book A Cab Now</button>
+      </div>
+      <div class="destination__card">
+      </div>
+
+
+    </section>
+    <section class="section__container journey__container" id="our-services">
+      <h2 class="section__header">Our Services</h2>
+      <p class="section__description">
+        “From road to sky, we book it all — cars, buses, flights, and stays made easy.”
+      </p>
+      <div class="journey__grid services__grid">
+        <div class="journey__card">
+          <div class="journey__card__bg">
+            <span>
+              <i class="ri-car-line flip-horizontal"></i>
+              <!--<i class="ri-bookmark-3-line"></i> -->
+            </span>
+            <h4>Car Rentals</h4>
+          </div>
+          <div class="journey__card__content">
+            <span>
+              <!--<i class="ri-bookmark-3-line"></i> -->
+              <i class="ri-car-line flip-horizontal"></i>
+            </span>
+            <h4>“Drive Your Way – Comfort, Convenience, and Care.”</h4>
+            <p>
+              Our car rental service offers well-maintained vehicles with professional drivers, ensuring a smooth and comfortable journey wherever you go.
+            </p>
+          </div>
+        </div>
+
+        <div class="journey__card">
+          <div class="journey__card__bg">
+            <span>
+              <!--<i class="ri-landscape-fill"></i> -->
+              <i class="ri-bus-line flip-horizontal"></i>
+            </span>
+            <h4>Bus Ticket Booking</h4>
+          </div>
+          <div class="journey__card__content">
+            <span>
+              <!--<i class="ri-landscape-fill"></i> -->
+              <i class="ri-bus-line flip-horizontal"></i>
+            </span>
+            <h4>“Your Seat to Every Destination.”</h4>
+            <p>
+              Book your bus tickets easily with us and enjoy safe, affordable, and reliable travel to cities and temples across India.
+            </p>
+          </div>
+        </div>
+
+        <div class="journey__card">
+          <div class="journey__card__bg">
+            <span><!--<i class="ri-map-2-line"></i> -->
+              <i class="ri-flight-takeoff-line flip-horizontal"></i>   <!-- Plane taking off -->
+              <!--<i class="ri-flight-land-line"></i>       Plane landing -->
+              <!--<i class="ri-airplane-line"></i>          Generic airplane -->
+            </span>
+            <h4>Flight Ticket Bookings</h4>
+          </div>
+          <div class="journey__card__content">
+            <span>
+              <!--<i class="ri-map-2-line"></i> -->
+              <i class="ri-flight-takeoff-line flip-horizontal"></i>
+            </span>
+            <h4>“Fly Smart, Travel Easy.”</h4>
+            <p>
+              We provide quick and hassle-free flight ticket bookings with the best fares and flexible options for your domestic and international trips.
+            </p>
+          </div>
+        </div>
+        <div class="journey__card">
+          <div class="journey__card__bg">
+            <span>
+              <!--<i class="ri-map-2-line"></i> -->
+              <i class="ri-hotel-line flip-horizontal"></i>
+            </span>
+            <h4>Hotel Bookings</h4>
+          </div>
+          <div class="journey__card__content">
+            <span>
+              <!--<i class="ri-map-2-line"></i> -->
+              <i class="ri-hotel-line flip-horizontal"></i>
+            </span>
+            <h4>“Stay Comfortable, Wherever You Go.”</h4>
+            <p>
+              Choose from a wide range of hotels and accommodations that fit your budget, ensuring a peaceful and pleasant stay every time you travel.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section__container banner__container">
+      <div class="banner__card">
+        <h4>10+</h4>
+        <p>Years Experience</p>
+      </div>
+      <div class="banner__card">
+        <h4>12k</h4>
+        <p>Happy Clients</p>
+      </div>
+      <div class="banner__card">
+        <h4>4.8</h4>
+        <p>Overrall Ratings</p>
+      </div>
+    </section>
+    <section class="section__container journey__container" id="about">
+      <h2 class="section__header">Cab Travel, the Easy Way!</h2>
+      <p class="section__description">
+        Driven by Trust, Powered by Care, and Focused on Your Safety for the Joy of Every Journey.
+      </p>
+      <div class="journey__grid">
+        <div class="journey__card">
+          <div class="journey__card__bg">
+            <span><i class="ri-bookmark-3-line"></i></span>
+            <h4>Safe & Secure</h4>
+          </div>
+          <div class="journey__card__content">
+            <span><i class="ri-bookmark-3-line"></i></span>
+            <h4>“Your safety, our first destination.”</h4>
+            <p>
+              Every ride is monitored, sanitized, and insured - so you travel with complete peace of mind.
+            </p>
+          </div>
+        </div>
+
+        <div class="journey__card">
+          <div class="journey__card__bg">
+            <span><i class="ri-landscape-fill"></i></span>
+            <h4>Trust</h4>
+          </div>
+          <div class="journey__card__content">
+            <span><i class="ri-landscape-fill"></i></span>
+            <h4>“Driven by trust, powered by care.”</h4>
+            <p>
+              Transparent fares, verified drivers, and 24/7 support make every trip dependable and worry-free.
+            </p>
+          </div>
+        </div>
+
+        <div class="journey__card">
+          <div class="journey__card__bg">
+            <span><i class="ri-map-2-line"></i></span>
+            <h4>Experienced Drivers</h4>
+          </div>
+          <div class="journey__card__content">
+            <span><i class="ri-map-2-line"></i></span>
+            <h4>“Experience that takes you further.”</h4>
+            <p>
+              Our professional drivers know the roads, respect your time, and ensure a smooth, comfortable journey every time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container showcase__container" id="">
+      <div class="showcase__image">
+        <img src="img/happy-customer.jpg" alt="showcase" />
+      </div>
+      <div class="showcase__content">
+        <h4>“Feel the joy of travel in every cab ride.”</h4>
+        <p>
+          <strong>Travelling by cab is a comfortable and relaxing way to reach your destination.</strong><br>
+Enjoy cool air conditioning, roomy seats, and beautiful views along the way — whether you’re going to a busy city or a quiet holiday spot. It’s an easy, affordable, and convenient way to travel while enjoying the journey.
+        </p>
+        <p>
+          <strong>Explore the world easily with our cabs.</strong><br>
+Just hop in and enjoy traveling at your own pace. With comfortable seats and beautiful views, our cabs make it easy to explore cities, nature, and everything in between. Whether it’s a short ride or a long trip, sit back, relax, and enjoy the journey.
+        </p>
+        <div class="showcase__btn">
+          <button class="btn" onclick="window.location.href='contact-us.html'">Reserve Your Jouney<span><i class="ri-arrow-right-line"></i></span></button>
+        </div>
+      </div>
+    </section>
+
+    
+    <!--
+    <section class="section__container discover__container">
+      <h2 class="section__header">
+        Discover Peace, Culture, and Devotion with Our Temple Cab Travels
+      </h2>
+      <p class="section__description">
+        “Ride with faith, travel with comfort.”
+      </p>
+      <div class="discover__grid">
+        <div class="discover__card">
+          <span><i class="ri-camera-lens-line"></i></span>
+          <h4>Your Road, Your Story</h4>
+          <p>
+            Experience the freedom of travel with our comfortable and reliable
+            Cab trips. Enjoy stunning views along the way while relaxing in
+            spacious seats. Whether it's a short trip or a long journey, our
+            Cabes ensure a smooth and enjoyable ride.
+          </p>
+        </div>
+        <div class="discover__card">
+          <span><i class="ri-ship-line"></i></span>
+          <h4>Coastal Wonders</h4>
+          <p>
+            Embark on a journey through the mesmerizing coastal wonders. Enjoy
+            the serene beauty of pristine beaches, stunning cliffs, and
+            breathtaking ocean views, all from the comfort of our Cab. Let the
+            coastal breeze guide you to unforgettable destinations.
+          </p>
+        </div>
+        <div class="discover__card">
+          <span><i class="ri-landscape-line"></i></span>
+          <h4>Historic Landmarks</h4>
+          <p>
+            Explore the charm of historic landmarks on our specially curated Cab
+            tours. Our comfortable Cabes will take you through iconic sites,
+            offering insights into their fascinating stories. Sit back, relax,
+            and immerse yourself in the rich history that each destination
+            holds.
+          </p>
+        </div>
+      </div>
+    </section> -->
+    
+    <footer id="contact">
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <div class="footer__logo">
+            <!--<a href="#" class="logo">CabTraveller</a> -->
+            <img src="img/svt-travels.png">
+            <h3><span style="color:#3953a4;">Sri Vinayaka Travels & Cabs</span></h3>
+          </div>
+          <p>
+            We specialize in devotional temple tours and car rentals across India, offering comfortable cab services for pilgrims and travelers alike. With safe drivers, reliable vehicles, and custom tour packages, we make every spiritual journey peaceful and memorable.
+          </p>
+          <!--<ul class="footer__socials">
+            <li>
+              <a href="#!"><i class="ri-facebook-fill"></i></a>
+            </li>
+            <li>
+              <a href="#!"><i class="ri-instagram-line"></i></a>
+            </li>
+            <li>
+              <a href="#!"><i class="ri-youtube-line"></i></a>
+            </li>
+          </ul> -->
+        </div>
+        <div class="footer__col">
+          <h4>Quick Links</h4>
+          <ul class="footer__links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#tour">Tours</a></li>
+            <li><a href="#package">Packages</a></li>
+            <li><a href="#our-services">Our Services</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact Us</h4>
+          <ul class="footer__links">
+            <li>
+              <a href="tel:+919948554555">
+                <span><i class="ri-phone-fill"></i></span>+91 9948554555
+              </a><a href="tel:+919440345878">
+                <span><i class="ri-phone-fill"></i></span>+91 9440345878
+              </a>
+            </li>
+            <li>
+              <a href="mailto:ssvtrv9@gmail.com">
+                <span><i class="ri-record-mail-line"></i></span>
+                ssvtrv9@gmail.com
+              </a>
+            </li>
+            <li>
+              <a href="https://maps.app.goo.gl/a5KC65fLDaieHUtN6" target="_blank">
+                <span><i class="ri-map-pin-2-fill"></i></span>Rezimental Bazar Main Road, Secunderabad -500003, Telangana, India.
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!--<div class="footer__col">
+          <h4>Subscribe</h4>
+          <form action="#!">
+            <input type="text" placeholder="Enter your email" />
+            <button class="btn">Subscribe</button>
+          </form>
+        </div> -->
+      </div>
+      <div class="footer__bar">
+        Copyright © 2025 Sri Vinayaka Travel Cabs. All rights reserved.
+        <p>
+          Distributed by
+          <a
+            class="text-white"
+            href="https://www.brandpoint.in"
+            target="_blank"
+            >Brand Point</a
+          >
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+    const tabs = document.querySelectorAll('.tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+    const dropdown = document.getElementById('tabDropdown');
+
+    // Tab click handler
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        const target = tab.dataset.tab;
+        tabContents.forEach(tc => tc.classList.remove('active'));
+        document.getElementById(target).classList.add('active');
+        dropdown.value = target;
+      });
+    });
+
+    // Dropdown change handler
+    dropdown.addEventListener('change', () => {
+      const selected = dropdown.value;
+      tabContents.forEach(tc => tc.classList.remove('active'));
+      document.getElementById(selected).classList.add('active');
+      tabs.forEach(t => t.classList.remove('active'));
+      document.querySelector(`[data-tab="${selected}"]`).classList.add('active');
+    });
+  </script>
+  <script>
+  document.querySelectorAll("#nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuBtn.classList.remove("open");
+    });
+  });
+</script>
+  </body>
+</html>

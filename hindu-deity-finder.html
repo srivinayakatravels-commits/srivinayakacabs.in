@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hindu Gods & Goddesses</title>
+
+  <style>
+    :root{
+      --primary-color: #2887ff;
+      --primary-color-dark: #2476da;
+    }
+
+    /* Base */
+    *{box-sizing:border-box}
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: var(--primary-color-dark);
+      color: #fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 36px auto;
+      padding: 24px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(36,118,218,0.18);
+      border: 2px solid var(--primary-color-dark);
+    }
+
+    header {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
+      flex-wrap:wrap;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      color: #000;
+    }
+
+    p.lead {
+      margin: 6px 0 18px;
+      color: #111;
+      font-size: 13px;
+    }
+
+    .controls {
+      display:flex;
+      gap:10px;
+      align-items:center;
+      margin: 18px 0;
+      flex-wrap:wrap;
+    }
+
+    .search, .select {
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid var(--primary-color-dark);
+      color: var(--primary-color-dark);
+      font-size: 14px;
+      min-width: 220px;
+    }
+
+    .search:focus, .select:focus {
+      border-color: var(--primary-color);
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(40,135,255,0.08);
+    }
+
+    .table-wrap {
+      overflow:auto;
+      border-radius: 10px;
+      background: var(--primary-color-dark);
+      padding:1px;
+      border:1px solid var(--primary-color);
+    }
+
+    table {
+      width:100%;
+      border-collapse:collapse;
+      min-width: 1100px;
+      background: #fff;
+      color: var(--primary-color-dark);
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      background: var(--primary-color-dark);
+      color: #fff;
+      padding: 12px 14px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 13px;
+      border-bottom: 2px solid var(--primary-color);
+      z-index: 2;
+      white-space: nowrap;
+    }
+
+    tbody td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(36,118,218,0.08);
+      font-size: 14px;
+      color: #222;
+      vertical-align: middle;
+    }
+
+    tbody tr:hover td {
+      background: var(--primary-color);
+      color: #fff;
+    }
+
+    tbody tr:nth-child(even) td {
+      background: #f2f8ff;
+    }
+
+    tbody tr:nth-child(even):hover td {
+      background: var(--primary-color);
+      color: #fff;
+    }
+
+    .badge {
+      display:inline-block;
+      padding:4px 8px;
+      border-radius:999px;
+      font-size:12px;
+      background: rgba(40,135,255,0.12);
+      color: var(--primary-color-dark);
+      border:1px solid rgba(36,118,218,0.12);
+    }
+
+    footer {
+      margin-top: 18px;
+      color: var(--primary-color-dark);
+      font-size: 13px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .container { margin: 20px; padding: 18px; }
+      table { min-width: 1000px; }
+      .search, .select { min-width: 180px; }
+    }
+
+    @media (max-width: 720px) {
+      header { align-items:flex-start; }
+      h1 { font-size: 18px; }
+      .controls { gap:8px; }
+      table { min-width: 900px; }
+    }
+
+    /* Small-screen alternate card view toggle (accessible by adding .card-view on body if you want) */
+    @media (max-width:520px) {
+      /* keep table horizontally scrollable; cards would be heavier. */
+    }
+
+    /* subtle helper text */
+    .hint {
+      font-size: 12px;
+      color: #444;
+      margin-left: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <header>
+      <div>
+        <h1>Hindu Gods & Goddesses — Catalogue</h1>
+        <p class="lead">Search across names, groups, symbols, vehicles and descriptions. Use the group filter to narrow by tradition.</p>
+      </div>
+      <div style="text-align:right">
+        <div class="badge">Theme: Blue</div>
+      </div>
+    </header>
+
+    <div class="controls" aria-hidden="false">
+      <input id="searchInput" class="search" type="search" placeholder="Search name, description, symbol, vehicle..." aria-label="Search the gods and goddesses">
+      <select id="groupFilter" class="select" aria-label="Filter by group">
+        <option value="">All Groups</option>
+        <option value="Trimurti">Trimurti</option>
+        <option value="Tridevi">Tridevi</option>
+        <option value="Dashavatara">Dashavatara (Vishnu avatars)</option>
+        <option value="Vishnu Forms">Vishnu Forms</option>
+        <option value="Shiva Forms">Shiva Forms</option>
+        <option value="Parvati Forms">Parvati / Shakti</option>
+        <option value="Children of Shiva">Children of Shiva</option>
+        <option value="Solar & Celestial">Solar & Celestial</option>
+        <option value="Nature & Folk">Nature & Folk Deities</option>
+        <option value="Other Male Deities">Other Male Deities</option>
+        <option value="Regional / Folk">Regional / Folk Deities</option>
+        <option value="Navagraha">Navagraha (Planets)</option>
+      </select>
+      <button id="clearBtn" class="select" style="cursor:pointer;">Clear</button>
+    </div>
+
+    <div class="table-wrap" role="region" aria-label="Table of deities">
+      <table id="deityTable" role="table" aria-describedby="tableDesc">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Group</th>
+            <th>Description / Role</th>
+            <th>Vehicle / Symbol</th>
+            <th>Region / Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Trimurti -->
+          <tr><td>1</td><td>Brahma</td><td>Trimurti</td><td>Creator god of the cosmos</td><td>Swan (Hamsa) / Vedas</td><td>Pan-Hindu (rarely worshipped)</td></tr>
+          <tr><td>2</td><td>Vishnu</td><td>Trimurti</td><td>Preserver and protector of dharma</td><td>Garuda / Shankha (conch) & Chakra</td><td>Vaishnavism primary</td></tr>
+          <tr><td>3</td><td>Shiva (Mahadeva)</td><td>Trimurti</td><td>Destroyer/transformer — lord of yoga and meditation</td><td>Nandi (bull) / Trishula / Lingam</td><td>Shaivism primary</td></tr>
+
+          <!-- Tridevi -->
+          <tr><td>4</td><td>Saraswati</td><td>Tridevi</td><td>Goddess of knowledge, arts and learning</td><td>Swan / Veena</td><td>Consort of Brahma</td></tr>
+          <tr><td>5</td><td>Lakshmi</td><td>Tridevi</td><td>Goddess of wealth, fortune and prosperity</td><td>Lotus / Elephants</td><td>Consort of Vishnu</td></tr>
+          <tr><td>6</td><td>Parvati (Shakti)</td><td>Tridevi</td><td>Divine mother, fertility, love and devotion</td><td>Lotus / Lion (in some forms)</td><td>Consort of Shiva</td></tr>
+
+          <!-- Dashavatara (Vishnu avatars) -->
+          <tr><td>7</td><td>Matsya</td><td>Dashavatara</td><td>Fish avatar who saved the Vedas</td><td>Fish</td><td>Avatar of Vishnu</td></tr>
+          <tr><td>8</td><td>Kurma</td><td>Dashavatara</td><td>Turtle avatar during churning of ocean</td><td>Turtle</td><td>Avatar of Vishnu</td></tr>
+          <tr><td>9</td><td>Varaha</td><td>Dashavatara</td><td>Boar who rescued Earth (Prithvi)</td><td>Boar</td><td>Avatar of Vishnu</td></tr>
+          <tr><td>10</td><td>Narasimha</td><td>Dashavatara</td><td>Man-Lion form who protected Prahlada</td><td>Man-Lion imagery</td><td>Avatar of Vishnu</td></tr>
+          <tr><td>11</td><td>Vamana</td><td>Dashavatara</td><td>Dwarf who reclaimed the three worlds from Bali</td><td>Umbrella / Dwarf iconography</td><td>Avatar of Vishnu</td></tr>
+          <tr><td>12</td><td>Parashurama</td><td>Dashavatara</td><td>Warrior-sage with an axe</td><td>Axe (Parashu)</td><td>Avatar of Vishnu</td></tr>
+          <tr><td>13</td><td>Rama</td><td>Dashavatara</td><td>Hero of Ramayana, exemplar of dharma</td><td>Bow (Kodanda) / Chariot</td><td>Avatar of Vishnu</td></tr>
+          <tr><td>14</td><td>Krishna</td><td>Dashavatara</td><td>Divine statesman, teacher (Bhagavad Gita), lover</td><td>Cow / Flute</td><td>Avatar of Vishnu</td></tr>
+          <tr><td>15</td><td>Buddha</td><td>Dashavatara</td><td>Recognized in some traditions as Vishnu avatar</td><td>Lotus / Dharmachakra</td><td>Variably included</td></tr>
+          <tr><td>16</td><td>Kalki</td><td>Dashavatara</td><td>Future avatar to end the age of darkness (Kali Yuga)</td><td>White horse</td><td>Future avatar</td></tr>
+
+          <!-- Other Vishnu Forms -->
+          <tr><td>17</td><td>Venkateswara (Balaji)</td><td>Vishnu Forms</td><td>Famous form worshipped at Tirupati</td><td>Conch, Chakra</td><td>South India</td></tr>
+          <tr><td>18</td><td>Jagannath</td><td>Vishnu Forms</td><td>Form worshipped at Puri festival</td><td>Car festival / Iconic wooden form</td><td>Odisha</td></tr>
+          <tr><td>19</td><td>Hayagriva</td><td>Vishnu Forms</td><td>God of knowledge — horse-headed form</td><td>Horse</td><td>Wisdom deity</td></tr>
+          <tr><td>20</td><td>Padmanabha</td><td>Vishnu Forms</td><td>Reclining cosmic form on Ananta Shesha</td><td>Ananta Shesha (Serpent)</td><td>Kerala (Padmanabhaswamy)</td></tr>
+
+          <!-- Shiva Forms -->
+          <tr><td>21</td><td>Nataraja</td><td>Shiva Forms</td><td>Lord of cosmic dance (Ananda Tandava)</td><td>Damaru (drum) / Fire (Agni)</td><td>Chidambaram association</td></tr>
+          <tr><td>22</td><td>Ardhanarishvara</td><td>Shiva Forms</td><td>Half Shiva, half Parvati — unity of male & female</td><td>Combined symbols</td><td>Philosophical form</td></tr>
+          <tr><td>23</td><td>Dakshinamurthy</td><td>Shiva Forms</td><td>Teacher and guru form of Shiva</td><td>Peepal tree / Teaching pose</td><td>South Indian iconography</td></tr>
+          <tr><td>24</td><td>Bhairava</td><td>Shiva Forms</td><td>Fierce guardian and protector</td><td>Dog / Trident</td><td>Tantric traditions</td></tr>
+          <tr><td>25</td><td>Pashupati</td><td>Shiva Forms</td><td>Lord of beasts and living beings</td><td>Animals / Bull symbolism</td><td>Nepal & Vedic references</td></tr>
+          <tr><td>26</td><td>Rudra</td><td>Shiva Forms</td><td>Vedic fierce form associated with storms and death</td><td>Bow / Rudra attributes</td><td>Vedic texts</td></tr>
+
+          <!-- Parvati / Shakti Forms -->
+          <tr><td>27</td><td>Durga</td><td>Parvati Forms</td><td>Warrior mother who destroys evil</td><td>Lion / Weapons</td><td>Navaratri central</td></tr>
+          <tr><td>28</td><td>Kali</td><td>Parvati Forms</td><td>Fierce destroyer of ego and time</td><td>Skull necklace / Sword</td><td>Tantric and Shakta worship</td></tr>
+          <tr><td>29</td><td>Annapurna</td><td>Parvati Forms</td><td>Goddess of food and nourishment</td><td>Pot of food / Ladle</td><td>Benaras association</td></tr>
+          <tr><td>30</td><td>Meenakshi</td><td>Parvati Forms</td><td>Fish-eyed goddess of Madurai (form of Parvati)</td><td>Parrot / Lotus</td><td>Madurai, Tamil Nadu</td></tr>
+          <tr><td>31</td><td>Kamakhya</td><td>Parvati Forms</td><td>Powerful fertility & tantric goddess</td><td>Yoni symbolism</td><td>Assam (Kamakhya)</td></tr>
+          <tr><td>32</td><td>Lalita Tripura Sundari</td><td>Parvati Forms</td><td>Supreme beauty & consciousness</td><td>Mirror, lotus, noose</td><td>Shakta tantra</td></tr>
+
+          <!-- Children of Shiva -->
+          <tr><td>33</td><td>Ganesha</td><td>Children of Shiva</td><td>Remover of obstacles, patron of arts & letters</td><td>Mouse (Mushika) / Modak</td><td>Pan-Hindu popular deity</td></tr>
+          <tr><td>34</td><td>Kartikeya (Murugan / Skanda)</td><td>Children of Shiva</td><td>God of war, commander of divine army</td><td>Peacock / Spear (Vel)</td><td>South India & Skanda tradition</td></tr>
+
+          <!-- Solar & Celestial -->
+          <tr><td>35</td><td>Surya</td><td>Solar & Celestial</td><td>Sun god, dispels darkness</td><td>Chariot drawn by seven horses</td><td>Vedic & classical worship</td></tr>
+          <tr><td>36</td><td>Chandra</td><td>Solar & Celestial</td><td>Moon god — mind & emotions</td><td>Chariot / Crescent</td><td>Vedic</td></tr>
+          <tr><td>37</td><td>Agni</td><td>Solar & Celestial</td><td>Fire god — sacrificial fire</td><td>Flame / Ram</td><td>Vedic rituals</td></tr>
+          <tr><td>38</td><td>Indra</td><td>Solar & Celestial</td><td>King of gods, rain & thunder</td><td>Elephant (Airavata) / Vajra</td><td>Vedic / Epic</td></tr>
+          <tr><td>39</td><td>Varuna</td><td>Solar & Celestial</td><td>Lord of waters, cosmic order (ṛta)</td><td>Noose / Makara (sea creature)</td><td>Vedic</td></tr>
+          <tr><td>40</td><td>Vayu</td><td>Solar & Celestial</td><td>Wind god</td><td>Bamboo / Antelope</td><td>Vedic</td></tr>
+          <tr><td>41</td><td>Yama</td><td>Solar & Celestial</td><td>God of death & justice</td><td>Buffalo / Danda (staff)</td><td>Vedic / Dharmic law</td></tr>
+
+          <!-- Nature & Folk -->
+          <tr><td>42</td><td>Prithvi / Bhudevi</td><td>Nature & Folk</td><td>Earth goddess</td><td>Lotus / Plough</td><td>Pan-Hindu earth aspect</td></tr>
+          <tr><td>43</td><td>Ganga</td><td>Nature & Folk</td><td>River goddess — purifier</td><td>Vessel / River imagery</td><td>Ganges river</td></tr>
+          <tr><td>44</td><td>Yamuna</td><td>Nature & Folk</td><td>River goddess</td><td>Lotus / Vessel</td><td>Yamuna river</td></tr>
+          <tr><td>45</td><td>Santoshi Mata</td><td>Nature & Folk</td><td>Goddess of satisfaction and contentment</td><td>Simple iconography</td><td>Modern popular cult</td></tr>
+          <tr><td>46</td><td>Tulsi</td><td>Nature & Folk</td><td>Sacred plant revered as goddess & devotee of Vishnu</td><td>Tulsi plant</td><td>Household worship</td></tr>
+          <tr><td>47</td><td>Manasa Devi</td><td>Nature & Folk</td><td>Snake goddess — fertility and protection</td><td>Snake</td><td>Bengal, Assam, Odisha</td></tr>
+
+          <!-- Other Male Deities -->
+          <tr><td>48</td><td>Hanuman</td><td>Other Male Deities</td><td>Devotee of Rama — strength, devotion, protector</td><td>Monkey / Gada (mace)</td><td>Ramayana traditions</td></tr>
+          <tr><td>49</td><td>Ayyappa</td><td>Other Male Deities</td><td>Son of Shiva & Mohini (Vishnu's female form)</td><td>Tiger / Pilgrimage iconography</td><td>Sabarimala, Kerala</td></tr>
+          <tr><td>50</td><td>Dattatreya</td><td>Other Male Deities</td><td>Combined form of Brahma-Vishnu-Shiva</td><td>Dogs / Cow / Akshamala</td><td>Avadhuta tradition</td></tr>
+          <tr><td>51</td><td>Narada</td><td>Other Male Deities</td><td>Divine sage and messenger</td><td>Veena</td><td>Itinerant rishi</td></tr>
+          <tr><td>52</td><td>Kubera (Kuber)</td><td>Other Male Deities</td><td>Treasurer of gods, lord of wealth</td><td>Money pot / Mongoose</td><td>Yaksha king</td></tr>
+          <tr><td>53</td><td>Shani</td><td>Other Male Deities</td><td>Planet Saturn — dispenser of karma</td><td>Crow / Vulture</td><td>Navagraha</td></tr>
+
+          <!-- Regional / Folk Deities (samples) -->
+          <tr><td>54</td><td>Ayyanar</td><td>Regional / Folk</td><td>Village guardian deity</td><td>Horse / Terracotta horse</td><td>Tamil Nadu folk</td></tr>
+          <tr><td>55</td><td>Mariamman</td><td>Regional / Folk</td><td>Fever & rain goddess (regional form)</td><td>Trident / Lotus</td><td>South India folk</td></tr>
+          <tr><td>56</td><td>Khandoba</td><td>Regional / Folk</td><td>Regional warrior god (Mharashtra)</td><td>Horse</td><td>Maharashtra</td></tr>
+          <tr><td>57</td><td>Yellamma</td><td>Regional / Folk</td><td>Mother goddess in Karnataka/Telangana</td><td>Lotus / local symbols</td><td>Karnataka / Telangana</td></tr>
+
+          <!-- Navagraha -->
+          <tr><td>58</td><td>Surya</td><td>Navagraha</td><td>Sun (planet deity)</td><td>Chariot with 7 horses</td><td>Navagraha</td></tr>
+          <tr><td>59</td><td>Chandra</td><td>Navagraha</td><td>Moon (planet deity)</td><td>Chariot / Crescent</td><td>Navagraha</td></tr>
+          <tr><td>60</td><td>Mangala (Angaraka)</td><td>Navagraha</td><td>Mars (planet deity)</td><td>Spear</td><td>Navagraha</td></tr>
+          <tr><td>61</td><td>Budha</td><td>Navagraha</td><td>Mercury (planet deity)</td><td>Lotus / Sword</td><td>Navagraha</td></tr>
+          <tr><td>62</td><td>Brihaspati (Guru)</td><td>Navagraha</td><td>Jupiter (planet deity)</td><td>Elephant / Staff</td><td>Navagraha</td></tr>
+          <tr><td>63</td><td>Shukra</td><td>Navagraha</td><td>Venus (planet deity)</td><td>Horse / Staff</td><td>Navagraha</td></tr>
+          <tr><td>64</td><td>Shani</td><td>Navagraha</td><td>Saturn (planet deity)</td><td>Vulture / Crow</td><td>Navagraha</td></tr>
+          <tr><td>65</td><td>Rahu</td><td>Navagraha</td><td>Ascending lunar node — eclipse deity</td><td>Serpent / No fixed mount</td><td>Shadow planet</td></tr>
+          <tr><td>66</td><td>Ketu</td><td>Navagraha</td><td>Descending lunar node — eclipse deity</td><td>Serpent tail</td><td>Shadow planet</td></tr>
+
+          <!-- A few more commonly asked popular forms -->
+          <tr><td>67</td><td>Sankara (Shiva - multiple local forms)</td><td>Shiva Forms</td><td>Local/temple forms of Shiva</td><td>Various (Nandi, Trishul)</td><td>Across India</td></tr>
+          <tr><td>68</td><td>Bhudevi (Lakshmi aspect)</td><td>Tridevi / Vishnu Forms</td><td>Earth aspect of Lakshmi</td><td>Lotus</td><td>Vishnu consort aspect</td></tr>
+          <tr><td>69</td><td>Tulja Bhavani</td><td>Regional / Folk</td><td>Powerful goddess worshipped by Marathas</td><td>Sword</td><td>Maharashtra</td></tr>
+          <tr><td>70</td><td>Shitala Mata</td><td>Regional / Folk</td><td>Goddess associated with smallpox & healing</td><td>Fan / Broom</td><td>North India folk</td></tr>
+
+        </tbody>
+      </table>
+      <div id="tableDesc" style="display:none">This table lists major Hindu deities grouped by tradition with brief descriptions and vehicles/symbols.</div>
+    </div>
+
+    <footer>
+      © <span id="year"></span> Hindu Deities Catalogue
+    </footer>
+  </div>
+
+  <script>
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const searchInput = document.getElementById('searchInput');
+    const groupFilter = document.getElementById('groupFilter');
+    const clearBtn = document.getElementById('clearBtn');
+    const table = document.getElementById('deityTable');
+    const tbody = table.tBodies[0];
+
+    // Helper: normalize text for search
+    function norm(s){
+      return (s||'').toString().toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '');
+    }
+
+    function filterTable(){
+      const q = norm(searchInput.value.trim());
+      const g = norm(groupFilter.value.trim());
+
+      // iterate over rows
+      for (let r=0; r < tbody.rows.length; r++){
+        const row = tbody.rows[r];
+        const cells = row.cells;
+
+        // Collect searchable text from multiple columns
+        let combined = '';
+        for (let c=1; c<=4; c++){ // Name, Group, Description, Vehicle/Symbol
+          if (cells[c]) combined += ' ' + cells[c].textContent;
+        }
+        // also include region/notes
+        if (cells[5]) combined += ' ' + cells[5].textContent;
+
+        const text = norm(combined);
+        const rowGroup = norm(cells[2] ? cells[2].textContent : '');
+
+        const matchesQuery = q === '' ? true : text.indexOf(q) !== -1;
+        const matchesGroup = g === '' ? true : rowGroup === g;
+
+        row.style.display = (matchesQuery && matchesGroup) ? '' : 'none';
+      }
+    }
+
+    // Event listeners
+    searchInput.addEventListener('input', filterTable);
+    groupFilter.addEventListener('change', filterTable);
+    clearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      groupFilter.value = '';
+      filterTable();
+      searchInput.focus();
+    });
+
+    // Accessibility: allow Enter in search to focus table
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        // focus first visible row
+        for (let r=0; r<tbody.rows.length; r++){
+          if (tbody.rows[r].style.display !== 'none'){
+            tbody.rows[r].cells[1].focus();
+            break;
+          }
+        }
+      }
+    });
+
+    // initial filter (none)
+    filterTable();
+  </script>
+</body>
+</html>

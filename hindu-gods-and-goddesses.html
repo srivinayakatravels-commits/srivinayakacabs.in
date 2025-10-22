@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Temples Catalogue — Hindu Temples (Prominent List)</title>
+
+  <style>
+    :root{
+      --primary-color: #2887ff;
+      --primary-color-dark: #2476da;
+    }
+
+    *{ box-sizing: border-box; }
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: var(--primary-color-dark);
+      color: #fff;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    .container{
+      max-width: 1200px;
+      margin: 36px auto;
+      padding: 22px;
+      background: #fff;
+      border-radius: 12px;
+      border: 2px solid var(--primary-color-dark);
+      box-shadow: 0 10px 30px rgba(36,118,218,0.18);
+    }
+
+    header { display:flex; justify-content:space-between; gap:12px; align-items:center; flex-wrap:wrap; }
+    h1{ margin:0; font-size:20px; color:#000; }
+    p.lead{ margin:6px 0 18px; color:#111; font-size:13px; }
+
+    .controls{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:14px; }
+    .search, .select, .btn {
+      padding:10px 12px;
+      border-radius:10px;
+      background:#fff;
+      border:1px solid var(--primary-color-dark);
+      color:var(--primary-color-dark);
+      font-size:14px;
+    }
+    .search:focus, .select:focus { outline:none; border-color:var(--primary-color); box-shadow:0 0 0 4px rgba(40,135,255,0.08); }
+
+    .table-wrap{
+      overflow:auto;
+      border-radius: 10px;
+      background: var(--primary-color-dark);
+      padding:1px;
+      border:1px solid var(--primary-color);
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:1200px;
+      background:#fff;
+      color:var(--primary-color-dark);
+    }
+
+    thead th{
+      position: sticky;
+      top:0;
+      background: var(--primary-color-dark);
+      color:#fff;
+      padding:10px 12px;
+      text-align:left;
+      font-weight:700;
+      font-size:13px;
+      border-bottom:2px solid var(--primary-color);
+      white-space:nowrap;
+    }
+
+    tbody td{
+      padding:10px 12px;
+      border-bottom:1px solid rgba(36,118,218,0.08);
+      vertical-align:top;
+      color:#222;
+      font-size:13px;
+    }
+
+    tbody tr:nth-child(even) td { background:#f2f8ff; }
+    tbody tr:hover td { background:var(--primary-color); color:#fff; }
+
+    .badge { display:inline-block; padding:4px 8px; border-radius:999px; font-size:12px; background: rgba(40,135,255,0.12); color:var(--primary-color-dark); border:1px solid rgba(36,118,218,0.12); }
+
+    footer{ margin-top:12px; color:var(--primary-color-dark); font-size:13px; }
+
+    /* responsive */
+    @media (max-width:1100px){ .container{ padding:16px } table{ min-width:1000px } }
+    @media (max-width:800px){
+      .container{ margin:16px; }
+      thead th{ font-size:12px; }
+      .search, .select{ min-width:140px; }
+      table{ min-width:900px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <header>
+      <div>
+        <h1>Hindu Temples in the World</h1>
+        <p class="lead">Columns: Temple Name • God/Goddess • Location (City/Town) • District • Region • State • Country • Notes. Use search & group filter. Add rows manually as needed.</p>
+      </div>
+      <div style="text-align:right">
+        <div class="badge">Theme: Blue</div>
+      </div>
+    </header>
+
+    <div class="controls" aria-label="Controls">
+      <input id="searchInput" class="search" type="search" placeholder="Search any column (temple, deity, city, notes)..." aria-label="Search temples">
+      <select id="groupFilter" class="select" aria-label="Filter by group">
+        <option value="">All Groups</option>
+        <option value="Jyotirlinga">Jyotirlinga</option>
+        <option value="Panch Kedar">Panch Kedar</option>
+        <option value="Pancha Bootha">Pancha Bootha</option>
+        <option value="Panch Sabhai">Panch Sabhai</option>
+        <option value="Ashta Veeratta">Ashta Veeratta</option>
+        <option value="Vaishnava Major">Vaishnava Major</option>
+        <option value="Shakta Major">Shakta Major</option>
+        <option value="Other Shaiva">Other Shaiva</option>
+        <option value="Outside India">Outside India</option>
+        <option value="Regional Important">Regional Important</option>
+      </select>
+
+      <select id="deityFilter" class="select" aria-label="Filter by deity (optional)">
+        <option value="">All Deities</option>
+        <option value="Shiva">Shiva</option>
+        <option value="Vishnu">Vishnu</option>
+        <option value="Durga">Durga</option>
+        <option value="Kali">Kali</option>
+        <option value="Lakshmi">Lakshmi</option>
+        <option value="Saraswati">Saraswati</option>
+        <option value="Ganesha">Ganesha</option>
+        <option value="Murugan">Murugan</option>
+        <option value="Hanuman">Hanuman</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <button id="clearBtn" class="btn" title="Clear filters">Clear</button>
+      <!--<button id="exportBtn" class="btn" title="Export visible rows as CSV">Export CSV</button> -->
+    </div>
+
+    <div class="table-wrap" role="region" aria-label="Temples table">
+      <table id="templeTable" aria-describedby="tableDesc">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Temple Name</th>
+            <th>God/Goddess</th>
+            <th>Location (City/Town)</th>
+            <th>District</th>
+            <th>Region</th>
+            <th>State</th>
+            <th>Country</th>
+            <th>Group</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Jyotirlingas (12) -->
+          <tr>
+            <td>1</td>
+            <td>Somnath Temple</td>
+            <td>Shiva (Somnath)</td>
+            <td>Prabhas Patan</td>
+            <td>Gir Somnath</td>
+            <td>Saurashtra</td>
+            <td>Gujarat</td>
+            <td>India</td>
+            <td>Jyotirlinga</td>
+            <td>Ancient, westernmost Jyotirlinga; coastal temple complex.</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Mallikarjuna Swamy Temple (Srisailam)</td>
+            <td>Shiva (Mallikarjuna)</td>
+            <td>Srisailam</td>
+            <td>Nandyal / Kurnool</td>
+            <td>Rayalaseema</td>
+            <td>Andhra Pradesh</td>
+            <td>India</td>
+            <td>Jyotirlinga</td>
+            <td>Also a Shakti Peetha (Bhramaramba).</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Mahakaleshwar Temple</td>
+            <td>Shiva (Mahakaleshwar)</td>
+            <td>Ujjain</td>
+            <td>Ujjain</td>
+            <td>Madhya Bharat</td>
+            <td>Madhya Pradesh</td>
+            <td>India</td>
+            <td>Jyotirlinga</td>
+            <td>Famous for Bhasma Aarti; ancient Ujjain pilgrimage site.</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Omkareshwar Temple</td>
+            <td>Shiva (Omkareshwar)</td>
+            <td>Omkareshwar</td>
+            <td>Khandwa</td>
+            <td>Madhya Bharat</td>
+            <td>Madhya Pradesh</td>
+            <td>India</td>
+            <td>Jyotirlinga</td>
+            <td>Island temple on the Narmada shaped like 'Om'.</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Kedarnath Temple</td>
+            <td>Shiva (Kedarnath)</td>
+            <td>Kedarnath (near Gaurikund)</td>
+            <td>Rudraprayag</td>
+            <td>Garhwal Himalaya</td>
+            <td>Uttarakhand</td>
+            <td>India</td>
+            <td>Jyotirlinga / Panch Kedar</td>
+            <td>High-altitude shrine; one of most sacred Shaiva sites.</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Bhimashankar Temple</td>
+            <td>Shiva (Bhimashankar)</td>
+            <td>Bhimashankar</td>
+            <td>Pune</td>
+            <td>Maharashtra (Western Ghats)</td>
+            <td>Maharashtra</td>
+            <td>India</td>
+            <td>Jyotirlinga</td>
+            <td>Located in lush forest; associated with the Bhima river source.</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Kashi Vishwanath Temple</td>
+            <td>Shiva (Vishwanath)</td>
+            <td>Varanasi</td>
+            <td>Varanasi</td>
+            <td>Uttar Pradesh Plains</td>
+            <td>Uttar Pradesh</td>
+            <td>India</td>
+            <td>Jyotirlinga</td>
+            <td>One of the most famous and holiest Shiva shrines.</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Trimbakeshwar Temple</td>
+            <td>Shiva (Trimbakeshwar)</td>
+            <td>Trimbak</td>
+            <td>Nashik</td>
+            <td>Maharashtra</td>
+            <td>Maharashtra</td>
+            <td>India</td>
+            <td>Jyotirlinga</td>
+            <td>Source of the Godavari river; unique three-faced linga.</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>Vaidyanath (Baidyanath) Temple</td>
+            <td>Shiva (Vaidyanath)</td>
+            <td>Deoghar</td>
+            <td>Deoghar</td>
+            <td>Santhal Parganas</td>
+            <td>Jharkhand</td>
+            <td>India</td>
+            <td>Jyotirlinga</td>
+            <td>Major pilgrimage during Shravan month.</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>Nageshwar (Nagnath) Temple</td>
+            <td>Shiva (Nageshwar)</td>
+            <td>Dwarka (near Bet Dwarka)</td>
+            <td>Jamnagar / Devbhoomi Dwarka</td>
+            <td>Saurashtra</td>
+            <td>Gujarat</td>
+            <td>India</td>
+            <td>Jyotirlinga</td>
+            <td>Associated with protective & anti-poison rituals.</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>Ramanathaswamy Temple</td>
+            <td>Shiva (Ramanathaswamy)</td>
+            <td>Rameswaram</td>
+            <td>Ramanathapuram</td>
+            <td>Pandya / Tamil region</td>
+            <td>Tamil Nadu</td>
+            <td>India</td>
+            <td>Jyotirlinga</td>
+            <td>Sacred island shrine; linked to Ramayana.</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>Grishneshwar Temple</td>
+            <td>Shiva (Grishneshwar)</td>
+            <td>Ellora / Verul</td>
+            <td>Aurangabad</td>
+            <td>Maharashtra (Deccan)</td>
+            <td>Maharashtra</td>
+            <td>India</td>
+            <td>Jyotirlinga</td>
+            <td>Near the Ellora caves, restored temple.</td>
+          </tr>
+
+          <!-- Panch Kedar (5) -->
+          <tr>
+            <td>13</td>
+            <td>Tungnath Temple</td>
+            <td>Shiva (Tungnath)</td>
+            <td>Tungnath (near Chopta)</td>
+            <td>Rudraprayag</td>
+            <td>Garhwal Himalaya</td>
+            <td>Uttarakhand</td>
+            <td>India</td>
+            <td>Panch Kedar</td>
+            <td>Highest Shiva temple in the Panch Kedar circuit (accessible by trek).</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>Rudranath Temple</td>
+            <td>Shiva (Rudranath)</td>
+            <td>Rudranath</td>
+            <td>Chamoli</td>
+            <td>Garhwal Himalaya</td>
+            <td>Uttarakhand</td>
+            <td>India</td>
+            <td>Panch Kedar</td>
+            <td>Remote Himalayan shrine; part of Pandava legend.</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>Madhyamaheshwar Temple</td>
+            <td>Shiva (Madymamaheshwar)</td>
+            <td>Madhyamaheshwar</td>
+            <td>Uttarkashi</td>
+            <td>Garhwal Himalaya</td>
+            <td>Uttarakhand</td>
+            <td>India</td>
+            <td>Panch Kedar</td>
+            <td>Located between Kedarnath & Tungnath; lesser-visited.</td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>Kalpeshwar Temple</td>
+            <td>Shiva (Kalpeshwar)</td>
+            <td>Urgam Valley (near Gopeshwar)</td>
+            <td>Chamoli</td>
+            <td>Garhwal Himalaya</td>
+            <td>Uttarakhand</td>
+            <td>India</td>
+            <td>Panch Kedar</td>
+            <td>One of the five sites; open year-round (low elevation).</td>
+          </tr>
+
+          <!-- Pancha Bootha (5) -->
+          <tr>
+            <td>17</td>
+            <td>Ekambareswarar Temple</td>
+            <td>Lord Shiva (Prithvi Lingam)</td>
+            <td>Kanchipuram</td>
+            <td>Kanchipuram</td>
+            <td>Chengalpattu / Tamil Nadu</td>
+            <td>Tamil Nadu</td>
+            <td>India</td>
+            <td>Pancha Bootha</td>
+            <td>Represents Earth.</td>
+          </tr>
+          <tr>
+            <td>18</td>
+            <td>Jambukeswarar Temple</td>
+            <td>Lord Shiva (Appu Lingam)</td>
+            <td>Thiruvanaikaval</td>
+            <td>Trichy</td>
+            <td>Cauvery delta</td>
+            <td>Tamil Nadu</td>
+            <td>India</td>
+            <td>Pancha Bootha</td>
+            <td>Represents Water; partially submerged sanctum.</td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td>Arunachaleswarar Temple (Annamalai)</td>
+            <td>Lord Shiva (Agni Lingam)</td>
+            <td>Tiruvannamalai</td>
+            <td>Tiruvannamalai</td>
+            <td>Tamil region</td>
+            <td>Tamil Nadu</td>
+            <td>India</td>
+            <td>Pancha Bootha</td>
+            <td>Represents Fire; large temple with Girivalam pilgrimage.</td>
+          </tr>
+          <tr>
+            <td>20</td>
+            <td>Sri Kalahasteeswara Temple</td>
+            <td>Lord Shiva (Vayu Lingam)</td>
+            <td>Srikalahasti</td>
+            <td>Chittoor</td>
+            <td>Rayalaseema</td>
+            <td>Andhra Pradesh</td>
+            <td>India</td>
+            <td>Pancha Bootha</td>
+            <td>Represents Air; famous for Rahu-Ketu rites.</td>
+          </tr>
+          <tr>
+            <td>21</td>
+            <td>Chidambaram Nataraja Temple</td>
+            <td>Lord Shiva (Akasha Lingam / Nataraja)</td>
+            <td>Chidambaram</td>
+            <td>Cuddalore</td>
+            <td>Coromandel Coast</td>
+            <td>Tamil Nadu</td>
+            <td>India</td>
+            <td>Pancha Bootha / Panch Sabhai</td>
+            <td>Represents Space; also the Kanaka Sabhai of cosmic dance.</td>
+          </tr>
+
+          <!-- Panch Sabhai (5) -->
+          <tr>
+            <td>22</td>
+            <td>Chidambaram Nataraja Temple (Kanaka Sabhai)</td>
+            <td>Shiva as Nataraja</td>
+            <td>Chidambaram</td>
+            <td>Cuddalore</td>
+            <td>Tamil Nadu</td>
+            <td>Tamil Nadu</td>
+            <td>India</td>
+            <td>Panch Sabhai</td>
+            <td>Gold hall — cosmic dance principle.</td>
+          </tr>
+          <tr>
+            <td>23</td>
+            <td>Meenakshi Sundareswarar Temple</td>
+            <td>Shiva (Sundareswarar) / Meenakshi (Parvati)</td>
+            <td>Madurai</td>
+            <td>Madurai</td>
+            <td>Tamil region</td>
+            <td>Tamil Nadu</td>
+            <td>India</td>
+            <td>Panch Sabhai</td>
+            <td>Velli Sabhai (silver hall); very large festival calendar.</td>
+          </tr>
+          <tr>
+            <td>24</td>
+            <td>Nellaiappar Temple</td>
+            <td>Shiva (Nellaiappar)</td>
+            <td>Tirunelveli</td>
+            <td>Tirunelveli</td>
+            <td>Tamil region</td>
+            <td>Tamil Nadu</td>
+            <td>India</td>
+            <td>Panch Sabhai</td>
+            <td>Tamira Sabhai (copper hall).</td>
+          </tr>
+          <tr>
+            <td>25</td>
+            <td>Tiruvavaduthurai Adheenam</td>
+            <td>Shiva</td>
+            <td>Tiruvavaduthurai</td>
+            <td>Mayiladuthurai</td>
+            <td>Tamil region</td>
+            <td>Tamil Nadu</td>
+            <td>India</td>
+            <td>Panch Sabhai</td>
+            <td>Ratna Sabhai (gem hall).</td>
+          </tr>
+          <tr>
+            <td>26</td>
+            <td>Kutralanathar Temple (Courtallam)</td>
+            <td>Shiva</td>
+            <td>Courtallam</td>
+            <td>Tenkasi</td>
+            <td>Western Tamil Nadu</td>
+            <td>Tamil Nadu</td>
+            <td>India</td>
+            <td>Panch Sabhai</td>
+            <td>Chitra Sabhai (picture hall); associated with waterfalls.</td>
+          </tr>
+
+          <!-- Ashta Veeratta (8) -->
+          <tr>
+            <td>27</td>
+            <td>Tiruvadhigai (Veerateeswarar)</td>
+            <td>Shiva</td>
+            <td>Tiruvadhigai</td>
+            <td>Cuddalore</td>
+            <td>Tamil Nadu</td>
+            <td>Tamil Nadu</td>
+            <td>India</td>
+            <td>Ashta Veeratta</td>
+            <td>One of eight sites where Shiva performed heroic deeds.</td>
+          </tr>
+          <tr>
+            <td>28</td>
+            <td>Tirukkandiyur (Veerateswarar)</td>
+            <td>Shiva</td>
+            <td>Tirukkandiyur</td>
+            <td>Thanjavur</td>
+            <td>Tamil Nadu</td>
+            <td>Tamil Nadu</td>
+            <td>India</td>
+            <td>Ashta Veeratta</td>
+            <td>Associated with destruction of Daksha Yagna's ash.</td>
+          </tr>
+          <tr>
+            <td>29</td>
+            <td>Tirukkurukkai (Veerateswarar)</td>
+            <td>Shiva</td>
+            <td>Tirukkurukkai</td>
+            <td>Thiruvarur</td>
+            <td>Tamil Nadu</td>
+            <td>Tamil Nadu</td>
+            <td>India</td>
+            <td>Ashta Veeratta</td>
+            <td>Local temple honoring Shiva's valor.</td>
+          </tr>
+          <tr>
+            <td>30</td>
+            <td>Tiruppariyalur (Veerateeswarar)</td>
+            <td>Shiva</td>
+            <td>Tiruppariyalur</td>
+            <td>Mayiladuthurai</td>
+            <td>Tamil Nadu</td>
+            <td>Tamil Nadu</td>
+            <td>India</td>
+            <td>Ashta Veeratta</td>
+            <td>Famous ancient site.</td>
+          </tr>
+          <tr>
+            <td>31</td>
+            <td>Tirukovilur (Veerateswarar)</td>
+            <td>Shiva</td>
+            <td>Tirukovilur</td>
+            <td>Villupuram</td>
+            <td>Tamil Nadu</td>
+            <td>Tamil Nadu</td>
+            <td>India</td>
+            <td>Ashta Veeratta</td>
+            <td>Associated with Shiva's acts; historic temple town.</td>
+          </tr>
+          <tr>
+            <td>32</td>
+            <td>Tiruvirkudi (Veerateswarar)</td>
+            <td>Shiva</td>
+            <td>Tiruvirkudi</td>
+            <td>Mayiladuthurai</td>
+            <td>Tamil Nadu</td>
+            <td>Tamil Nadu</td>
+            <td>India</td>
+            <td>Ashta Veeratta</td>
+            <td>Part of the eight-heroic-deeds circuit.</td>
+          </tr>
+          <tr>
+            <td>33</td>
+            <td>Tiruvennainallur (Veerateswarar)</td>
+            <td>Shiva</td>
+            <td>Tiruvennainallur</td>
+            <td>Villupuram</td>
+            <td>Tamil Nadu</td>
+            <td>Tamil Nadu</td>
+            <td>India</td>
+            <td>Ashta Veeratta</td>
+            <td>Historic temple with Veeratta shrine.</td>
+          </tr>
+          <tr>
+            <td>34</td>
+            <td>Tiru Vazhuvur (Veerateswarar)</td>
+            <td>Shiva</td>
+            <td>Vazhuvur</td>
+            <td>Mayiladuthurai</td>
+            <td>Tamil Nadu</td>
+            <td>Tamil Nadu</td>
+            <td>India</td>
+            <td>Ashta Veeratta</td>
+            <td>Famed for local legends and festivals.</td>
+          </tr>
+
+          <!-- Vaishnava Major -->
+          <tr>
+            <td>35</td>
+            <td>Tirupati Venkateswara (Tirumala)</td>
+            <td>Vishnu (Venkateswara)</td>
+            <td>Tirumala / Tirupati</td>
+            <td>Chittoor</td>
+            <td>Rayalaseema / Andhra</td>
+            <td>Andhra Pradesh</td>
+            <td>India</td>
+            <td>Vaishnava Major</td>
+            <td>One of the richest and most visited temples in the world.</td>
+          </tr>
+          <tr>
+            <td>36</td>
+            <td>Jagannath Temple</td>
+            <td>Vishnu (Jagannath)</td>
+            <td>Puri</td>
+            <td>Puri</td>
+            <td>Coastal Odisha</td>
+            <td>Odisha</td>
+            <td>India</td>
+            <td>Vaishnava Major</td>
+            <td>Famous Rath Yatra chariot festival.</td>
+          </tr>
+          <tr>
+            <td>37</td>
+            <td>Srirangam Ranganathaswamy Temple</td>
+            <td>Vishnu (Ranganatha)</td>
+            <td>Srirangam</td>
+            <td>Trichy</td>
+            <td>Tamil region</td>
+            <td>Tamil Nadu</td>
+            <td>India</td>
+            <td>Vaishnava Major</td>
+            <td>Largest functioning Hindu temple complex in the world.</td>
+          </tr>
+
+          <!-- Shakta Major -->
+          <tr>
+            <td>38</td>
+            <td>Kamakhya Temple</td>
+            <td>Devi (Kamakhya)</td>
+            <td>Guwahati</td>
+            <td>Kamrup</td>
+            <td>Assam</td>
+            <td>Assam</td>
+            <td>India</td>
+            <td>Shakta Major</td>
+            <td>One of the primary Shakti Peethas; tantric traditions strong here.</td>
+          </tr>
+          <tr>
+            <td>39</td>
+            <td>Kamakshi Amman (Kanchipuram)</td>
+            <td>Devi (Kamakshi)</td>
+            <td>Kanchipuram</td>
+            <td>Kanchipuram</td>
+            <td>Tamil Nadu</td>
+            <td>Tamil Nadu</td>
+            <td>India</td>
+            <td>Shakta Major</td>
+            <td>Important Devi shrine in the ancient temple city.</td>
+          </tr>
+
+          <!-- Other Important Shaiva Temples -->
+          <tr>
+            <td>40</td>
+            <td>Lingaraj Temple</td>
+            <td>Shiva (Lingaraj)</td>
+            <td>Bhubaneswar</td>
+            <td>Khurda</td>
+            <td>Coastal Odisha</td>
+            <td>Odisha</td>
+            <td>India</td>
+            <td>Other Shaiva</td>
+            <td>Major historical Shaiva temple; classic Kalinga architecture.</td>
+          </tr>
+          <tr>
+            <td>41</td>
+            <td>Amarnath Cave Temple</td>
+            <td>Shiva (Amarnath Linga)</td>
+            <td>Pahalgam / Baltal approaches</td>
+            <td>Anantnag</td>
+            <td>Kashmir Valley</td>
+            <td>Jammu & Kashmir</td>
+            <td>India</td>
+            <td>Other Shaiva</td>
+            <td>Ice Shivling forms seasonally; important Himalayan pilgrimage.</td>
+          </tr>
+          <tr>
+            <td>42</td>
+            <td>Murudeshwar Temple</td>
+            <td>Shiva (Murudeshwar)</td>
+            <td>Murudeshwar</td>
+            <td>Udupi</td>
+            <td>Coastal Karnataka</td>
+            <td>Karnataka</td>
+            <td>India</td>
+            <td>Other Shaiva</td>
+            <td>Home to a very tall Shiva statue overlooking the Arabian Sea.</td>
+          </tr>
+
+          <!-- Prominent Outside India temples -->
+          <tr>
+            <td>43</td>
+            <td>Pashupatinath Temple</td>
+            <td>Shiva (Pashupatinath)</td>
+            <td>Kathmandu</td>
+            <td>Kathmandu District</td>
+            <td>Kathmandu Valley</td>
+            <td>Nepal</td>
+            <td>Nepal</td>
+            <td>Outside India</td>
+            <td>Pre-eminent Shiva shrine in Nepal; UNESCO buffer area.</td>
+          </tr>
+          <tr>
+            <td>44</td>
+            <td>Koneswaram Temple</td>
+            <td>Shiva (Konesar)</td>
+            <td>Trincomalee</td>
+            <td>Trincomalee</td>
+            <td>Eastern Province</td>
+            <td>Sri Lanka</td>
+            <td>Sri Lanka</td>
+            <td>Outside India</td>
+            <td>Historic hill-top temple, coastal views; ancient pilgrimage site.</td>
+          </tr>
+          <tr>
+            <td>45</td>
+            <td>Prambanan (Candi Prambanan)</td>
+            <td>Shiva (Main shrine)</td>
+            <td>Prambanan / Yogyakarta</td>
+            <td>Klaten / Sleman</td>
+            <td>Central Java</td>
+            <td>Central Java</td>
+            <td>Indonesia</td>
+            <td>Outside India</td>
+            <td>Large 9th-century Hindu temple compound with principal Shiva shrine.</td>
+          </tr>
+          <tr>
+            <td>46</td>
+            <td>Angkor Wat — selected Shaivite shrines</td>
+            <td>Shiva (historical elements)</td>
+            <td>Siem Reap</td>
+            <td>Siem Reap</td>
+            <td>Tonle Sap region</td>
+            <td>Siem Reap Province</td>
+            <td>Cambodia</td>
+            <td>Outside India</td>
+            <td>Originally Hindu complex with significant Shaiva & Vaishnava iconography.</td>
+          </tr>
+          <tr>
+            <td>47</td>
+            <td>Ganga Talao (Grand Bassin) & Shiva Statue</td>
+            <td>Shiva (Murti)</td>
+            <td>Savanne District / Ganga Talao</td>
+            <td>Black River / Savanne</td>
+            <td>South Mauritius</td>
+            <td>Mauritius</td>
+            <td>Mauritius</td>
+            <td>Outside India</td>
+            <td>Important pilgrimage site for the Indo-Mauritian community; large Shiva statue.</td>
+          </tr>
+          <tr>
+            <td>48</td>
+            <td>Shiva Vishnu Temple (Livermore)</td>
+            <td>Shiva / Vishnu</td>
+            <td>Livermore</td>
+            <td>Alameda County</td>
+            <td>San Francisco Bay Area</td>
+            <td>California</td>
+            <td>USA</td>
+            <td>Outside India</td>
+            <td>Major Hindu temple serving diaspora community.</td>
+          </tr>
+
+          <!-- Regional Important (examples from states/regions) -->
+          <tr>
+            <td>49</td>
+            <td>Meenakshi Amman Temple</td>
+            <td>Meenakshi (Parvati) & Sundareswarar (Shiva)</td>
+            <td>Madurai</td>
+            <td>Madurai</td>
+            <td>Tamil Nadu</td>
+            <td>Tamil Nadu</td>
+            <td>India</td>
+            <td>Regional Important</td>
+            <td>Major historic temple; rich Pandya architecture and annual festivals.</td>
+          </tr>
+          <tr>
+            <td>50</td>
+            <td>Someshwara (example regional Shaiva)</td>
+            <td>Shiva (Someshwara)</td>
+            <td>Bengaluru</td>
+            <td>Bengaluru Urban</td>
+            <td>Karnataka</td>
+            <td>Karnataka</td>
+            <td>India</td>
+            <td>Regional Important</td>
+            <td>One of many Someshwara temples in Deccan region (representative example).</td>
+          </tr>
+
+          <!-- You can continue adding more rows here -->
+        </tbody>
+      </table>
+      <div id="tableDesc" style="display:none">Starter catalogue of prominent Hindu temples worldwide. Not exhaustive.</div>
+    </div>
+
+    <footer>
+      © <span id="year"></span> Temples Catalogue — Starter Data (Representative)
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const searchInput = document.getElementById('searchInput');
+    const groupFilter = document.getElementById('groupFilter');
+    const deityFilter = document.getElementById('deityFilter');
+    const clearBtn = document.getElementById('clearBtn');
+    const exportBtn = document.getElementById('exportBtn');
+    const table = document.getElementById('templeTable');
+    const tbody = table.tBodies[0];
+
+    function norm(s){
+      return (s||'').toString().toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'');
+    }
+
+    function rowMatches(row, q, group, deity){
+      // columns: 0 idx is #, 1 Name, 2 Deity, 3 Location city, 4 District, 5 Region, 6 State, 7 Country, 8 Group, 9 Notes
+      const cells = row.cells;
+      let combined = '';
+      for (let i=1;i<=9;i++){
+        if (cells[i]) combined += ' ' + cells[i].textContent;
+      }
+      const text = norm(combined);
+      const rowGroup = norm(cells[8] ? cells[8].textContent : '');
+      const rowDeity = norm(cells[2] ? cells[2].textContent : '');
+
+      const matchesQ = q === '' ? true : text.indexOf(q) !== -1;
+      const matchesGroup = group === '' ? true : rowGroup === group;
+      let matchesDeity = true;
+      if (deity !== ''){
+        // treat 'Other' as any deity not covered by primary names
+        if (deity === 'other') {
+          // if rowDeity does not include common names, consider it match? For simplicity, include rows that aren't exact matches to listed primary deities.
+          // We'll match any that do not start with the common deity names.
+          const primaries = ['shiva','vishnu','ganesha','durga','kali','lakshmi','saraswati','hanuman','murugan','krishna','ram'];
+          matchesDeity = !primaries.some(p => rowDeity.indexOf(p) !== -1);
+        } else {
+          matchesDeity = rowDeity.indexOf(deity) !== -1;
+        }
+      }
+      return matchesQ && matchesGroup && matchesDeity;
+    }
+
+    function filterTable(){
+      const q = norm(searchInput.value.trim());
+      const group = norm(groupFilter.value.trim());
+      const deity = (function(){
+        const val = norm(deityFilter.value.trim());
+        if (!val) return '';
+        // map selected to normalized keys used in rows
+        if (val === 'shiva') return 'shiva';
+        if (val === 'vishnu') return 'vishnu';
+        if (val === 'durga') return 'durga';
+        if (val === 'kali') return 'kali';
+        if (val === 'lakshmi') return 'lakshmi';
+        if (val === 'saraswati') return 'saraswati';
+        if (val === 'ganesha') return 'ganesha';
+        if (val === 'murugan') return 'murugan';
+        if (val === 'hanuman') return 'hanuman';
+        if (val === 'other') return 'other';
+        return val;
+      })();
+
+      for (let r=0; r<tbody.rows.length; r++){
+        const row = tbody.rows[r];
+        row.style.display = rowMatches(row, q, group, deity) ? '' : 'none';
+      }
+    }
+
+    searchInput.addEventListener('input', filterTable);
+    groupFilter.addEventListener('change', filterTable);
+    deityFilter.addEventListener('change', filterTable);
+
+    clearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      groupFilter.value = '';
+      deityFilter.value = '';
+      filterTable();
+      searchInput.focus();
+    });
+
+    // Export visible rows to CSV
+    function downloadCSV(csv, filename) {
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement("a");
+      const url = URL.createObjectURL(blob);
+      link.setAttribute("href", url);
+      link.setAttribute("download", filename);
+      link.style.visibility = 'hidden';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    exportBtn.addEventListener('click', () => {
+      const rows = [];
+      // header
+      const headers = ['Temple Name','God/Goddess','Location (City/Town)','District','Region','State','Country','Group','Notes'];
+      rows.push(headers.join(','));
+      for (let r=0; r<tbody.rows.length; r++){
+        const row = tbody.rows[r];
+        if (row.style.display === 'none') continue;
+        // gather fields 1..9 (skip serial col)
+        const cols = [];
+        for (let c=1; c<=9; c++){
+          let txt = row.cells[c] ? row.cells[c].textContent.trim() : '';
+          // escape quotes
+          if (txt.indexOf(',') !== -1 || txt.indexOf('"') !== -1) {
+            txt = '"' + txt.replace(/"/g, '""') + '"';
+          }
+          // mapping to CSV columns — reorder to match header list
+          // Table order is 1 Name,2 Deity,3 Location,4 District,5 Region,6 State,7 Country,8 Group,9 Notes
+          cols.push(txt);
+        }
+        rows.push(cols.join(','));
+      }
+      if (rows.length <= 1) {
+        alert('No visible rows to export.');
+        return;
+      }
+      const csv = rows.join('\n');
+      const fname = 'temples_catalogue_export.csv';
+      downloadCSV(csv, fname);
+    });
+
+    // initial filter
+    filterTable();
+  </script>
+</body>
+</html>

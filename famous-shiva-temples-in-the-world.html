@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Famous Shiva Temples in the World</title>
+
+  <style>
+    :root {
+      --primary-color: #2887ff;
+      --primary-color-dark: #2476da;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: var(--primary-color-dark);
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 28px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 8px 30px var(--primary-color-dark);
+      border: 2px solid var(--primary-color-dark);
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: -0.2px;
+      color: #000000;
+    }
+
+    p.lead {
+      margin: 6px 0 18px;
+      color: #000000;
+      font-size: 13px;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .search, .select {
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid var(--primary-color-dark);
+      color: var(--primary-color-dark);
+      font-size: 14px;
+    }
+
+    .search:focus, .select:focus {
+      border-color: var(--primary-color);
+      outline: none;
+    }
+
+    .table-wrap {
+      overflow: auto;
+      border-radius: 10px;
+      background: var(--primary-color-dark);
+      padding: 1px;
+      border: 1px solid var(--primary-color);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1000px;
+      background: #fff;
+      color: var(--primary-color-dark);
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      background: var(--primary-color-dark);
+      color: #fff;
+      padding: 12px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 13px;
+      border-bottom: 2px solid var(--primary-color);
+    }
+
+    tbody td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--primary-color-dark);
+      font-size: 14px;
+      color: #222;
+    }
+
+    tbody tr:hover td {
+      background: var(--primary-color);
+      color: #fff;
+    }
+
+    tbody tr:nth-child(even) td {
+      background: #eaefff;
+    }
+
+    tbody tr:nth-child(even):hover td {
+      background: var(--primary-color);
+      color: #fff;
+    }
+
+    footer {
+      margin-top: 18px;
+      color: var(--primary-color-dark);
+      font-size: 13px;
+    }
+
+    @media (max-width:800px) {
+      .container { margin: 18px; padding: 16px; }
+      table { min-width: 900px; }
+      h1 { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Famous Shiva Temples in the World</h1>
+    </header>
+    <p class="lead">Explore sacred Shiva temples by group, name, or location.</p>
+
+    <div class="controls">
+      <input type="text" id="searchInput" class="search" placeholder="Search temple, place or country...">
+      <select id="groupFilter" class="select">
+        <option value="">All Groups</option>
+        <option value="Jyotirlinga">Jyotirlinga</option>
+        <option value="Panch Kedar">Panch Kedar</option>
+        <option value="Pancha Bootha">Pancha Bootha</option>
+        <option value="Panch Sabhai">Panch Sabhai</option>
+        <option value="Ashta Veeratta">Ashta Veeratta</option>
+        <option value="Outside India">Outside India</option>
+        <option value="Other">Other Important Temples</option>
+      </select>
+    </div>
+
+    <div class="table-wrap">
+      <table id="templeTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Temple Name</th>
+            <th>Location</th>
+            <th>Group</th>
+            <th>Country</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <!-- 1. Jyotirlingas -->
+          <tr><td>1</td><td>Somnath Jyotirlinga</td><td>Gujarat</td><td>Jyotirlinga</td><td>India</td></tr>
+          <tr><td>2</td><td>Mallikarjuna Jyotirlinga</td><td>Srisailam, Andhra Pradesh</td><td>Jyotirlinga</td><td>India</td></tr>
+          <tr><td>3</td><td>Mahakaleshwar Jyotirlinga</td><td>Ujjain, Madhya Pradesh</td><td>Jyotirlinga</td><td>India</td></tr>
+          <tr><td>4</td><td>Omkareshwar Jyotirlinga</td><td>Madhya Pradesh</td><td>Jyotirlinga</td><td>India</td></tr>
+          <tr><td>5</td><td>Kedarnath Jyotirlinga</td><td>Uttarakhand</td><td>Jyotirlinga</td><td>India</td></tr>
+          <tr><td>6</td><td>Bhimashankar Jyotirlinga</td><td>Maharashtra</td><td>Jyotirlinga</td><td>India</td></tr>
+          <tr><td>7</td><td>Kashi Vishwanath Jyotirlinga</td><td>Varanasi, Uttar Pradesh</td><td>Jyotirlinga</td><td>India</td></tr>
+          <tr><td>8</td><td>Trimbakeshwar Jyotirlinga</td><td>Nashik, Maharashtra</td><td>Jyotirlinga</td><td>India</td></tr>
+          <tr><td>9</td><td>Vaidyanath (Baidyanath) Jyotirlinga</td><td>Deoghar, Jharkhand</td><td>Jyotirlinga</td><td>India</td></tr>
+          <tr><td>10</td><td>Nageshwar Jyotirlinga</td><td>Dwarka, Gujarat</td><td>Jyotirlinga</td><td>India</td></tr>
+          <tr><td>11</td><td>Ramanathaswamy Jyotirlinga</td><td>Rameswaram, Tamil Nadu</td><td>Jyotirlinga</td><td>India</td></tr>
+          <tr><td>12</td><td>Grishneshwar Jyotirlinga</td><td>Ellora, Maharashtra</td><td>Jyotirlinga</td><td>India</td></tr>
+
+          <!-- 2. Panch Kedar -->
+          <tr><td>13</td><td>Kedarnath Temple</td><td>Uttarakhand</td><td>Panch Kedar</td><td>India</td></tr>
+          <tr><td>14</td><td>Tungnath Temple</td><td>Uttarakhand</td><td>Panch Kedar</td><td>India</td></tr>
+          <tr><td>15</td><td>Rudranath Temple</td><td>Uttarakhand</td><td>Panch Kedar</td><td>India</td></tr>
+          <tr><td>16</td><td>Madhyamaheshwar Temple</td><td>Uttarakhand</td><td>Panch Kedar</td><td>India</td></tr>
+          <tr><td>17</td><td>Kalpeshwar Temple</td><td>Uttarakhand</td><td>Panch Kedar</td><td>India</td></tr>
+
+          <!-- 3. Pancha Bootha -->
+          <tr><td>18</td><td>Ekambareswarar Temple</td><td>Kanchipuram, Tamil Nadu</td><td>Pancha Bootha</td><td>India</td></tr>
+          <tr><td>19</td><td>Jambukeswarar Temple</td><td>Thiruvanaikaval, Tamil Nadu</td><td>Pancha Bootha</td><td>India</td></tr>
+          <tr><td>20</td><td>Arunachaleswarar Temple</td><td>Tiruvannamalai, Tamil Nadu</td><td>Pancha Bootha</td><td>India</td></tr>
+          <tr><td>21</td><td>Sri Kalahasteeswara Temple</td><td>Srikalahasti, Andhra Pradesh</td><td>Pancha Bootha</td><td>India</td></tr>
+          <tr><td>22</td><td>Nataraja Temple</td><td>Chidambaram, Tamil Nadu</td><td>Pancha Bootha</td><td>India</td></tr>
+
+          <!-- 4. Panch Sabhai -->
+          <tr><td>23</td><td>Chidambaram Nataraja Temple</td><td>Chidambaram, Tamil Nadu</td><td>Panch Sabhai</td><td>India</td></tr>
+          <tr><td>24</td><td>Madurai Meenakshi Sundareswarar Temple</td><td>Madurai, Tamil Nadu</td><td>Panch Sabhai</td><td>India</td></tr>
+          <tr><td>25</td><td>Tirunelveli Nellaiappar Temple</td><td>Tirunelveli, Tamil Nadu</td><td>Panch Sabhai</td><td>India</td></tr>
+          <tr><td>26</td><td>Tiruvavaduthurai Temple</td><td>Tiruvavaduthurai, Tamil Nadu</td><td>Panch Sabhai</td><td>India</td></tr>
+          <tr><td>27</td><td>Kutralanathar Temple</td><td>Courtallam, Tamil Nadu</td><td>Panch Sabhai</td><td>India</td></tr>
+
+          <!-- 5. Ashta Veeratta -->
+          <tr><td>28</td><td>Tiruvadhigai Temple</td><td>Cuddalore, Tamil Nadu</td><td>Ashta Veeratta</td><td>India</td></tr>
+          <tr><td>29</td><td>Tirukkandiyur Temple</td><td>Thanjavur, Tamil Nadu</td><td>Ashta Veeratta</td><td>India</td></tr>
+          <tr><td>30</td><td>Tirukkurukkai Temple</td><td>Thiruvarur, Tamil Nadu</td><td>Ashta Veeratta</td><td>India</td></tr>
+          <tr><td>31</td><td>Tiruppariyalur Temple</td><td>Thanjavur, Tamil Nadu</td><td>Ashta Veeratta</td><td>India</td></tr>
+          <tr><td>32</td><td>Tirukovilur Temple</td><td>Villupuram, Tamil Nadu</td><td>Ashta Veeratta</td><td>India</td></tr>
+          <tr><td>33</td><td>Tiruvirkudi Temple</td><td>Mayiladuthurai, Tamil Nadu</td><td>Ashta Veeratta</td><td>India</td></tr>
+          <tr><td>34</td><td>Tiruvennainallur Temple</td><td>Villupuram, Tamil Nadu</td><td>Ashta Veeratta</td><td>India</td></tr>
+          <tr><td>35</td><td>Tiru Vazhuvur Temple</td><td>Mayiladuthurai, Tamil Nadu</td><td>Ashta Veeratta</td><td>India</td></tr>
+
+          <!-- 6. Outside India -->
+          <tr><td>36</td><td>Pashupatinath Temple</td><td>Kathmandu</td><td>Outside India</td><td>Nepal</td></tr>
+          <tr><td>37</td><td>Koneswaram Temple</td><td>Trincomalee</td><td>Outside India</td><td>Sri Lanka</td></tr>
+          <tr><td>38</td><td>Munneswaram Temple</td><td>Chilaw</td><td>Outside India</td><td>Sri Lanka</td></tr>
+          <tr><td>39</td><td>Prambanan Temple</td><td>Java</td><td>Outside India</td><td>Indonesia</td></tr>
+          <tr><td>40</td><td>Angkor Wat (Shaivite section)</td><td>Siem Reap</td><td>Outside India</td><td>Cambodia</td></tr>
+          <tr><td>41</td><td>Ganga Talao Shiva Temple</td><td>Grand Bassin</td><td>Outside India</td><td>Mauritius</td></tr>
+          <tr><td>42</td><td>Shiva Vishnu Temple</td><td>Livermore, California</td><td>Outside India</td><td>USA</td></tr>
+          <tr><td>43</td><td>Mount Kailash</td><td>Tibet</td><td>Outside India</td><td>China</td></tr>
+
+          <!-- 7. Other Important Temples -->
+          <tr><td>44</td><td>Lingaraj Temple</td><td>Bhubaneswar, Odisha</td><td>Other</td><td>India</td></tr>
+          <tr><td>45</td><td>Tarakeshwar Temple</td><td>West Bengal</td><td>Other</td><td>India</td></tr>
+          <tr><td>46</td><td>Kotilingeshwara Temple</td><td>Kolar, Karnataka</td><td>Other</td><td>India</td></tr>
+          <tr><td>47</td><td>Amarnath Cave Temple</td><td>Jammu & Kashmir</td><td>Other</td><td>India</td></tr>
+          <tr><td>48</td><td>Murudeshwar Temple</td><td>Karnataka</td><td>Other</td><td>India</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer>
+      © 2025 Sacred Shaivism Explorer
+    </footer>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const groupFilter = document.getElementById('groupFilter');
+    const table = document.getElementById('templeTable');
+    const rows = table.getElementsByTagName('tr');
+
+    function filterTable() {
+      const searchValue = searchInput.value.toLowerCase();
+      const selectedGroup = groupFilter.value.toLowerCase();
+
+      for (let i = 1; i < rows.length; i++) {
+        const cells = rows[i].getElementsByTagName('td');
+        let textMatch = false;
+        let groupMatch = false;
+
+        if (cells.length > 0) {
+          const templeName = cells[1].textContent.toLowerCase();
+          const location = cells[2].textContent.toLowerCase();
+          const group = cells[3].textContent.toLowerCase();
+          const country = cells[4].textContent.toLowerCase();
+
+          if (templeName.includes(searchValue) || location.includes(searchValue) || country.includes(searchValue)) {
+            textMatch = true;
+          }
+
+          if (!selectedGroup || group === selectedGroup) {
+            groupMatch = true;
+          }
+        }
+
+        rows[i].style.display = (textMatch && groupMatch) ? '' : 'none';
+      }
+    }
+
+    searchInput.addEventListener('keyup', filterTable);
+    groupFilter.addEventListener('change', filterTable);
+  </script>
+</body>
+</html>

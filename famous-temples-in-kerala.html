@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Famous Temples in Kerala</title>
+  <style>
+    :root{
+      --primary-color: #2887ff;
+      --primary-color-dark: #2476da;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: var(--primary-color-dark);
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 28px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 8px 30px var(--primary-color-dark);
+      border: 2px solid var(--primary-color-dark);
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: -0.2px;
+      color: #000000;
+    }
+
+    p.lead {
+      margin: 6px 0 18px;
+      color: #000000;
+      font-size: 13px;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .search, .select {
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid var(--primary-color-dark);
+      color: var(--primary-color-dark);
+    }
+
+    .search:focus, .select:focus {
+      border-color: var(--primary-color);
+      outline: none;
+    }
+
+    .table-wrap {
+      overflow: auto;
+      border-radius: 10px;
+      background: var(--primary-color-dark);
+      padding: 1px;
+      border: 1px solid var(--primary-color);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1000px;
+      background: #fff;
+      color: var(--primary-color-dark);
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      background: var(--primary-color-dark);
+      color: #fff;
+      padding: 12px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 13px;
+      border-bottom: 2px solid var(--primary-color);
+    }
+
+    tbody td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--primary-color-dark);
+      font-size: 14px;
+      color: #222;
+    }
+
+    tbody tr:hover td {
+      background: var(--primary-color);
+      color: #fff;
+    }
+
+    tbody tr:nth-child(even) td {
+      background: #eaefff;
+    }
+
+    tbody tr:nth-child(even):hover td {
+      background: var(--primary-color);
+      color: #fff;
+    }
+
+    footer {
+      margin-top: 18px;
+      color: var(--primary-color-dark);
+      font-size: 13px;
+    }
+
+    hr.divider {
+      border: 1px solid var(--primary-color);
+      margin: 40px 0;
+    }
+
+    @media (max-width:800px){
+      .container { margin: 18px; padding: 16px; }
+      table { min-width: 900px; }
+      h1 { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Famous Temples in Kerala</h1>
+    <p class="lead">A list of some of the most iconic temples in Kerala, organized by deity and region.</p>
+
+    <div class="controls">
+      <input class="search" id="searchGod" placeholder="God/Goddess…" oninput="filterTable()" />
+      <input class="search" id="searchLoc" placeholder="Location (City/Town)..." oninput="filterTable()" />
+      <input class="search" id="searchDist" placeholder="District..." oninput="filterTable()" />
+      <select id="regionFilter" class="select" onchange="filterTable()">
+        <option value="all">All regions</option>
+        <option value="South Kerala">South Kerala</option>
+        <option value="Central Kerala">Central Kerala</option>
+        <option value="North Kerala">North Kerala</option>
+      </select>
+    </div>
+
+    <div class="table-wrap">
+      <table id="templeTable">
+        <thead>
+          <tr>
+            <th>Temple Name</th>
+            <th>God/Goddess</th>
+            <th>Location (City/Town)</th>
+            <th>District</th>
+            <th>Region</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sree Padmanabhaswamy Temple</td>
+            <td>Lord Vishnu</td>
+            <td>Thiruvananthapuram</td>
+            <td>Thiruvananthapuram</td>
+            <td>South Kerala</td>
+            <td>Richest temple in the world; famous for Dravidian architecture.</td>
+          </tr>
+          <tr>
+            <td>Sabarimala Sree Ayyappa Temple</td>
+            <td>Lord Ayyappa</td>
+            <td>Sabarimala</td>
+            <td>Pathanamthitta</td>
+            <td>South Kerala</td>
+            <td>Pilgrimage center attracting millions annually; strict rituals.</td>
+          </tr>
+          <tr>
+            <td>Guruvayur Temple</td>
+            <td>Lord Krishna</td>
+            <td>Guruvayur</td>
+            <td>Thrissur</td>
+            <td>Central Kerala</td>
+            <td>Often called "Dwarka of the South"; elephants and rituals are key attractions.</td>
+          </tr>
+          <tr>
+            <td>Chottanikkara Temple</td>
+            <td>Goddess Bhagavathy</td>
+            <td>Chottanikkara</td>
+            <td>Ernakulam</td>
+            <td>Central Kerala</td>
+            <td>Known for healing powers, especially for mental illnesses.</td>
+          </tr>
+          <tr>
+            <td>Vadakkunnathan Temple</td>
+            <td>Lord Shiva</td>
+            <td>Thrissur</td>
+            <td>Thrissur</td>
+            <td>Central Kerala</td>
+            <td>UNESCO-recognized; venue for Thrissur Pooram festival.</td>
+          </tr>
+          <tr>
+            <td>Attukal Bhagavathy Temple</td>
+            <td>Goddess Bhagavathy</td>
+            <td>Thiruvananthapuram</td>
+            <td>Thiruvananthapuram</td>
+            <td>South Kerala</td>
+            <td>Holds Guinness World Record for largest women gathering during Pongala.</td>
+          </tr>
+          <tr>
+            <td>Ambalappuzha Sri Krishna Temple</td>
+            <td>Lord Krishna</td>
+            <td>Ambalappuzha</td>
+            <td>Alappuzha</td>
+            <td>South Kerala</td>
+            <td>Famous for Palpayasam offering and murals.</td>
+          </tr>
+          <tr>
+            <td>Thirunelli Temple</td>
+            <td>Lord Vishnu</td>
+            <td>Thirunelli</td>
+            <td>Wayanad</td>
+            <td>North Kerala</td>
+            <td>Ancient temple in Brahmagiri hills; rituals for ancestors performed here.</td>
+          </tr>
+          <tr>
+            <td>Mannarasala Temple</td>
+            <td>Nagaraja (Serpent God)</td>
+            <td>Haripad</td>
+            <td>Alappuzha</td>
+            <td>South Kerala</td>
+            <td>Famous snake temple; worship of serpent deities by women for fertility.</td>
+          </tr>
+          <tr>
+            <td>Tali Mahakshetram</td>
+            <td>Lord Shiva</td>
+            <td>Kozhikode</td>
+            <td>Kozhikode</td>
+            <td>North Kerala</td>
+            <td>Historic temple known for cultural importance in Malabar region.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer>
+      Last updated: October 2025
+    </footer>
+  </div>
+
+  <script>
+    function filterTable() {
+      const god = document.getElementById('searchGod').value.toLowerCase().trim();
+      const loc = document.getElementById('searchLoc').value.toLowerCase().trim();
+      const dist = document.getElementById('searchDist').value.toLowerCase().trim();
+      const region = document.getElementById('regionFilter').value;
+
+      const tbody = document.querySelector('#templeTable tbody');
+      const rows = tbody.getElementsByTagName('tr');
+
+      for (let row of rows) {
+        const cells = row.getElementsByTagName('td');
+        const godCell = cells[1].textContent.toLowerCase();
+        const locCell = cells[2].textContent.toLowerCase();
+        const distCell = cells[3].textContent.toLowerCase();
+        const regionCell = cells[4].textContent;
+
+        const matchesGod = god === '' || godCell.includes(god);
+        const matchesLoc = loc === '' || locCell.includes(loc);
+        const matchesDist = dist === '' || distCell.includes(dist);
+        const matchesRegion = region === 'all' || regionCell === region;
+
+        row.style.display = (matchesGod && matchesLoc && matchesDist && matchesRegion) ? '' : 'none';
+      }
+    }
+  </script>
+</body>
+</html>
