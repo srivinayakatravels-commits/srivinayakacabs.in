@@ -20,6 +20,9 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <title>Sri Vinayaka Travels & Cabs</title>
     <style>
+      .header__content h1{color:#ffffff;}
+      header::before{background-image: url(img/srisailamdam.jpg);
+      }
       .ri-flight-takeoff-line:before, .ri-bus-line:before, .ri-car-line:before, .ri-hotel-line:before {font-size: 50px;}
       .flip-horizontal {
     display: inline-block; /* ensures transform works properly */
@@ -27,7 +30,7 @@
 }
       /* Tabs Container */
 .tabs-container {
-  max-width: 1000px;
+  max-width: max-content;;
   margin: 0 auto;
   margin-top: 50px;
 }
@@ -77,12 +80,17 @@
 
 .tab-content.active {
   display: block;
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
 .boxes {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+  gap: 70px;
 }
 .boxes p{color: #007bff;}
 .box {
@@ -102,7 +110,7 @@
   margin-top: 8px;
   font-weight: 600;
 }
-
+.section__description {max-width: 850px; text-align: justify !important;}
 /* Responsive */
 @media (max-width: 768px) {
   .tabs {
@@ -121,6 +129,7 @@
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
 }
+hr{margin-top: 20px; margin-bottom: 20px;}
     </style>
     <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -147,7 +156,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <ul class="nav__links" id="nav-links">
-        <li><a href="#home">HOME</a></li>
+        <li><a href="index.html">HOME</a></li>
         <li><a href="#about">ABOUT</a></li>
         <li><a href="#tour">TOURS</a></li>
         <li><a href="#package">PACKAGES</a></li>
@@ -164,8 +173,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <header id="home">
       <div class="header__container">
         <div class="header__content">
-          <p>Discover. Travel. Repeat.</p>
-          <h1>Turning Miles into Memories!</h1>
+          <h1>Hyderabad to Srisailam Tour Packages</h1>
           <div class="header__btns">
             <button class="btn" onclick="window.location.href='contact-us.html'">Book A Trip Now</button>
             <!--<a href="#">
@@ -174,20 +182,73 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
         <div class="header__image">
-          <img src="img/car.png" alt="header" />
+          <img src="img/mallikarjuna-swamy-statue.png" alt="header" />
         </div>
       </div>
     </header>
     <section class="section__container destination__container" id="hyd-srisailam">
-      <h2 class="section__header">Hyderabad to Srisailam : Best Travel Packages</h2>
-      <br>
-      <p class="section__description">
-        Srisailam – Where Divinity Meets the Wilderness <i>"Feel the power of faith in the lap of nature."</i>
+      <h2 class="section__header">Hyderabad to Srisailam Tour Packages</h2>
+      <hr>
+      <p class="section__description">Experience the best of <strong>Hyderabad to Srisailam tour packages</strong> with our trusted service. Secure your <strong>Srisailam cab booking from Hyderabad</strong> for an unforgettable pilgrimage. Our <strong>Hyderabad devotional tour service</strong> and <strong>Hyderabad spiritual tour packages</strong> cover all major temples and sightseeing spots. We specialize in <strong>Hyderabad to Srisailam taxi service</strong> ensuring safe and comfortable travel for all devotees and tourists. Enjoy <strong>Hyderabad local sightseeing cab service</strong> and tailored <strong>pilgrimage tour from Hyderabad</strong> for a spiritual journey like no other.<br><br>Our <strong>devotional journeys from Hyderabad by cab</strong> include flexible and customized plans, making us the best choice for <strong>best Hyderabad to Srisailam taxi</strong> and <strong>devotional cab tours Hyderabad</strong>.
       </p>
+      <br><br><br>
+      <h2 class="section__header">Discover the Divine Beauty of Srisailam<br>1 Day Tour Trip or 2 Days Tour Trips from Hyderabad</h2>
       <br>
-      <div class="destination__card">
-        <button class="btn" onclick="window.location.href='hyderabad-srisailam-tour-package.html'">Know More About the Packages and Trips.</button>
+      <div class="tabs-container">
+    <!-- Dropdown for Mobile -->
+    <select id="tabDropdown" class="tab-dropdown">
+      <option value="tab9" selected>Hyderabad to Srisailam One Day Pack</option>
+      <option value="tab10">Hyderabad to Srisailam Two Days Pack</option>
+    </select>
+    <!-- Tabs for Desktop -->
+    <div class="tabs">
+      <button class="tab active" data-tab="tab9">Hyderabad to Srisailam One Day Pack</button>
+      <button class="tab" data-tab="tab10">Hyderabad to Srisailam Two Days Pack</button>
+    </div>
+    <!-- Tab Content -->
+    <div class="tab-content active" id="tab9">
+      <p><i><strong>Cab Circuit:</strong><br>Mallikarjuna Swamy (Jyothirlinga) → Bramarambika Devi (Shaikpet) → Sakshi Ganapathi Temple → Srisailam Dam View Point → Pathala Ganga</i></p><br>
+      <div class="boxes">
+        <div class="box"><img src="img/srisailam-mallikarjuna-jyotirlinga-temple.jpg" alt=""><p>Mallikarjuna Swamy (Jyothirlinga)</p><span><i>Lord Shiva</i></span></div>
+
+        <div class="box"><img src="img/bramarambika-devi-shakti-peetam.png" alt=""><p>Bramarambika Devi (Shakti Peetam)</p><span><i>Goddess Bhramarambika</i></span></div>
+
+        <div class="box"><img src="img/Sakshi-Ganapathi-Temple.png" alt=""><p>Sakshi Ganapathi Temple</p><span><i>Lord Ganesha</i></span></div>
+
+        <div class="box"><img src="img/srisailamdam.jpg" alt=""><p>Srisailam Dam</p><span><i>River View</i></span></div>
+
+        <div class="box"><img src="img/Paathala-Ganga.png" alt=""><p>Paathala Ganga</p><span><i>Krishna River</i></span></div>
+
       </div>
+    </div>
+
+    <div class="tab-content" id="tab10">
+      <p><i><strong>Cab route:</strong><br>Mallikarjuna Swamy Temple → Bramarambika Devi Temple → Sakshi Ganapathi Temple → Paladhara, Panchadhara → Hatkeshwar Temple →<br> Srisailam Dam → Pathala Ganga → Chenchu Lakshmi Museum → Shivaji Museum → Srisailam Boating → Srisailam Ropeway (2 days)</i></p><br>
+      <div class="boxes">
+        <div class="box"><img src="img/srisailam-mallikarjuna-jyotirlinga-temple.jpg" alt=""><p>Mallikarjuna Swamy (Jyothirlinga)</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/bramarambika-devi-shakti-peetam.png" alt=""><p>Bramarambika Devi (Shakti Peetam)</p><span><i>Goddess Bhramarambika</i></span></div>
+        <div class="box"><img src="img/Sakshi-Ganapathi-Temple.png" alt=""><p>Sakshi Ganapathi Temple</p><span><i>Lord Ganesha</i></span></div>
+        <div class="box"><img src="img/Paladhara-Panchadhara.png" alt=""><p>Paladhara ,Panchadhara</p><span><i>Waterfall (Five Streams, Aspects of Shiva)</i></span></div>
+        <div class="box"><img src="img/Hatkeshwar-Temple-Srisailam.png" alt=""><p>Hatkeshwar Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/srisailamdam.jpg" alt=""><p>Srisailam Dam</p><span><i>River View</i></span></div>
+
+        <div class="box"><img src="img/Paathala-Ganga.png" alt=""><p>Paathala Ganga</p><span><i>Krishna River</i></span></div>
+        <div class="box"><img src="img/Chenchu_Lakshmi_Museum.png" alt=""><p>Chenchu Lakshmi Museum</p><span><i>Tribal Museum</i></span></div>
+
+        <div class="box"><img src="img/shivaji-spoorthy-kendra-srisailam.png" alt=""><p>Shivaji Museum</p><span><i>Museum</i></span></div>
+        <div class="box"><img src="img/Srisailam-Boating.png" alt=""><p>Srisailam Boating</p><span><i>Boating</i></span></div>
+        <div class="box"><img src="img/Srisailam_Ropeway.jpg" alt=""><p>Srisailam Ropeway</p><span><i>Ropeway</i></span></div>
+
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <section class="section__container destination__container" id="hyd_srisailam">
+      <h2 class="section__header">What You Can See in Sresailam</h2>
+      <p class="section__description">"Heritage in every stone, flavor in every bite."</i>
+      </p>
+
       <div class="destination__grid">
         <div class="destination__card">
           <img src="img/srisailam-mallikarjuna-jyotirlinga-temple.jpg" alt="destination" />
@@ -279,141 +340,174 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       </div>
     </section>
-    <section class="section__container destination__container" id="hyd-srisailam">
-      <h2 class="section__header">What You Can See in Hyderabad</h2><br>
-      <p class="section__description">
-        "Heritage in every stone, flavor in every bite."</i>
-      </p>
-      <div class="destination__grid">
-        <div class="destination__card">
-          <img src="img/charminar.jpg" alt="destination" />
-          <div class="destination__card__details">
-            <div>
-              <h4>Charminar</h4>
-              <p>Hyderabad, Telangana, India.</p>
-            </div>
-            <div class="destination__ratings">
-              <span><i class="ri-star-fill"></i></span>
-              4.8
-            </div>
-          </div>
-        </div>
-        <div class="destination__card">
-          <img src="img/golconda-fort-hyderabad.jpg" alt="destination" />
-          <div class="destination__card__details">
-            <div>
-              <h4>Golconda Fort</h4>
-              <p>Hyderabad, Telangana, India.</p>
-            </div>
-            <div class="destination__ratings">
-              <span><i class="ri-star-fill"></i></span>
-              4.7
-            </div>
-          </div>
-        </div>
-        
-        <div class="destination__card">
-          <img src="img/birla-mandir-hyderabad.jpg" alt="destination" />
-          <div class="destination__card__details">
-            <div>
-              <h4>Birla Mandir</h4>
-              <p>Hyderabad, Telangana, India.</p>
-            </div>
-            <div class="destination__ratings">
-              <span><i class="ri-star-fill"></i></span>
-              4.5
-            </div>
-          </div>
-        </div>
-        <div class="destination__card">
-          <img src="img/salar-jung-museum-hyderabad.jpg" alt="destination" />
-          <div class="destination__card__details">
-            <div>
-              <h4>Salar Jung Museum</h4>
-              <p>Hyderabad, Telangana, India.</p>
-            </div>
-            <div class="destination__ratings">
-              <span><i class="ri-star-fill"></i></span>
-              4.5
-            </div>
-          </div>
-        </div>
-        <div class="destination__card">
-          <img src="img/nehru-zoological-park-hyderabad.jpg" alt="destination" />
-          <div class="destination__card__details">
-            <div>
-              <h4>Nehru Zoological Park</h4>
-              <p>Hyderabad, Telangana, India.</p>
-            </div>
-            <div class="destination__ratings">
-              <span><i class="ri-star-fill"></i></span>
-              4.5
-            </div>
-          </div>
-        </div>
-        <div class="destination__card">
-          <img src="img/buddha-statue-hyderabad.jpg" alt="destination" />
-          <div class="destination__card__details">
-            <div>
-              <h4>Hussain Sagar Lake & Buddha Statue</h4>
-              <p>Hyderabad, Telangana, India.</p>
-            </div>
-            <div class="destination__ratings">
-              <span><i class="ri-star-fill"></i></span>
-              4.5
-            </div>
-          </div>
+    <section class="section__container discover__container" id="package">
+      <h2 class="section__header">
+        Discover Peace, Culture, and Devotion with Our Temple Cab Travels
+      </h2><wbr>
+      <p class="section__description" style="text-align:left;">“Comfortable Rides to Divine Destinations.”</p>
 
-        </div>
-        <div class="destination__card">
-          <img src="img/ramoji-film-city-hyderabad.jpg" alt="destination" />
-          <div class="destination__card__details">
-            <div>
-              <h4>Ramoji Film City</h4>
-              <p>Hyderabad, Telangana, India.</p>
-            </div>
-            <div class="destination__ratings">
-              <span><i class="ri-star-fill"></i></span>
-              4.5
-            </div>
-          </div>
+      <div class="tabs-container">
+    <!-- Dropdown for Mobile -->
+    <select id="tabDropdown" class="tab-dropdown">
+      <option value="tab1" selected>Telangana</option>
+      <option value="tab2">Andhra Pradesh</option>
+      <option value="tab3">Karnataka</option>
+      <option value="tab4">Tamil Nadu</option>
+      <!--<option value="tab5">Maharashtra</option>
+      <option value="tab6">Madhya Pradesh</option> -->
+      <option value="tab7">Kerala</option>
+      <option value="tab8">Goa</option>
 
-        </div>
-        <div class="destination__card">
-          <img src="img/cyber-towers-hITEC-city.jpg" alt="destination" />
-          <div class="destination__card__details">
-            <div>
-              <h4>Cyber Towers / HITEC City</h4>
-              <p>Hyderabad, Telangana, India.</p>
-            </div>
-            <div class="destination__ratings">
-              <span><i class="ri-star-fill"></i></span>
-              4.5
-            </div>
-          </div>
-        </div>
-        <div class="destination__card">
-          <img src="img/sri-jagannath-temple-hyderabad.jpg" alt="destination" />
-          <div class="destination__card__details">
-            <div>
-              <h4>Sri Jagannath Temple</h4>
-              <p>Hyderabad, Telangana, India.</p>
-            </div>
-            <div class="destination__ratings">
-              <span><i class="ri-star-fill"></i></span>
-              4.5
-            </div>
-          </div>
-        </div>
-        <div class="destination__card">
+    </select>
+
+    <!-- Tabs for Desktop -->
+    <div class="tabs">
+      <button class="tab active" data-tab="tab1">Telangana</button>
+      <button class="tab" data-tab="tab2">Andhra Pradesh</button>
+      <button class="tab" data-tab="tab3">Karnataka</button>
+      <button class="tab" data-tab="tab4">Tamil Nadu</button>
+      <!--<button class="tab" data-tab="tab5">Maharashtra</button>
+      <button class="tab" data-tab="tab6">Madhya Pradesh</button> -->
+      <button class="tab" data-tab="tab7">Kerala</button>
+      <button class="tab" data-tab="tab8">Goa</button>
+    </div>
+
+    <!-- Tab Content -->
+    <div class="tab-content active" id="tab1">
+      <p><i>Typical cab circuit: Hyderabad → Yadadri → Vemulawada → Bhadrachalam → return (2–3 days)</i></p><br>
+      <div class="boxes">
+        <div class="box"><img src="img/yadagirigutta-temple.jpg" alt=""><p>Yadadri (Yadagirigutta) Temple</p><span><i>Lord Lakshmi Narasimha Swamy</i></span></div>
+        <div class="box"><img src="img/chilkur-balaji-temple.jpg" alt=""><p>Chilkur Balaji Temple</p><span><i>Visa Balaji</i></span></div>
+        <div class="box"><img src="img/keesaragutta-temple-hyderabad.jpg" alt=""><p>Keesaragutta Shiva Temple</p><span><i>Hill temple near ECIL</i></span></div>
+        <div class="box"><img src="img/vemulawada-rajarajeshwara-temple.jpg" alt=""><p>Vemulawada Rajarajeshwara Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/bhadrachalam-sri-rama-temple.jpg" alt=""><p>Bhadrachalam Sri Rama Temple</p><span><i>on River Godavari</i></span></div>
+        <div class="box"><img src="img/alampur-jogulamba-temple.jpg" alt=""><p>Alampur Jogulamba Temple</p><span><i>Shakti Peetham</i></span></div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab2">
+      <p><i>Cab route idea: Hyderabad → Srisailam → Ahobilam → Tirupati → return (4–5 days)</i></p><br>
+      <div class="boxes">
+        <div class="box"><img src="img/tirupati-balaji-temple.jpg" alt=""><p>Tirupati Balaji Temple</p><span><i>Lord Venkateswara</i></span></div>
+        <div class="box"><img src="img/srisailam-mallikarjuna-jyotirlinga-temple.jpg" alt=""><p>Srisailam Mallikarjuna Jyotirlinga</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/ahobilam-narasimha-temple.jpg" alt=""><p>Ahobilam Narasimha Temple</p><span><i>Lord Narasimha</i></span></div>
+        <div class="box"><img src="img/kanaka-durga-temple.jpg" alt=""><p>Kanaka Durga Temple</p><span><i>Kanaka Durga</i></span></div>
+        <div class="box"><img src="img/simhachalam-temple.jpg" alt=""><p>Simhachalam Temple</p><span><i>Lord Narasimha</i></span></div>
+        <div class="box"><img src="img/mangalagiri-lakshmi-narasimha-swamy-temple.jpg" alt=""><p>Mangalagiri Lakshmi Narasimha Temple</p><span><i>Lord Narasimha</i></span></div>
+      </div>
+    </div>
+    <div class="tab-content" id="tab3">
+      <p><i>Cab route idea: Hyderabad → Mantralayam → Udupi → Murudeshwar → Gokarna → return (5 days)</i></p><br>
+      <div class="boxes">
+        <div class="box"><img src="img/mantralayam-raghavendra-swamy-mutt-temple.jpg" alt=""><p>Mantralayam Raghavendra Swamy Mutt</p><span><i>Lord Rama</i></span></div>
+        <div class="box"><img src="img/kollur-mookambika-temple.jpg" alt=""><p>Kollur Mookambika Temple</p><span><i>Goddess Mookambika</i></span></div>
+        <div class="box"><img src="img/udupi_sri_krishna_matha_temple.jpg
+        <div class="box"><img src="img/dharmasthala-manjunatha-temple.jpg" alt=""><p>Dharmasthala Manjunatha Temple</p><span><i>Lord Manjunatha</i></span></div>
+        <div class="box"><img src="img/murudeshwar-shiva-temple.jpg" alt=""><p>Murudeshwar Shiva Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/gokarna-mahabaleshwar-temple.jpg" alt=""><p>Gokarna Mahabaleshwar Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/udupi_sri_krishna_matha_temple.jpg" alt=""><p>Udupi Sri Krishna Temple</p><span><i>Lord Krishna</i></span></div>
+
+      </div>
+    </div>
+    <div class="tab-content" id="tab4">
+      <p><i>Cab circuit: Hyderabad → Madurai → Rameswaram → Palani → return (6–7 days)</i></p><br>
+      <div class="boxes">
+        <div class="box"><img src="img/meenakshi-amman-temple.jpg" alt=""><p>Meenakshi Amman Temple</p><span><i>Goddess Meenakshi</i></span></div>
+        <div class="box"><img src="img/rameswaram-ramanathaswamy-temple.jpg" alt=""><p>Rameswaram Ramanathaswamy Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/kanchipuram-kailasanathar-temple.jpg" alt=""><p>Kanchipuram Kailasanathar Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/chidambaram-nataraja-temple.jpg" alt=""><p>Chidambaram Nataraja Temple</p><span><i>Lord Nataraja</i></span></div>
+        <div class="box"><img src="img/palani-murugan-temple.jpg" alt=""><p>Palani Murugan Temple</p><span><i>Lord Murugan</i></span></div>
+        <div class="box"><img src="img/thiruchendur-murugan-temple.jpg" alt=""><p>Thiruchendur Murugan Temple</p><span><i>Lord Murugan</i></span></div>
+      </div>
+    </div>
+    <!--
+    <div class="tab-content" id="tab5">
+      <p><i>Cab route: Hyderabad → Nanded → Shirdi → Nashik → Pune → return (5 days)</i></p><br>
+      <div class="boxes">
+        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Aundha Nagnath Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Grishneshwar Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Trimbakeshwar Jyotirlinga</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Shirdi Sai Baba Temple</p><span><i>Sai Baba</i></span></div>
+        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Siddhivinayak Temple</p><span><i>Lord Ganesha</i></span></div>
+        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Bhimashankar Temple</p><span><i>Lord Shiva</i></span></div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab6">
+      <p><i>Cab route: Hyderabad → Indore → Ujjain → Omkareshwar → return (5–6 days)</i></p><br>
+      <div class="boxes">
+        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Mahakaleshwar Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Omkareshwar Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Bhojeshwar Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Chausath Yogini Temple</p><span><i>Goddess Shakti/ Durga Maata</i></span></div>
+        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Khajuraho Temples</p><span><i>Lord Shiva, Lord Vishnu, and Goddesses like Parvati and Kali</i></span></div>
+        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Kal Bhairav Temple</p><span><i>Kaal Bhairav</i></span></div>
+      </div>
+    </div>
+    -->
+    <div class="tab-content" id="tab7">
+      <p><i>Cab route: Kochi → Guruvayur → Thrissur → Sabarimala → Ettumanoor → Vaikom → Trivandrum → return (6 - 7 days)</i></p><br>
+      <div class="boxes">
+        <div class="box"><img src="img/chottanikkara-bhagavathy-temple.jpg" alt=""><p>Chottanikkara Bhagavathy Temple</p><span><i>Rajarajeswari / Adi Parashakti</i></span></div>
+        <div class="box"><img src="img/guruvayur-krishna-temple.jpg" alt=""><p>Guruvayur Krishna Temple</p><span><i>Lord Krishna</i></span></div>
+        <div class="box"><img src="img/vadakkunnathan-temple.jpg" alt=""><p>Vadakkunnathan Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/sabarimala-ayyappa-temple.jpg" alt=""><p>Sabarimala Ayyappa Temple</p><span><i>Lord Ayyappa</i></span></div>
+        <div class="box"><img src="img/ettumanoor-mahadeva-temple.jpg" alt=""><p>Ettumanoor Mahadeva Temple</p><span><i>Lord Ganesha</i></span></div>
+        <div class="box"><img src="img/padmanabhaswamy-temple.jpg" alt=""><p>Padmanabhaswamy Temple</p><span><i>Lord Vishnu</i></span></div>
+      </div>
+    </div>
+    <div class="tab-content" id="tab8">
+      <p><i>Cab circuit: Panaji → Ponda (Mangeshi, Shantadurga, Mahalasa, Ramnath) → Divar Island (Saptakoteshwar) → return (3–4 days)</i></p><br>
+      <div class="boxes">
+        <div class="box"><img src="img/mangueshi-temple-goa.jpg" alt=""><p>Mangeshi Temple</p><span><i>Lord Shiva</i></span></div>
+        <div class="box"><img src="img/shantadurga-temple-goa.jpg" alt=""><p>Shantadurga Temple</p><span><i>Parvati / Durga</i></span></div>
+        <div class="box"><img src="img/mahalasa-narayani-temple-goa.jpg" alt=""><p>Mahalasa Narayani Temple</p><span><i>Goddess Mahalasa</i></span></div>
+        <div class="box"><img src="img/ramnath-temple-goa.jpg" alt=""><p>Ramnath Temple</p><span><i>Lord Rama</i></span></div>
+        <div class="box"><img src="img/mahalaxmi-temple-goa.jpg" alt=""><p>Mahalaxmi Temple</p><span><i>Goddess Mahalaxmi</i></span></div>
+        <div class="box"><img src="img/saptakoteshwar-temple-goa.jpg" alt=""><p>Saptakoteshwar Temple</p><span><i>Lord Shiva</i></span></div>
+      </div>
+    </div>
+  </div>
+
+    <div class="destination__card pad-30">
         </div>
         <div class="destination__card center">
         <button class="btn" onclick="window.location.href='contact-us.html'">Book A Tour Now</button>
       </div>
       <div class="destination__card">
       </div>
-      </div>
     </section>
+    <section class="section__container destination__container" id="hyd-srisailam">
+      <h2 class="section__header">Trusted Cab Rental Service in Hyderabad</h2>
+      <hr>
+      <p class="section__description">
+        Sri Vinayaka Travels & Cabs is your top choice for <strong>Hyderabad cab rental service</strong>, offering cab hire in Hyderabad, <strong>car rental Hyderabad</strong>, and chauffeured rentals. Whether you require a <strong>chauffeur driven cab Hyderabad</strong> for business or a <strong>local cab service Hyderabad</strong> for city commutes, we guarantee prompt and affordable taxi service Hyderabad-wide. Our services include <strong>Hyderabad airport cab rental</strong> for on-time pickups and drop-offs, as well as <strong>outstation cab from Hyderabad</strong> for comfortable long-distance travel.
+      </p>
+    </section>
+    <section class="section__container destination__container" id="hyd-srisailam">
+      <h2 class="section__header">Comprehensive Cab Services for Every Need</h2>
+      <hr>
+      <p class="section__description">Sri Vinayaka Travels & Cabs is your top choice for <strong>Hyderabad cab rental service</strong>, offering cab hire in Hyderabad, <strong>car rental Hyderabad</strong>, and chauffeured rentals. Whether you require a <strong>chauffeur driven cab Hyderabad</strong> for business or a <strong>local cab service Hyderabad</strong> for city commutes, we guarantee prompt and affordable taxi service Hyderabad-wide. Our services include <strong>Hyderabad airport cab rental</strong> for on-time pickups and drop-offs, as well as <strong>outstation cab from Hyderabad</strong> for comfortable long-distance travel. <br><br>Choose from a wide selection of options including <strong>tempo traveller rental Hyderabad</strong> for group excursions, <strong>Hyderabad cab on rent for daily use</strong> for flexible travel, and personal chauffeur services. We offer <strong>affordable taxi service Hyderabad</strong> without compromising on comfort. Book your <strong>car rental Hyderabad</strong> with Sri Vinayaka Travels & Cabs today and travel stress-free!
+      </p>
+    </section>
+    
+
+    
+    <section class="section__container destination__container" id="hyd-srisailam">
+      <h2 class="section__header">Devotional & Pilgrimage Cab Packages</h2>
+      <hr>
+      <p class="section__description">We offer the finest <strong>Hyderabad to Srisailam pilgrimage cab</strong> service and <strong>Hyderabad to Srisailam cab rental</strong> at competitive prices. Book your <strong>Hyderabad to Srisailam temple tour cab</strong> easily and enjoy seamless service. Sri Vinayaka Travels & Cabs is your trusted provider for both <strong>personal trips cab service Hyderabad</strong> and group travels. Let us handle the logistics while you enjoy your spiritual trip and sightseeing.
+      </p><br><br>
+      <h2>Hyderabad Tour and Travel Cab Service</h2>
+      <p class="section__description">Whether you need <strong>local and outstation cab Hyderabad</strong> services or a comprehensive <strong>Hyderabad tour and travel cab service</strong>, Sri Vinayaka Travels & Cabs offers reliable and safe travel solutions. Our <strong>flexible devotional cab trips Hyderabad</strong> and personal trip options ensure every traveler’s needs are met with professionalism and warmth.
+      </p>
+    </section>
+    
+
+
+    
+
+
     <section class="section__container destination__container" id="tour">
       <h2 class="section__header">Tours & Popular Destination</h2><br>
       <p class="section__description">
@@ -510,147 +604,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
       </div>
     </section>
-    <section class="section__container discover__container" id="package">
-      <h2 class="section__header">
-        Discover Peace, Culture, and Devotion with Our Temple Cab Travels
-      </h2><wbr>
-      <p class="section__description">
-        “Comfortable Rides to Divine Destinations.”
-      </p>
-
-      <div class="tabs-container">
-    <!-- Dropdown for Mobile -->
-    <select id="tabDropdown" class="tab-dropdown">
-      <option value="tab1" selected>Telangana</option>
-      <option value="tab2">Andhra Pradesh</option>
-      <option value="tab3">Karnataka</option>
-      <option value="tab4">Tamil Nadu</option>
-      <!--<option value="tab5">Maharashtra</option>
-      <option value="tab6">Madhya Pradesh</option> -->
-      <option value="tab7">Kerala</option>
-      <option value="tab8">Goa</option>
-
-    </select>
-
-    <!-- Tabs for Desktop -->
-    <div class="tabs">
-      <button class="tab active" data-tab="tab1">Telangana</button>
-      <button class="tab" data-tab="tab2">Andhra Pradesh</button>
-      <button class="tab" data-tab="tab3">Karnataka</button>
-      <button class="tab" data-tab="tab4">Tamil Nadu</button>
-      <!--<button class="tab" data-tab="tab5">Maharashtra</button>
-      <button class="tab" data-tab="tab6">Madhya Pradesh</button> -->
-      <button class="tab" data-tab="tab7">Kerala</button>
-      <button class="tab" data-tab="tab8">Goa</button>
-    </div>
-
-    <!-- Tab Content -->
-    <div class="tab-content active" id="tab1">
-      <p><i>Typical cab circuit: Hyderabad → Yadadri → Vemulawada → Bhadrachalam → return (2–3 days)</i></p><br>
-      <div class="boxes">
-        <div class="box"><img src="img/yadagirigutta-temple.jpg" alt=""><p>Yadadri (Yadagirigutta) Temple</p><span><i>Lord Lakshmi Narasimha Swamy</i></span></div>
-        <div class="box"><img src="img/chilkur-balaji-temple.jpg" alt=""><p>Chilkur Balaji Temple</p><span><i>Visa Balaji</i></span></div>
-        <div class="box"><img src="img/keesaragutta-temple-hyderabad.jpg" alt=""><p>Keesaragutta Shiva Temple</p><span><i>Hill temple near ECIL</i></span></div>
-        <div class="box"><img src="img/vemulawada-rajarajeshwara-temple.jpg" alt=""><p>Vemulawada Rajarajeshwara Temple</p><span><i>Lord Shiva</i></span></div>
-        <div class="box"><img src="img/bhadrachalam-sri-rama-temple.jpg" alt=""><p>Bhadrachalam Sri Rama Temple</p><span><i>on River Godavari</i></span></div>
-        <div class="box"><img src="img/alampur-jogulamba-temple.jpg" alt=""><p>Alampur Jogulamba Temple</p><span><i>Shakti Peetha</i></span></div>
-      </div>
-    </div>
-
-    <div class="tab-content" id="tab2">
-      <p><i>Cab route idea: Hyderabad → Srisailam → Ahobilam → Tirupati → return (4–5 days)</i></p><br>
-      <div class="boxes">
-        <div class="box"><img src="img/tirupati-balaji-temple.jpg" alt=""><p>Tirupati Balaji Temple</p><span><i>Lord Venkateswara</i></span></div>
-        <div class="box"><img src="img/srisailam-mallikarjuna-jyotirlinga-temple.jpg" alt=""><p>Srisailam Mallikarjuna Jyotirlinga</p><span><i>Lord Shiva</i></span></div>
-        <div class="box"><img src="img/ahobilam-narasimha-temple.jpg" alt=""><p>Ahobilam Narasimha Temple</p><span><i>Lord Narasimha</i></span></div>
-        <div class="box"><img src="img/kanaka-durga-temple.jpg" alt=""><p>Kanaka Durga Temple</p><span><i>Kanaka Durga</i></span></div>
-        <div class="box"><img src="img/simhachalam-temple.jpg" alt=""><p>Simhachalam Temple</p><span><i>Lord Narasimha</i></span></div>
-        <div class="box"><img src="img/mangalagiri-lakshmi-narasimha-swamy-temple.jpg" alt=""><p>Mangalagiri Lakshmi Narasimha Temple</p><span><i>Lord Narasimha</i></span></div>
-      </div>
-    </div>
-    <div class="tab-content" id="tab3">
-      <p><i>Cab route idea: Hyderabad → Mantralayam → Udupi → Murudeshwar → Gokarna → return (5 days)</i></p><br>
-      <div class="boxes">
-        <div class="box"><img src="img/mantralayam-raghavendra-swamy-mutt-temple.jpg" alt=""><p>Mantralayam Raghavendra Swamy Mutt</p><span><i>Lord Rama</i></span></div>
-        <div class="box"><img src="img/kollur-mookambika-temple.jpg" alt=""><p>Kollur Mookambika Temple</p><span><i>Goddess Mookambika</i></span></div>
-        <div class="box"><img src="img/udupi_sri_krishna_matha_temple.jpg
-        <div class="box"><img src="img/dharmasthala-manjunatha-temple.jpg" alt=""><p>Dharmasthala Manjunatha Temple</p><span><i>Lord Manjunatha</i></span></div>
-        <div class="box"><img src="img/murudeshwar-shiva-temple.jpg" alt=""><p>Murudeshwar Shiva Temple</p><span><i>Lord Shiva</i></span></div>
-        <div class="box"><img src="img/gokarna-mahabaleshwar-temple.jpg" alt=""><p>Gokarna Mahabaleshwar Temple</p><span><i>Lord Shiva</i></span></div>
-        <div class="box"><img src="img/udupi_sri_krishna_matha_temple.jpg" alt=""><p>Udupi Sri Krishna Temple</p><span><i>Lord Krishna</i></span></div>
-
-      </div>
-    </div>
-    <div class="tab-content" id="tab4">
-      <p><i>Cab circuit: Hyderabad → Madurai → Rameswaram → Palani → return (6–7 days)</i></p><br>
-      <div class="boxes">
-        <div class="box"><img src="img/meenakshi-amman-temple.jpg" alt=""><p>Meenakshi Amman Temple</p><span><i>Goddess Meenakshi</i></span></div>
-        <div class="box"><img src="img/rameswaram-ramanathaswamy-temple.jpg" alt=""><p>Rameswaram Ramanathaswamy Temple</p><span><i>Lord Shiva</i></span></div>
-        <div class="box"><img src="img/kanchipuram-kailasanathar-temple.jpg" alt=""><p>Kanchipuram Kailasanathar Temple</p><span><i>Lord Shiva</i></span></div>
-        <div class="box"><img src="img/chidambaram-nataraja-temple.jpg" alt=""><p>Chidambaram Nataraja Temple</p><span><i>Lord Nataraja</i></span></div>
-        <div class="box"><img src="img/palani-murugan-temple.jpg" alt=""><p>Palani Murugan Temple</p><span><i>Lord Murugan</i></span></div>
-        <div class="box"><img src="img/thiruchendur-murugan-temple.jpg" alt=""><p>Thiruchendur Murugan Temple</p><span><i>Lord Murugan</i></span></div>
-      </div>
-    </div>
-    <!--
-    <div class="tab-content" id="tab5">
-      <p><i>Cab route: Hyderabad → Nanded → Shirdi → Nashik → Pune → return (5 days)</i></p><br>
-      <div class="boxes">
-        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Aundha Nagnath Temple</p><span><i>Lord Shiva</i></span></div>
-        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Grishneshwar Temple</p><span><i>Lord Shiva</i></span></div>
-        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Trimbakeshwar Jyotirlinga</p><span><i>Lord Shiva</i></span></div>
-        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Shirdi Sai Baba Temple</p><span><i>Sai Baba</i></span></div>
-        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Siddhivinayak Temple</p><span><i>Lord Ganesha</i></span></div>
-        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Bhimashankar Temple</p><span><i>Lord Shiva</i></span></div>
-      </div>
-    </div>
-
-    <div class="tab-content" id="tab6">
-      <p><i>Cab route: Hyderabad → Indore → Ujjain → Omkareshwar → return (5–6 days)</i></p><br>
-      <div class="boxes">
-        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Mahakaleshwar Temple</p><span><i>Lord Shiva</i></span></div>
-        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Omkareshwar Temple</p><span><i>Lord Shiva</i></span></div>
-        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Bhojeshwar Temple</p><span><i>Lord Shiva</i></span></div>
-        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Chausath Yogini Temple</p><span><i>Goddess Shakti/ Durga Maata</i></span></div>
-        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Khajuraho Temples</p><span><i>Lord Shiva, Lord Vishnu, and Goddesses like Parvati and Kali</i></span></div>
-        <div class="box"><img src="img/swift-desire.jpg" alt=""><p>Kal Bhairav Temple</p><span><i>Kaal Bhairav</i></span></div>
-      </div>
-    </div>
-    -->
-    <div class="tab-content" id="tab7">
-      <p><i>Cab route: Kochi → Guruvayur → Thrissur → Sabarimala → Ettumanoor → Vaikom → Trivandrum → return (6 - 7 days)</i></p><br>
-      <div class="boxes">
-        <div class="box"><img src="img/chottanikkara-bhagavathy-temple.jpg" alt=""><p>Chottanikkara Bhagavathy Temple</p><span><i>Rajarajeswari / Adi Parashakti</i></span></div>
-        <div class="box"><img src="img/guruvayur-krishna-temple.jpg" alt=""><p>Guruvayur Krishna Temple</p><span><i>Lord Krishna</i></span></div>
-        <div class="box"><img src="img/vadakkunnathan-temple.jpg" alt=""><p>Vadakkunnathan Temple</p><span><i>Lord Shiva</i></span></div>
-        <div class="box"><img src="img/sabarimala-ayyappa-temple.jpg" alt=""><p>Sabarimala Ayyappa Temple</p><span><i>Lord Ayyappa</i></span></div>
-        <div class="box"><img src="img/ettumanoor-mahadeva-temple.jpg" alt=""><p>Ettumanoor Mahadeva Temple</p><span><i>Lord Ganesha</i></span></div>
-        <div class="box"><img src="img/padmanabhaswamy-temple.jpg" alt=""><p>Padmanabhaswamy Temple</p><span><i>Lord Vishnu</i></span></div>
-      </div>
-    </div>
-    <div class="tab-content" id="tab8">
-      <p><i>Cab circuit: Panaji → Ponda (Mangeshi, Shantadurga, Mahalasa, Ramnath) → Divar Island (Saptakoteshwar) → return (3–4 days)</i></p><br>
-      <div class="boxes">
-        <div class="box"><img src="img/mangueshi-temple-goa.jpg" alt=""><p>Mangeshi Temple</p><span><i>Lord Shiva</i></span></div>
-        <div class="box"><img src="img/shantadurga-temple-goa.jpg" alt=""><p>Shantadurga Temple</p><span><i>Parvati / Durga</i></span></div>
-        <div class="box"><img src="img/mahalasa-narayani-temple-goa.jpg" alt=""><p>Mahalasa Narayani Temple</p><span><i>Goddess Mahalasa</i></span></div>
-        <div class="box"><img src="img/ramnath-temple-goa.jpg" alt=""><p>Ramnath Temple</p><span><i>Lord Rama</i></span></div>
-        <div class="box"><img src="img/mahalaxmi-temple-goa.jpg" alt=""><p>Mahalaxmi Temple</p><span><i>Goddess Mahalaxmi</i></span></div>
-        <div class="box"><img src="img/saptakoteshwar-temple-goa.jpg" alt=""><p>Saptakoteshwar Temple</p><span><i>Lord Shiva</i></span></div>
-      </div>
-    </div>
-  </div>
-
-    <div class="destination__card pad-30">
-        </div>
-        <div class="destination__card center">
-        <button class="btn" onclick="window.location.href='contact-us.html'">Book A Tour Now</button>
-      </div>
-      <div class="destination__card">
-      </div>
-
-
-    </section>
+    
     <section class="section__container destination__container" id="cabs">
       <h2 class="section__header">Comfortable Cab Rides to Sacred Sites Across States</h2>
       <br><p class="section__description">
@@ -1066,32 +1020,47 @@ Just hop in and enjoy traveling at your own pace. With comfortable seats and bea
     <script src="main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script>
-    const tabs = document.querySelectorAll('.tab');
-    const tabContents = document.querySelectorAll('.tab-content');
-    const dropdown = document.getElementById('tabDropdown');
+document.querySelectorAll('.tabs-container').forEach(container => {
+  const tabs = container.querySelectorAll('.tab');
+  const tabContents = container.querySelectorAll('.tab-content');
+  const dropdown = container.querySelector('.tab-dropdown');
 
-    // Tab click handler
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-
-        const target = tab.dataset.tab;
-        tabContents.forEach(tc => tc.classList.remove('active'));
-        document.getElementById(target).classList.add('active');
-        dropdown.value = target;
-      });
+  // Update function: activates tab and corresponding content by data-key/id
+  function activateTab(tabKey) {
+    tabs.forEach(t => {
+      t.classList.toggle('active', t.dataset.tab === tabKey);
     });
+    tabContents.forEach(tc => {
+      tc.classList.toggle('active', tc.id === tabKey);
+    });
+    if (dropdown) dropdown.value = tabKey;
+  }
 
-    // Dropdown change handler
+  // Tab click handler
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      activateTab(tab.dataset.tab);
+    });
+  });
+
+  // Dropdown change handler
+  if (dropdown) {
     dropdown.addEventListener('change', () => {
-      const selected = dropdown.value;
-      tabContents.forEach(tc => tc.classList.remove('active'));
-      document.getElementById(selected).classList.add('active');
-      tabs.forEach(t => t.classList.remove('active'));
-      document.querySelector(`[data-tab="${selected}"]`).classList.add('active');
+      activateTab(dropdown.value);
     });
-  </script>
+  }
+
+  // Set initial state from either tabs or dropdown default
+  let initialTab = null;
+  if (dropdown) initialTab = dropdown.value;
+  else {
+    const activeTab = container.querySelector('.tab.active');
+    if (activeTab) initialTab = activeTab.dataset.tab;
+  }
+  if (initialTab) activateTab(initialTab);
+});
+
+</script>
   <script>
   document.querySelectorAll("#nav-links a").forEach(link => {
     link.addEventListener("click", () => {
