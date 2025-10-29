@@ -2,7 +2,6 @@ function doPost(e) {
   if (!e || !e.parameter) {
     return ContentService.createTextOutput("Invalid Request: Missing parameters.");
   }
-
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("svt-cab-responses");
   if (!sheet) {
     sheet = SpreadsheetApp.getActiveSpreadsheet().insertSheet("svt-cab-responses");

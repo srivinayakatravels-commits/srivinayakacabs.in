@@ -9,7 +9,6 @@ menuBtn.addEventListener("click", (e)=>{
     menuBtnIcon.setAttribute("class", isopen ? "ri-close-line" : "re-menu-line")
 });
 
-
 navLinks.addEventListener("click",(e)=>{
     navLinks.classList.remove("open");
     menuBtnIcon.setAttribute("class", "ri-close-line" )
