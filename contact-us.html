@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Travel Booking Form</title>
   <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet" />
   <style>
     :root {
       --primary-color: #2887ff;
@@ -16,16 +19,7 @@
       --error-color: #ff3b3b;
     }
 
-    body {
-      font-family: "Poppins", sans-serif;
-      background-color: var(--extra-light);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      margin: 0;
-      padding: 15px;
-    }
+    
 
     .form-wrapper {
       background-color: var(--white);
@@ -37,6 +31,7 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
+      margin: 0 auto;
     }
 
     h2 {
@@ -188,8 +183,51 @@
 </head>
 
 <body>
+  <nav>
+      <div class="nav__header">
+        <div class="nav__logo">
+          <!--<a href="#" class="logo">Discover. Travel. Repeat.</a> -->
+          <a href="index.html" ><img src="img/svt-travels.png" width="150px"></a>
+          <p style="color:#3953a4;"><strong>Sri Vinayaka Travels & Cabs</strong></p>
+        </div>
+        <div class="nav__menu__btn" id="menu-btn">
+          <i class="ri-menu-line"></i>
+        </div>
+      </div>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#tour">TOURS</a></li>
+        <li><a href="#package">PACKAGES</a></li>
+        <li><a href="#cabs">CABS</a></li>
+        <li><a href="#our-services">OUR SERVICES</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+        <li><a href="contact-us.html">BOOK TRIP</a></li>
+      </ul>
+      <div class="nav__btns">
+        <button class="btn" onclick="window.location.href='tel:+919948554555'">+91 99485 54555</button>
+      </div>
+    </nav>
+     <header id="home">
+      <div class="header__container">
+        <div class="header__content">
+          <p>Discover. Travel. Repeat.</p>
+          <h1>Let’s Make Your Dream Trip Happen!</h1>
+          <div class="header__btns">
+            <button class="btn" onclick="window.location.href='contact-us.html'">Book A Trip Now</button>
+            <!--<a href="#">
+              <span><i class="ri-play-circle-fill"></i></span>
+            </a> -->
+          </div>
+        </div>
+        <div class="header__image">
+          <img src="img/happy_customer_car.png" alt="header" />
+        </div>
+      </div>
+    </header>
+  <section class="section__container destination__container" id="">
   <div class="form-wrapper">
-    <h2>Travel Booking Form</h2>
+    <h2 class="section__header" style="text-align:center;">Travel Booking Form</h2>
 
     <form id="contactForm" onsubmit="return postInfo(event);" novalidate>
       <div class="form-group">
@@ -263,6 +301,108 @@
       <button type="submit">Submit</button>
     </form>
   </div>
+</section>
+<!-- Floating side buttons -->
+<div class="floating-buttons">
+  <a href="tel:+919948554555" class="float-btn call-btn">
+    <i class="ri-phone-fill"></i>
+    <span class="btn-text">Phone</span>
+  </a>
+
+  <a href="https://wa.me/919948554555" target="_blank" class="float-btn whatsapp-btn">
+    <i class="ri-whatsapp-line"></i>
+    <span class="btn-text">WhatsApp</span>
+  </a>
+</div>
+
+<!-- Floating WhatsApp circle bottom -->
+<div class="whatsapp-circle" id="whatsappCircle">
+  <i class="ri-whatsapp-line" style="font-size:28px;"></i>
+</div>
+
+<!-- WhatsApp Popup -->
+<div class="whatsapp-popup" id="whatsappPopup">
+  <div class="whatsapp-popup-header">Sri Vinayaka Travels & Cabs</div>
+  <div class="whatsapp-popup-body">
+    Any questions related to Sri Vinayaka Travels & Cabs?
+  </div>
+  <div class="whatsapp-popup-footer">
+    <a href="https://wa.me/919948554555" target="_blank">WhatsApp Us</a>
+  </div>
+</div>
+<footer id="contact">
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <div class="footer__logo">
+            <!--<a href="#" class="logo">CabTraveller</a> -->
+            <img src="img/svt-travels.png">
+            <h3><span style="color:#3953a4;">Sri Vinayaka Travels & Cabs</span></h3>
+          </div>
+          <p>
+            We specialize in devotional temple tours and car rentals across India, offering comfortable cab services for pilgrims and travelers alike. With safe drivers, reliable vehicles, and custom tour packages, we make every spiritual journey peaceful and memorable.
+          </p>
+          <!--<ul class="footer__socials">
+            <li>
+              <a href="#!"><i class="ri-facebook-fill"></i></a>
+            </li>
+            <li>
+              <a href="#!"><i class="ri-instagram-line"></i></a>
+            </li>
+            <li>
+              <a href="#!"><i class="ri-youtube-line"></i></a>
+            </li>
+          </ul> -->
+        </div>
+        <div class="footer__col">
+          <h4>Quick Links</h4>
+          <ul class="footer__links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#tour">Tours</a></li>
+            <li><a href="#package">Packages</a></li>
+            <li><a href="#our-services">Our Services</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact Us</h4>
+          <ul class="footer__links">
+            <li>
+              <a href="tel:+919948554555">
+                <span><i class="ri-phone-fill"></i></span>+91 9948554555
+              </a><a href="tel:+919440345878">
+                <span><i class="ri-phone-fill"></i></span>+91 9440345878
+              </a>
+            </li>
+            <li>
+              <a href="mailto:ssvtrv9@gmail.com">
+                <span><i class="ri-record-mail-line"></i></span>
+                ssvtrv9@gmail.com
+              </a>
+            </li>
+            <li>
+              <a href="https://maps.app.goo.gl/a5KC65fLDaieHUtN6" target="_blank">
+                <span><i class="ri-map-pin-2-fill"></i></span>Rezimental Bazar Main Road, Secunderabad -500003, Telangana, India.
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!--<div class="footer__col">
+          <h4>Subscribe</h4>
+          <form action="#!">
+            <input type="text" placeholder="Enter your email" />
+            <button class="btn">Subscribe</button>
+          </form>
+        </div> -->
+      </div>
+      <div class="footer__bar">
+        Copyright © 2025 Sri Vinayaka Travels & Cabs. All rights reserved.
+        <p>
+          Distributed by
+          <a class="text-white" style="color:#3953a4;" href="https://www.brandpoint.in" target="_blank">Brand Point (brandpoint.in)</a>
+        </p>
+      </div>
+    </footer>
 
   <script>
     const f = {
@@ -584,5 +724,13 @@
 }
 
   </script>
+  <script>
+  const circle = document.getElementById("whatsappCircle");
+  const popup = document.getElementById("whatsappPopup");
+
+  circle.addEventListener("click", () => {
+    popup.style.display = popup.style.display === "block" ? "none" : "block";
+  });
+</script>
 </body>
 </html>

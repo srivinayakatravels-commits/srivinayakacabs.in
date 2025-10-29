@@ -155,7 +155,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="nav__header">
         <div class="nav__logo">
           <!--<a href="#" class="logo">Discover. Travel. Repeat.</a> -->
-          <img src="img/svt-travels.png" width="150px">
+          <a href="index.html" ><img src="img/svt-travels.png" width="150px"></a>
           <p style="color:#3953a4;"><strong>Sri Vinayaka Travels & Cabs</strong></p>
         </div>
         <div class="nav__menu__btn" id="menu-btn">
@@ -385,7 +385,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="boxes">
         <div class="box"><img src="img/yadagirigutta-temple.jpg" alt=""><p>Yadadri (Yadagirigutta) Temple</p><span><i>Lord Lakshmi Narasimha Swamy</i></span></div>
         <div class="box"><img src="img/chilkur-balaji-temple.jpg" alt=""><p>Chilkur Balaji Temple</p><span><i>Visa Balaji</i></span></div>
-        <div class="box"><img src="img/keesaragutta-temple-hyderabad.jpg" alt=""><p>Keesaragutta Shiva Temple</p><span><i>Hill temple near ECIL</i></span></div>
+        <div class="box"><img src="img/Keesaragutta-Temple-Hyderabad.jpg" alt=""><p>Keesaragutta Shiva Temple</p><span><i>Hill temple near ECIL</i></span></div>
         <div class="box"><img src="img/vemulawada-rajarajeshwara-temple.jpg" alt=""><p>Vemulawada Rajarajeshwara Temple</p><span><i>Lord Shiva</i></span></div>
         <div class="box"><img src="img/bhadrachalam-sri-rama-temple.jpg" alt=""><p>Bhadrachalam Sri Rama Temple</p><span><i>on River Godavari</i></span></div>
         <div class="box"><img src="img/alampur-jogulamba-temple.jpg" alt=""><p>Alampur Jogulamba Temple</p><span><i>Shakti Peetham</i></span></div>
@@ -408,7 +408,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="boxes">
         <div class="box"><img src="img/mantralayam-raghavendra-swamy-mutt-temple.jpg" alt=""><p>Mantralayam Raghavendra Swamy Mutt</p><span><i>Lord Rama</i></span></div>
         <div class="box"><img src="img/kollur-mookambika-temple.jpg" alt=""><p>Kollur Mookambika Temple</p><span><i>Goddess Mookambika</i></span></div>
-        <div class="box"><img src="img/udupi_sri_krishna_matha_temple.jpg
+        
         <div class="box"><img src="img/dharmasthala-manjunatha-temple.jpg" alt=""><p>Dharmasthala Manjunatha Temple</p><span><i>Lord Manjunatha</i></span></div>
         <div class="box"><img src="img/murudeshwar-shiva-temple.jpg" alt=""><p>Murudeshwar Shiva Temple</p><span><i>Lord Shiva</i></span></div>
         <div class="box"><img src="img/gokarna-mahabaleshwar-temple.jpg" alt=""><p>Gokarna Mahabaleshwar Temple</p><span><i>Lord Shiva</i></span></div>
@@ -948,7 +948,34 @@ Just hop in and enjoy traveling at your own pace. With comfortable seats and bea
         </div>
       </div>
     </section> -->
-    
+    <!-- Floating side buttons -->
+<div class="floating-buttons">
+  <a href="tel:+919948554555" class="float-btn call-btn">
+    <i class="ri-phone-fill"></i>
+    <span class="btn-text">Phone</span>
+  </a>
+
+  <a href="https://wa.me/919948554555" target="_blank" class="float-btn whatsapp-btn">
+    <i class="ri-whatsapp-line"></i>
+    <span class="btn-text">WhatsApp</span>
+  </a>
+</div>
+
+<!-- Floating WhatsApp circle bottom -->
+<div class="whatsapp-circle" id="whatsappCircle">
+  <i class="ri-whatsapp-line" style="font-size:28px;"></i>
+</div>
+
+<!-- WhatsApp Popup -->
+<div class="whatsapp-popup" id="whatsappPopup">
+  <div class="whatsapp-popup-header">Sri Vinayaka Travels & Cabs</div>
+  <div class="whatsapp-popup-body">
+    Any questions related to Sri Vinayaka Travels & Cabs?
+  </div>
+  <div class="whatsapp-popup-footer">
+    <a href="https://wa.me/919948554555" target="_blank">WhatsApp Us</a>
+  </div>
+</div>
     <footer id="contact">
       <div class="section__container footer__container">
         <div class="footer__col">
@@ -1074,6 +1101,14 @@ document.querySelectorAll('.tabs-container').forEach(container => {
       navLinks.classList.remove("open");
       menuBtn.classList.remove("open");
     });
+  });
+</script>
+<script>
+  const circle = document.getElementById("whatsappCircle");
+  const popup = document.getElementById("whatsappPopup");
+
+  circle.addEventListener("click", () => {
+    popup.style.display = popup.style.display === "block" ? "none" : "block";
   });
 </script>
   </body>
