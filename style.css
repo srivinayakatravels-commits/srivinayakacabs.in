@@ -571,12 +571,11 @@ footer {
   .floating-buttons {
     position: fixed;
     right: 20px;
-    top: 400px;
-    bottom: 200px;
+    top: 50%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 12px;
+    gap: 10px;
     z-index: 9999;
   }
 
@@ -600,7 +599,7 @@ footer {
     width: 130px;
     border-radius: 0px;
     justify-content: right;
-    padding: 0px 15px 0px 15px;
+    padding: 10px 15px 10px 15px;
     margin: 0 auto;
   }
 
